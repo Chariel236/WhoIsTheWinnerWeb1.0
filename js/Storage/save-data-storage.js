@@ -1665,7 +1665,6 @@ function loadDefaultParticipantsList() {
 
 }
 
-
 // =========================================================
 // Save Default Participants List
 // =========================================================
@@ -1697,6 +1696,10 @@ function saveDefaultParticipantsList() {
     }
 
 
+    // =====================================================
+    // Check Array
+    // =====================================================
+
     if (
         !Array.isArray(
             defaultParticipantsListArray
@@ -1722,39 +1725,34 @@ function saveDefaultParticipantsList() {
 
 
     // =====================================================
-    // Convert Current Data
+    // Convert To Plain Object
     // =====================================================
 
     const currentData =
         serializeDefaultParticipantsListArray();
 
 
+    console.log(
+        "========================================"
+    );
+
+    console.log(
+        "Saving Default Participants List..."
+    );
+
+    console.log(
+        "Current Data:",
+        currentData
+    );
+
+    console.log(
+        "Count:",
+        currentData.length
+    );
+
+
     // =====================================================
-    // FIRST GET DATABASE
-    // =====================================================
-    //
-    // This is the important part.
-    //
-    // We NEVER directly replace database data with
-    // defaultParticipantsListArray.
-    //
-    // We first get the existing database lists.
-    //
-    // Database:
-    //
-    // A
-    // B
-    //
-    // Current:
-    //
-    // C
-    //
-    // Merge:
-    //
-    // A
-    // B
-    // C
-    //
+    // POST Directly To Database
     // =====================================================
 
     return fetch(
@@ -1763,18 +1761,33 @@ function saveDefaultParticipantsList() {
         {
 
             method:
-                "GET",
+                "POST",
 
             headers: {
+
+                "Content-Type":
+                    "application/json",
 
                 "Authorization":
                     "Bearer " +
                     token
 
-            }
+            },
+
+            body:
+                JSON.stringify({
+
+                    defaultParticipantsListArray:
+                        currentData
+
+                })
 
         }
     )
+
+    // =====================================================
+    // Read Response
+    // =====================================================
 
     .then(
         function(
@@ -1803,139 +1816,9 @@ function saveDefaultParticipantsList() {
         }
     )
 
-    .then(
-        function(
-            result
-        ) {
-
-            const response =
-                result.response;
-
-            const data =
-                result.data;
-
-
-            let databaseData =
-                [];
-
-
-            if (
-                response.ok &&
-                data &&
-                Array.isArray(
-                    data.defaultParticipantsListArray
-                )
-            ) {
-
-                databaseData =
-                    data.defaultParticipantsListArray;
-
-            }
-
-
-            // =============================================
-            // Merge
-            // =============================================
-
-            const mergedData =
-                mergeDefaultParticipantLists(
-                    databaseData,
-                    currentData
-                );
-
-
-            // =============================================
-            // Update DB Array
-            // =============================================
-
-            defaultParticipantsListArrayDB.length =
-                0;
-
-
-            defaultParticipantsListArrayDB.push(
-                ...mergedData
-            );
-
-
-            // =============================================
-            // Update Current Array
-            // =============================================
-
-            applyDefaultParticipantsList(
-                mergedData
-            );
-
-
-            // =============================================
-            // Update Cache
-            // =============================================
-
-            saveDefaultParticipantsListCache();
-
-
-            // =============================================
-            // POST
-            // =============================================
-
-            return fetch(
-                USERDATA_API +
-                "default-participants",
-                {
-
-                    method:
-                        "POST",
-
-                    headers: {
-
-                        "Content-Type":
-                            "application/json",
-
-                        "Authorization":
-                            "Bearer " +
-                            token
-
-                    },
-
-                    body:
-                        JSON.stringify({
-
-                            defaultParticipantsListArray:
-                                mergedData
-
-                        })
-
-                }
-            );
-
-        }
-    )
-
-    .then(
-        function(
-            response
-        ) {
-
-            return response.json()
-                .then(
-                    function(
-                        data
-                    ) {
-
-                        return {
-
-                            response:
-                                response,
-
-                            data:
-                                data
-
-                        };
-
-                    }
-                );
-
-        }
-    )
+    // =====================================================
+    // Process Response
+    // =====================================================
 
     .then(
         function(
@@ -1948,24 +1831,46 @@ function saveDefaultParticipantsList() {
             const data =
                 result.data;
 
+
+            // =================================================
+            // Database Save Failed
+            // =================================================
 
             if (
                 !response.ok
             ) {
 
                 console.error(
-                    "Save Default Participants Error:",
+                    "========================================"
+                );
+
+                console.error(
+                    "Save Default Participants Error:"
+                );
+
+                console.error(
+                    "Status:",
+                    response.status
+                );
+
+                console.error(
+                    "Response:",
                     data
                 );
+
+                console.error(
+                    "========================================"
+                );
+
 
                 return false;
 
             }
 
 
-            // =============================================
+            // =================================================
             // Server Returned Data
-            // =============================================
+            // =================================================
 
             if (
                 data &&
@@ -1973,6 +1878,10 @@ function saveDefaultParticipantsList() {
                     data.defaultParticipantsListArray
                 )
             ) {
+
+                // =============================================
+                // Update Database Array
+                // =============================================
 
                 defaultParticipantsListArrayDB.length =
                     0;
@@ -1983,41 +1892,45 @@ function saveDefaultParticipantsList() {
                 );
 
 
+                // =============================================
+                // Update Current Array
+                // =============================================
+
                 applyDefaultParticipantsList(
                     defaultParticipantsListArrayDB
                 );
 
+
+                // =============================================
+                // Save Final Cache
+                // =============================================
+
+                saveDefaultParticipantsListCache();
+
             }
 
 
-            // =============================================
-            // Save Final Cache
-            // =============================================
-
-            saveDefaultParticipantsListCache();
-
+            // =================================================
+            // Success
+            // =================================================
 
             console.log(
                 "========================================"
             );
 
-
             console.log(
-                "Default Participants List Saved"
+                "Default Participants List Saved Successfully."
             );
-
 
             console.log(
                 "Database:",
                 defaultParticipantsListArrayDB
             );
 
-
             console.log(
                 "Current:",
                 defaultParticipantsListArray
             );
-
 
             console.log(
                 "========================================"
@@ -2029,20 +1942,32 @@ function saveDefaultParticipantsList() {
         }
     )
 
+    // =====================================================
+    // Network Error
+    // =====================================================
+
     .catch(
         function(
             error
         ) {
 
             console.error(
+                "========================================"
+            );
+
+            console.error(
                 "Save Default Participants Error:",
                 error
             );
 
+            console.error(
+                "========================================"
+            );
 
-            // =============================================
+
+            // =================================================
             // Keep Local Cache
-            // =============================================
+            // =================================================
 
             saveDefaultParticipantsListCache();
 
