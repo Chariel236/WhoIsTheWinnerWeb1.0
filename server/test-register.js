@@ -8,7 +8,7 @@ async function registerUser() {
 
         const response =
             await fetch(
-                "http://localhost:3000/api/users/register",
+                "https://who-is-the-winner-imdt.onrender.com/api/users/register",
                 {
 
                     method:

@@ -8,7 +8,7 @@
 // =========================================================
 
 const COMMUNITY_API =
-    "http://localhost:3000/api/community/";
+    "https://who-is-the-winner-imdt.onrender.com/api/community/";
 
 
 // =========================================================
