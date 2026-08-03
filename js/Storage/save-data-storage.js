@@ -1566,33 +1566,68 @@ function loadDefaultParticipantsList() {
             }
 
 
-            // =============================================
-            // Store Database Data
-            // =============================================
+            // =====================================================
+            // Database Data
+            // =====================================================
 
-            defaultParticipantsListArrayDB.length =
-                0;
-
-
-            defaultParticipantsListArrayDB.push(
-                ...data.defaultParticipantsListArray
-            );
+            const databaseLists =
+                data.defaultParticipantsListArray;
 
 
-            // =============================================
-            // Apply Database Data
-            // =============================================
+            // =====================================================
+            // Database Has Data
+            // =====================================================
 
-            applyDefaultParticipantsList(
-                defaultParticipantsListArrayDB
-            );
+            if (
+                databaseLists.length >
+                0
+            ) {
+
+                defaultParticipantsListArrayDB.length =
+                    0;
 
 
-            // =============================================
-            // Save Cache
-            // =============================================
+                defaultParticipantsListArrayDB.push(
+                    ...databaseLists
+                );
 
-            saveDefaultParticipantsListCache();
+
+                applyDefaultParticipantsList(
+                    defaultParticipantsListArrayDB
+                );
+
+
+                saveDefaultParticipantsListCache();
+
+
+                console.log(
+                    "Default Participants List Loaded From Database:",
+                    defaultParticipantsListArray
+                );
+
+            }
+
+
+            // =====================================================
+            // Database Is Empty
+            // =====================================================
+
+            else {
+
+                console.warn(
+                    "Database Default Participants List is empty. Keeping local cache."
+                );
+
+
+                console.log(
+                    "Local Default Participants List:",
+                    defaultParticipantsListArray
+                );
+
+            }
+
+
+            return true;
 
 
             console.log(
