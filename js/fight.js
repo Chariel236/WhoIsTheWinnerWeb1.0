@@ -43,25 +43,24 @@ let youtubePlayerCounter =
 
 
 // =========================================================
-// Fight Processing Lock
+// Choose Button Lock
 // =========================================================
 //
-// Prevents the user from clicking Player A / Player B
-// multiple times before the previous save is finished.
+// Prevents the user from clicking Choose A / B
+// repeatedly in a very short time.
 //
-// =========================================================
+// The buttons will stay hidden for 2 seconds.
+//
 
-let fightProcessing =
+let chooseButtonLocked =
     false;
 
 
 // =========================================================
-// Update Fight Button State
+// Hide Choose Buttons Temporarily
 // =========================================================
 
-function setFightButtonsDisabled(
-    disabled
-) {
+function hideChooseButtonsTemporarily() {
 
     const choosePlayerA =
         document.getElementById(
@@ -75,24 +74,79 @@ function setFightButtonsDisabled(
         );
 
 
+    // =====================================================
+    // Lock
+    // =====================================================
+
+    chooseButtonLocked =
+        true;
+
+
+    // =====================================================
+    // Hide A
+    // =====================================================
+
     if (
         choosePlayerA
     ) {
 
-        choosePlayerA.disabled =
-            disabled;
+        choosePlayerA.style.visibility =
+            "hidden";
 
     }
 
+
+    // =====================================================
+    // Hide B
+    // =====================================================
 
     if (
         choosePlayerB
     ) {
 
-        choosePlayerB.disabled =
-            disabled;
+        choosePlayerB.style.visibility =
+            "hidden";
 
     }
+
+
+    // =====================================================
+    // Show Buttons After 2 Seconds
+    // =====================================================
+
+    setTimeout(
+        function() {
+
+            if (
+                choosePlayerA
+            ) {
+
+                choosePlayerA.style.visibility =
+                    "visible";
+
+            }
+
+
+            if (
+                choosePlayerB
+            ) {
+
+                choosePlayerB.style.visibility =
+                    "visible";
+
+            }
+
+
+            // =================================================
+            // Unlock
+            // =================================================
+
+            chooseButtonLocked =
+                false;
+
+        },
+        2000
+    );
 
 }
 
@@ -173,29 +227,17 @@ function updateFightTitle() {
         true
     ) {
 
-        // =================================================
-        // Get Current Main Tournament Round
-        // =================================================
-
         const currentRound =
             Number(
                 current_tournament.main_round
             ) || 0;
 
 
-        // =================================================
-        // Get Participant Number
-        // =================================================
-
         const participantNumber =
             Number(
                 current_participant_number
             ) || 0;
 
-
-        // =================================================
-        // Get Correct Main Tournament Match List
-        // =================================================
 
         let matchList =
             [];
@@ -222,13 +264,11 @@ function updateFightTitle() {
         }
 
 
-        // =================================================
-        // Find Current Match
-        // =================================================
-
         const currentMatch =
             matchList.find(
-                match => {
+                function(
+                    match
+                ) {
 
                     return (
                         Number(
@@ -240,10 +280,6 @@ function updateFightTitle() {
                 }
             );
 
-
-        // =================================================
-        // Display Current Stage
-        // =================================================
 
         if (
             currentMatch
@@ -261,10 +297,6 @@ function updateFightTitle() {
 
         }
 
-
-        // =================================================
-        // Description
-        // =================================================
 
         if (
             description
@@ -315,16 +347,7 @@ function updateFightTitle() {
 
 function refreshFightTitle() {
 
-    // =====================================================
-    // Load Latest Current Tournament
-    // =====================================================
-
     loadCurrentTournament();
-
-
-    // =====================================================
-    // Update Title
-    // =====================================================
 
     updateFightTitle();
 
@@ -860,18 +883,18 @@ function isImageURL(
 // Choose Player A
 // =========================================================
 
-async function chooseA() {
+function chooseA() {
 
     // =====================================================
     // Prevent Double Click
     // =====================================================
 
     if (
-        fightProcessing
+        chooseButtonLocked
     ) {
 
         console.warn(
-            "Fight is already processing."
+            "Choose button is temporarily locked."
         );
 
         return;
@@ -880,116 +903,36 @@ async function chooseA() {
 
 
     // =====================================================
-    // Lock
+    // Hide Both Buttons
     // =====================================================
 
-    fightProcessing =
-        true;
+    hideChooseButtonsTemporarily();
 
 
     // =====================================================
-    // Disable Both Buttons Immediately
+    // Swiss Stage
     // =====================================================
 
-    setFightButtonsDisabled(
-        true
-    );
-
-
-    console.log(
-        "========================================"
-    );
-
-
-    console.log(
-        "Player A selected."
-    );
-
-
-    try {
-
-        // =================================================
-        // Swiss Stage
-        // =================================================
-
-        if (
-            current_tournament.swiss ===
-                true
-            &&
-            current_tournament.main ===
-                false
-        ) {
-
-            await SwissAWinner();
-
-        }
-
-
-        // =================================================
-        // Main Tournament
-        // =================================================
-
-        else {
-
-            await MainAWinner();
-
-        }
-
-
-        // =================================================
-        // Decide Next Match
-        // =================================================
-
-        DecideMatch();
-
-    }
-
-    catch (
-        error
+    if (
+        current_tournament.swiss ===
+            true
+        &&
+        current_tournament.main ===
+            false
     ) {
 
-        console.error(
-            "Choose Player A Error:",
-            error
-        );
+        SwissAWinner();
 
-
-        console.error(
-            "Error Message:",
-            error.message
-        );
+        return;
 
     }
 
-    finally {
 
-        // =================================================
-        // Unlock
-        // =================================================
+    // =====================================================
+    // Main Tournament
+    // =====================================================
 
-        fightProcessing =
-            false;
-
-
-        // =================================================
-        // Enable Buttons
-        // =================================================
-
-        setFightButtonsDisabled(
-            false
-        );
-
-
-        console.log(
-            "Player A processing finished."
-        );
-
-
-        console.log(
-            "========================================"
-        );
-
-    }
+    MainAWinner();
 
 }
 
@@ -998,33 +941,10 @@ async function chooseA() {
 // Swiss A Winner
 // =========================================================
 
-async function SwissAWinner() {
-
-    // =====================================================
-    // Get Current Round
-    // =====================================================
+function SwissAWinner() {
 
     const round =
-        Number(
-            current_tournament.swiss_round
-        );
-
-
-    // =====================================================
-    // Validate Round
-    // =====================================================
-
-    if (
-        !Number.isInteger(
-            round
-        )
-    ) {
-
-        throw new Error(
-            "Invalid Swiss round."
-        );
-
-    }
+        current_tournament.swiss_round;
 
 
     // =====================================================
@@ -1077,9 +997,16 @@ async function SwissAWinner() {
 
     const currentParticipantA =
         current_participant_list.find(
-            participant =>
-                participant.seed ===
-                participantA.seed
+            function(
+                participant
+            ) {
+
+                return (
+                    participant.seed ===
+                    participantA.seed
+                );
+
+            }
         );
 
 
@@ -1089,52 +1016,45 @@ async function SwissAWinner() {
 
     const currentParticipantB =
         current_participant_list.find(
-            participant =>
-                participant.seed ===
-                participantB.seed
+            function(
+                participant
+            ) {
+
+                return (
+                    participant.seed ===
+                    participantB.seed
+                );
+
+            }
         );
-
-
-    // =====================================================
-    // Validate Participants
-    // =====================================================
-
-    if (
-        !currentParticipantA
-    ) {
-
-        throw new Error(
-            "Participant A not found."
-        );
-
-    }
-
-
-    if (
-        !currentParticipantB
-    ) {
-
-        throw new Error(
-            "Participant B not found."
-        );
-
-    }
 
 
     // =====================================================
     // Update Participant List
     // =====================================================
 
-    Object.assign(
-        currentParticipantA,
-        participantA
-    );
+    if (
+        currentParticipantA
+    ) {
+
+        Object.assign(
+            currentParticipantA,
+            participantA
+        );
+
+    }
 
 
-    Object.assign(
-        currentParticipantB,
-        participantB
-    );
+    if (
+        currentParticipantB
+    ) {
+
+        Object.assign(
+            currentParticipantB,
+            participantB
+        );
+
+    }
 
 
     // =====================================================
@@ -1143,33 +1063,31 @@ async function SwissAWinner() {
 
     const currentSaveData =
         saveDataStorage.find(
-            saveData =>
-                saveData.name ===
-                current_tournament_name
+            function(
+                saveData
+            ) {
+
+                return (
+                    saveData.name ===
+                    current_tournament_name
+                );
+
+            }
         );
 
 
     // =====================================================
-    // Validate SaveData
+    // Update SaveDataStorage
     // =====================================================
 
     if (
-        !currentSaveData
+        currentSaveData
     ) {
 
-        throw new Error(
-            "Current SaveData not found."
-        );
+        currentSaveData.participantlist =
+            current_participant_list;
 
     }
-
-
-    // =====================================================
-    // Update SaveData
-    // =====================================================
-
-    currentSaveData.participantlist =
-        current_participant_list;
 
 
     // =====================================================
@@ -1187,46 +1105,20 @@ async function SwissAWinner() {
 
 
     // =====================================================
-    // Save SaveDataStorage
+    // Save Local Data
     // =====================================================
 
-    console.log(
-        "Saving SaveDataStorage..."
-    );
+    saveSaveData();
 
 
-    if (
-        typeof saveSaveData ===
-        "function"
-    ) {
-
-        await saveSaveData();
-
-    }
+    saveCurrentTournament();
 
 
     // =====================================================
-    // Save Current Tournament
+    // Decide Next Match
     // =====================================================
 
-    console.log(
-        "Saving Current Tournament..."
-    );
-
-
-    if (
-        typeof saveCurrentTournament ===
-        "function"
-    ) {
-
-        await saveCurrentTournament();
-
-    }
-
-
-    console.log(
-        "Swiss A Winner saved."
-    );
+    DecideMatch();
 
 }
 
@@ -1235,10 +1127,10 @@ async function SwissAWinner() {
 // Main A Winner
 // =========================================================
 
-async function MainAWinner() {
+function MainAWinner() {
 
     // =====================================================
-    // Main Tournament - 16
+    // 16 Participants
     // =====================================================
 
     if (
@@ -1246,15 +1138,16 @@ async function MainAWinner() {
         16
     ) {
 
-        await MatchHandler16(
+        MatchHandler16(
             participantA,
             participantB
         );
 
 
-        console.log(
-            "Main Tournament 16 - Player A won."
-        );
+        DecideMatch();
+
+
+        initializeFightPage();
 
 
         return;
@@ -1263,7 +1156,7 @@ async function MainAWinner() {
 
 
     // =====================================================
-    // Main Tournament - 32
+    // 32 Participants
     // =====================================================
 
     if (
@@ -1271,15 +1164,16 @@ async function MainAWinner() {
         32
     ) {
 
-        await MatchHandler32(
+        MatchHandler32(
             participantA,
             participantB
         );
 
 
-        console.log(
-            "Main Tournament 32 - Player A won."
-        );
+        DecideMatch();
+
+
+        initializeFightPage();
 
 
         return;
@@ -1287,12 +1181,8 @@ async function MainAWinner() {
     }
 
 
-    // =====================================================
-    // Invalid Participant Number
-    // =====================================================
-
-    throw new Error(
-        "Unsupported participant number: " +
+    console.warn(
+        "Unsupported participant number:",
         current_participant_number
     );
 
@@ -1303,18 +1193,18 @@ async function MainAWinner() {
 // Choose Player B
 // =========================================================
 
-async function chooseB() {
+function chooseB() {
 
     // =====================================================
     // Prevent Double Click
     // =====================================================
 
     if (
-        fightProcessing
+        chooseButtonLocked
     ) {
 
         console.warn(
-            "Fight is already processing."
+            "Choose button is temporarily locked."
         );
 
         return;
@@ -1323,116 +1213,36 @@ async function chooseB() {
 
 
     // =====================================================
-    // Lock
+    // Hide Both Buttons
     // =====================================================
 
-    fightProcessing =
-        true;
+    hideChooseButtonsTemporarily();
 
 
     // =====================================================
-    // Disable Both Buttons Immediately
+    // Swiss Stage
     // =====================================================
 
-    setFightButtonsDisabled(
-        true
-    );
-
-
-    console.log(
-        "========================================"
-    );
-
-
-    console.log(
-        "Player B selected."
-    );
-
-
-    try {
-
-        // =================================================
-        // Swiss Stage
-        // =================================================
-
-        if (
-            current_tournament.swiss ===
-                true
-            &&
-            current_tournament.main ===
-                false
-        ) {
-
-            await SwissBWinner();
-
-        }
-
-
-        // =================================================
-        // Main Tournament
-        // =================================================
-
-        else {
-
-            await MainBWinner();
-
-        }
-
-
-        // =================================================
-        // Decide Next Match
-        // =================================================
-
-        DecideMatch();
-
-    }
-
-    catch (
-        error
+    if (
+        current_tournament.swiss ===
+            true
+        &&
+        current_tournament.main ===
+            false
     ) {
 
-        console.error(
-            "Choose Player B Error:",
-            error
-        );
+        SwissBWinner();
 
-
-        console.error(
-            "Error Message:",
-            error.message
-        );
+        return;
 
     }
 
-    finally {
 
-        // =================================================
-        // Unlock
-        // =================================================
+    // =====================================================
+    // Main Tournament
+    // =====================================================
 
-        fightProcessing =
-            false;
-
-
-        // =================================================
-        // Enable Buttons
-        // =================================================
-
-        setFightButtonsDisabled(
-            false
-        );
-
-
-        console.log(
-            "Player B processing finished."
-        );
-
-
-        console.log(
-            "========================================"
-        );
-
-    }
+    MainBWinner();
 
 }
 
@@ -1441,33 +1251,10 @@ async function chooseB() {
 // Swiss B Winner
 // =========================================================
 
-async function SwissBWinner() {
-
-    // =====================================================
-    // Get Current Round
-    // =====================================================
+function SwissBWinner() {
 
     const round =
-        Number(
-            current_tournament.swiss_round
-        );
-
-
-    // =====================================================
-    // Validate Round
-    // =====================================================
-
-    if (
-        !Number.isInteger(
-            round
-        )
-    ) {
-
-        throw new Error(
-            "Invalid Swiss round."
-        );
-
-    }
+        current_tournament.swiss_round;
 
 
     // =====================================================
@@ -1520,9 +1307,16 @@ async function SwissBWinner() {
 
     const currentParticipantA =
         current_participant_list.find(
-            participant =>
-                participant.seed ===
-                participantA.seed
+            function(
+                participant
+            ) {
+
+                return (
+                    participant.seed ===
+                    participantA.seed
+                );
+
+            }
         );
 
 
@@ -1532,52 +1326,45 @@ async function SwissBWinner() {
 
     const currentParticipantB =
         current_participant_list.find(
-            participant =>
-                participant.seed ===
-                participantB.seed
+            function(
+                participant
+            ) {
+
+                return (
+                    participant.seed ===
+                    participantB.seed
+                );
+
+            }
         );
-
-
-    // =====================================================
-    // Validate Participants
-    // =====================================================
-
-    if (
-        !currentParticipantA
-    ) {
-
-        throw new Error(
-            "Participant A not found."
-        );
-
-    }
-
-
-    if (
-        !currentParticipantB
-    ) {
-
-        throw new Error(
-            "Participant B not found."
-        );
-
-    }
 
 
     // =====================================================
     // Update Participant List
     // =====================================================
 
-    Object.assign(
-        currentParticipantA,
-        participantA
-    );
+    if (
+        currentParticipantA
+    ) {
+
+        Object.assign(
+            currentParticipantA,
+            participantA
+        );
+
+    }
 
 
-    Object.assign(
-        currentParticipantB,
-        participantB
-    );
+    if (
+        currentParticipantB
+    ) {
+
+        Object.assign(
+            currentParticipantB,
+            participantB
+        );
+
+    }
 
 
     // =====================================================
@@ -1586,33 +1373,31 @@ async function SwissBWinner() {
 
     const currentSaveData =
         saveDataStorage.find(
-            saveData =>
-                saveData.name ===
-                current_tournament_name
+            function(
+                saveData
+            ) {
+
+                return (
+                    saveData.name ===
+                    current_tournament_name
+                );
+
+            }
         );
 
 
     // =====================================================
-    // Validate SaveData
+    // Update SaveDataStorage
     // =====================================================
 
     if (
-        !currentSaveData
+        currentSaveData
     ) {
 
-        throw new Error(
-            "Current SaveData not found."
-        );
+        currentSaveData.participantlist =
+            current_participant_list;
 
     }
-
-
-    // =====================================================
-    // Update SaveData
-    // =====================================================
-
-    currentSaveData.participantlist =
-        current_participant_list;
 
 
     // =====================================================
@@ -1630,46 +1415,20 @@ async function SwissBWinner() {
 
 
     // =====================================================
-    // Save SaveDataStorage
+    // Save Local Data
     // =====================================================
 
-    console.log(
-        "Saving SaveDataStorage..."
-    );
+    saveSaveData();
 
 
-    if (
-        typeof saveSaveData ===
-        "function"
-    ) {
-
-        await saveSaveData();
-
-    }
+    saveCurrentTournament();
 
 
     // =====================================================
-    // Save Current Tournament
+    // Decide Next Match
     // =====================================================
 
-    console.log(
-        "Saving Current Tournament..."
-    );
-
-
-    if (
-        typeof saveCurrentTournament ===
-        "function"
-    ) {
-
-        await saveCurrentTournament();
-
-    }
-
-
-    console.log(
-        "Swiss B Winner saved."
-    );
+    DecideMatch();
 
 }
 
@@ -1678,10 +1437,10 @@ async function SwissBWinner() {
 // Main B Winner
 // =========================================================
 
-async function MainBWinner() {
+function MainBWinner() {
 
     // =====================================================
-    // Main Tournament - 16
+    // 16 Participants
     // =====================================================
 
     if (
@@ -1689,15 +1448,16 @@ async function MainBWinner() {
         16
     ) {
 
-        await MatchHandler16(
+        MatchHandler16(
             participantB,
             participantA
         );
 
 
-        console.log(
-            "Main Tournament 16 - Player B won."
-        );
+        DecideMatch();
+
+
+        initializeFightPage();
 
 
         return;
@@ -1706,7 +1466,7 @@ async function MainBWinner() {
 
 
     // =====================================================
-    // Main Tournament - 32
+    // 32 Participants
     // =====================================================
 
     if (
@@ -1714,15 +1474,16 @@ async function MainBWinner() {
         32
     ) {
 
-        await MatchHandler32(
+        MatchHandler32(
             participantB,
             participantA
         );
 
 
-        console.log(
-            "Main Tournament 32 - Player B won."
-        );
+        DecideMatch();
+
+
+        initializeFightPage();
 
 
         return;
@@ -1730,12 +1491,8 @@ async function MainBWinner() {
     }
 
 
-    // =====================================================
-    // Invalid Participant Number
-    // =====================================================
-
-    throw new Error(
-        "Unsupported participant number: " +
+    console.warn(
+        "Unsupported participant number:",
         current_participant_number
     );
 
@@ -1748,23 +1505,6 @@ async function MainBWinner() {
 
 function goBackToTournamentRoom() {
 
-    // =====================================================
-    // Prevent Going Back While Saving
-    // =====================================================
-
-    if (
-        fightProcessing
-    ) {
-
-        console.warn(
-            "Please wait until the fight result is saved."
-        );
-
-        return;
-
-    }
-
-
     window.location.href =
         "tournament-room.html";
 
@@ -1776,10 +1516,6 @@ function goBackToTournamentRoom() {
 // =========================================================
 
 function swiss_stage() {
-
-    // =====================================================
-    // Variables
-    // =====================================================
 
     let participantAIndex =
         -1;
@@ -1803,15 +1539,13 @@ function swiss_stage() {
         index++
     ) {
 
+        participantAIndex =
+            index;
+
+
         const participant =
-            current_participant_list[
-                index
-            ];
+            current_participant_list[index];
 
-
-        // =================================================
-        // Check Participant
-        // =================================================
 
         if (
             participant.swiss.round !==
@@ -1830,14 +1564,6 @@ function swiss_stage() {
             continue;
 
         }
-
-
-        // =================================================
-        // Participant Can Fight
-        // =================================================
-
-        participantAIndex =
-            index;
 
 
         fight_over =
@@ -1863,15 +1589,6 @@ function swiss_stage() {
             ];
 
 
-        if (
-            !selectedParticipantA
-        ) {
-
-            return;
-
-        }
-
-
         const opponentSeed =
             selectedParticipantA.swiss.round_opponent[
                 current_tournament.swiss_round
@@ -1880,25 +1597,23 @@ function swiss_stage() {
 
         participantBIndex =
             current_participant_list.findIndex(
-                participant =>
+                function(
+                    participant
+                ) {
 
-                    participant.seed ===
-                    opponentSeed
+                    return (
+                        participant.seed ===
+                        opponentSeed
+                    );
+
+                }
             );
 
-
-        // =================================================
-        // Opponent Not Found
-        // =================================================
 
         if (
             participantBIndex ===
             -1
         ) {
-
-            console.warn(
-                "Opponent not found."
-            );
 
             return;
 
@@ -1930,7 +1645,7 @@ function swiss_stage() {
 
 
     // =====================================================
-    // All Fights Are Over
+    // All Fights Finished
     // =====================================================
 
     if (
@@ -1939,7 +1654,7 @@ function swiss_stage() {
     ) {
 
         // =================================================
-        // Continue Swiss Stage
+        // Continue Swiss
         // =================================================
 
         if (
@@ -1959,7 +1674,7 @@ function swiss_stage() {
 
 
         // =================================================
-        // Swiss Stage Finished
+        // Swiss Finished
         // =================================================
 
         UpdateSwissRanking();
@@ -1985,7 +1700,7 @@ function swiss_stage() {
 function DecideMatch() {
 
     // =====================================================
-    // Swiss Stage
+    // Swiss
     // =====================================================
 
     if (
@@ -2032,11 +1747,7 @@ function DecideMatch() {
 // Decide Main Tournament
 // =========================================================
 
-async function DecideMainTournament() {
-
-    // =====================================================
-    // Change Tournament Stage
-    // =====================================================
+function DecideMainTournament() {
 
     current_tournament.swiss =
         false;
@@ -2046,21 +1757,20 @@ async function DecideMainTournament() {
         true;
 
 
-    // =====================================================
-    // Find Current SaveData
-    // =====================================================
-
     const currentSaveData =
         saveDataStorage.find(
-            saveData =>
-                saveData.name ===
-                current_tournament_name
+            function(
+                saveData
+            ) {
+
+                return (
+                    saveData.name ===
+                    current_tournament_name
+                );
+
+            }
         );
 
-
-    // =====================================================
-    // Check Current SaveData
-    // =====================================================
 
     if (
         !currentSaveData
@@ -2075,45 +1785,15 @@ async function DecideMainTournament() {
     }
 
 
-    // =====================================================
-    // Save Tournament State
-    // =====================================================
-
     currentSaveData.tournament =
         current_tournament;
 
 
-    // =====================================================
-    // Save SaveDataStorage
-    // =====================================================
-
-    if (
-        typeof saveSaveData ===
-        "function"
-    ) {
-
-        await saveSaveData();
-
-    }
+    saveSaveData();
 
 
-    // =====================================================
-    // Save Current Tournament
-    // =====================================================
+    saveCurrentTournament();
 
-    if (
-        typeof saveCurrentTournament ===
-        "function"
-    ) {
-
-        await saveCurrentTournament();
-
-    }
-
-
-    // =====================================================
-    // Main Tournament - 16
-    // =====================================================
 
     if (
         current_participant_number ===
@@ -2127,10 +1807,6 @@ async function DecideMainTournament() {
     }
 
 
-    // =====================================================
-    // Main Tournament - 32
-    // =====================================================
-
     if (
         current_participant_number ===
         32
@@ -2142,10 +1818,6 @@ async function DecideMainTournament() {
 
     }
 
-
-    // =====================================================
-    // Invalid Participant Number
-    // =====================================================
 
     console.warn(
         "Unsupported participant number:",
@@ -2161,10 +1833,6 @@ async function DecideMainTournament() {
 
 function OpenMainTView() {
 
-    // =====================================================
-    // 16 Participants
-    // =====================================================
-
     if (
         current_participant_number ===
         16
@@ -2178,10 +1846,6 @@ function OpenMainTView() {
     }
 
 
-    // =====================================================
-    // 32 Participants
-    // =====================================================
-
     if (
         current_participant_number ===
         32
@@ -2194,10 +1858,6 @@ function OpenMainTView() {
 
     }
 
-
-    // =====================================================
-    // Invalid Participant Number
-    // =====================================================
 
     console.warn(
         "Unsupported participant number:",
@@ -2214,7 +1874,7 @@ function OpenMainTView() {
 function MainTournamentFight() {
 
     // =====================================================
-    // Main Tournament - 16
+    // 16 Participants
     // =====================================================
 
     if (
@@ -2222,40 +1882,38 @@ function MainTournamentFight() {
         16
     ) {
 
-        // =================================================
-        // Initialize Main Tournament 16
-        // =================================================
-
         MainTournament16();
 
 
-        // =================================================
-        // Find Participant A
-        // =================================================
-
         const selectedParticipantA =
             current_main_t_participants.find(
-                participant =>
-                    participant.main_t_location ===
-                    locationA16
+                function(
+                    participant
+                ) {
+
+                    return (
+                        participant.main_t_location ===
+                        locationA16
+                    );
+
+                }
             );
 
-
-        // =================================================
-        // Find Participant B
-        // =================================================
 
         const selectedParticipantB =
             current_main_t_participants.find(
-                participant =>
-                    participant.main_t_location ===
-                    locationB16
+                function(
+                    participant
+                ) {
+
+                    return (
+                        participant.main_t_location ===
+                        locationB16
+                    );
+
+                }
             );
 
-
-        // =================================================
-        // Check Participant A
-        // =================================================
 
         if (
             !selectedParticipantA
@@ -2271,10 +1929,6 @@ function MainTournamentFight() {
         }
 
 
-        // =================================================
-        // Check Participant B
-        // =================================================
-
         if (
             !selectedParticipantB
         ) {
@@ -2289,20 +1943,15 @@ function MainTournamentFight() {
         }
 
 
-        // =================================================
-        // Set Participant A
-        // =================================================
-
         participantA =
             selectedParticipantA;
 
 
-        // =================================================
-        // Set Participant B
-        // =================================================
-
         participantB =
             selectedParticipantB;
+
+
+        initializeFightPage();
 
 
         return;
@@ -2311,7 +1960,7 @@ function MainTournamentFight() {
 
 
     // =====================================================
-    // Main Tournament - 32
+    // 32 Participants
     // =====================================================
 
     if (
@@ -2319,40 +1968,38 @@ function MainTournamentFight() {
         32
     ) {
 
-        // =================================================
-        // Initialize Main Tournament 32
-        // =================================================
-
         MainTournament32();
 
 
-        // =================================================
-        // Find Participant A
-        // =================================================
-
         const selectedParticipantA =
             current_main_t_participants.find(
-                participant =>
-                    participant.main_t_location ===
-                    locationA32
+                function(
+                    participant
+                ) {
+
+                    return (
+                        participant.main_t_location ===
+                        locationA32
+                    );
+
+                }
             );
 
-
-        // =================================================
-        // Find Participant B
-        // =================================================
 
         const selectedParticipantB =
             current_main_t_participants.find(
-                participant =>
-                    participant.main_t_location ===
-                    locationB32
+                function(
+                    participant
+                ) {
+
+                    return (
+                        participant.main_t_location ===
+                        locationB32
+                    );
+
+                }
             );
 
-
-        // =================================================
-        // Check Participant A
-        // =================================================
 
         if (
             !selectedParticipantA
@@ -2368,10 +2015,6 @@ function MainTournamentFight() {
         }
 
 
-        // =================================================
-        // Check Participant B
-        // =================================================
-
         if (
             !selectedParticipantB
         ) {
@@ -2386,30 +2029,21 @@ function MainTournamentFight() {
         }
 
 
-        // =================================================
-        // Set Participant A
-        // =================================================
-
         participantA =
             selectedParticipantA;
 
 
-        // =================================================
-        // Set Participant B
-        // =================================================
-
         participantB =
             selectedParticipantB;
+
+
+        initializeFightPage();
 
 
         return;
 
     }
 
-
-    // =====================================================
-    // Invalid Participant Number
-    // =====================================================
 
     console.warn(
         "Unsupported participant number:",
@@ -2427,53 +2061,20 @@ document.addEventListener(
     "DOMContentLoaded",
     function() {
 
-        // =============================================
-        // Make Sure Buttons Are Enabled
-        // =============================================
-
-        fightProcessing =
-            false;
-
-
-        setFightButtonsDisabled(
-            false
-        );
-
-
-        // =============================================
-        // Load Latest Tournament
-        // =============================================
-
         loadCurrentTournament();
 
-
-        // =============================================
-        // Update Fight Title
-        // =============================================
 
         updateFightTitle();
 
 
-        // =============================================
-        // Decide Match
-        // =============================================
-
         DecideMatch();
 
-
-        // =============================================
-        // Display Player A
-        // =============================================
 
         displayFightParticipant(
             "playerAContent",
             participantA
         );
 
-
-        // =============================================
-        // Display Player B
-        // =============================================
 
         displayFightParticipant(
             "playerBContent",
