@@ -261,6 +261,10 @@ document.addEventListener(
                         message.textContent =
                             "Login successful, but username was not returned.";
 
+                        console.error(
+                            "Username was not returned by server."
+                        );
+
                         return;
 
                     }
@@ -315,17 +319,32 @@ document.addEventListener(
                         "function"
                     ) {
 
-                        saveUsername(
-                            data.username
-                        );
+                        const usernameSaved =
+                            saveUsername(
+                                data.username
+                            );
+
+
+                        if (
+                            !usernameSaved
+                        ) {
+
+                            console.error(
+                                "Failed to save username."
+                            );
+
+                            return;
+
+                        }
 
                     }
 
                     else {
 
                         console.warn(
-                            "saveUsername() is not available."
+                            "saveUsername() is not available. Using localStorage directly."
                         );
+
 
                         localStorage.setItem(
                             "currentUsername",
@@ -355,21 +374,29 @@ document.addEventListener(
                     );
 
 
+                    console.log(
+                        "Login credentials saved."
+                    );
+
+
+                    console.log(
+                        "Username:",
+                        data.username
+                    );
+
+
+                    console.log(
+                        "User ID:",
+                        data.userId
+                    );
+
+
                     // =================================================
                     // Clear Previous User SaveData
                     // =================================================
 
                     localStorage.removeItem(
                         "saveDataStorage"
-                    );
-
-
-                    // =================================================
-                    // Clear Previous User Default Participants
-                    // =================================================
-
-                    localStorage.removeItem(
-                        "defaultParticipantsListArray"
                     );
 
 
@@ -383,8 +410,28 @@ document.addEventListener(
 
 
                     // =================================================
+                    // DO NOT REMOVE
+                    //
+                    // defaultParticipantsListArray_Username
+                    //
+                    // The cache is username-specific.
+                    //
+                    // loadDefaultParticipantsList() will:
+                    //
+                    // 1. Load username-specific cache.
+                    // 2. Get latest data from Database.
+                    // 3. Replace cache with Database data.
+                    //
+                    // =================================================
+
+
+                    // =================================================
                     // Load Current User SaveData
                     // =================================================
+
+                    let saveDataLoaded =
+                        false;
+
 
                     if (
                         typeof loadSaveDataFromDatabase ===
@@ -392,16 +439,21 @@ document.addEventListener(
                     ) {
 
                         console.log(
+                            "========================================"
+                        );
+
+
+                        console.log(
                             "Loading current user SaveData from database..."
                         );
 
 
-                        const databaseLoaded =
+                        saveDataLoaded =
                             await loadSaveDataFromDatabase();
 
 
                         if (
-                            databaseLoaded
+                            saveDataLoaded
                         ) {
 
                             console.log(
@@ -422,7 +474,7 @@ document.addEventListener(
 
                     else {
 
-                        console.warn(
+                        console.error(
                             "loadSaveDataFromDatabase() is not available."
                         );
 
@@ -433,17 +485,26 @@ document.addEventListener(
                     // Load Current User Default Participants List
                     // =================================================
 
+                    let defaultParticipantsLoaded =
+                        false;
+
+
                     if (
                         typeof loadDefaultParticipantsList ===
                         "function"
                     ) {
 
                         console.log(
+                            "========================================"
+                        );
+
+
+                        console.log(
                             "Loading current user Default Participants List from database..."
                         );
 
 
-                        const defaultParticipantsLoaded =
+                        defaultParticipantsLoaded =
                             await loadDefaultParticipantsList();
 
 
@@ -455,6 +516,12 @@ document.addEventListener(
                                 "Current user Default Participants List loaded successfully."
                             );
 
+
+                            console.log(
+                                "Default Participants:",
+                                defaultParticipantsListArray
+                            );
+
                         }
 
                         else {
@@ -463,13 +530,19 @@ document.addEventListener(
                                 "Current user Default Participants List could not be loaded from database."
                             );
 
+
+                            console.warn(
+                                "Current Local Default Participants:",
+                                defaultParticipantsListArray
+                            );
+
                         }
 
                     }
 
                     else {
 
-                        console.warn(
+                        console.error(
                             "loadDefaultParticipantsList() is not available."
                         );
 
@@ -477,11 +550,16 @@ document.addEventListener(
 
 
                     // =================================================
-                    // Debug Login Information
+                    // Final Login Debug
                     // =================================================
 
                     console.log(
-                        "Login successful."
+                        "========================================"
+                    );
+
+
+                    console.log(
+                        "LOGIN COMPLETE"
                     );
 
 
@@ -498,27 +576,54 @@ document.addEventListener(
 
 
                     console.log(
-                        "JWT Token saved."
+                        "JWT Token saved:",
+                        true
                     );
 
 
                     console.log(
-                        "User SaveData loaded."
+                        "SaveData loaded from database:",
+                        saveDataLoaded
                     );
 
 
                     console.log(
-                        "User Default Participants List loaded."
+                        "Default Participants loaded from database:",
+                        defaultParticipantsLoaded
+                    );
+
+
+                    console.log(
+                        "Current Default Participants:",
+                        defaultParticipantsListArray
+                    );
+
+
+                    console.log(
+                        "========================================"
                     );
 
 
                     // =================================================
-                    // Login Success
+                    // Login Success Message
                     // =================================================
 
-                    message.textContent =
-                        data.message ||
-                        "Login successful.";
+                    if (
+                        defaultParticipantsLoaded
+                    ) {
+
+                        message.textContent =
+                            data.message ||
+                            "Login successful.";
+
+                    }
+
+                    else {
+
+                        message.textContent =
+                            "Login successful, but Default Participants could not be loaded.";
+
+                    }
 
 
                     // =================================================
