@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Swiss Result</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <main class="swiss-result-container">
+
+
+        <!-- =========================
+             Page Title
+             ========================= -->
+
+        <div class="swiss-result-title">
+
+            <p class="subtitle">
+                TOURNAMENT
+            </p>
+
+            <h1>
+                Swiss Result
+            </h1>
+
+            <p class="description">
+                View the results from the Swiss System.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+            Result Table
+            ========================= -->
+
+        <section class="swiss-result-section">
+
+            <div class="swiss-result-table">
+
+                <!-- =========================
+                    Scroll Box
+                    ========================= -->
+
+                <div class="swiss-result-scrollbox">
+
+
+                    <!-- =========================
+                        Header
+                        ========================= -->
+
+                    <div class="swiss-result-row swiss-result-header">
+
+                        <div class="swiss-number">
+                            #
+                        </div>
+
+                        <div class="swiss-name">
+                            Name
+                        </div>
+
+                        <div class="swiss-bu">
+                            BU
+                        </div>
+
+                        <div class="swiss-round">
+                            Round 1
+                        </div>
+
+                        <div class="swiss-round">
+                            Round 2
+                        </div>
+
+                        <div class="swiss-round">
+                            Round 3
+                        </div>
+
+                        <div class="swiss-round">
+                            Round 4
+                        </div>
+
+                        <div class="swiss-round">
+                            Round 5
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                        Result List
+                        ========================= -->
+
+                    <div
+                        id="swissResultList"
+                        class="swiss-result-list"
+                    >
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             Go Back
+             ========================= -->
+
+        <button
+            class="back-button"
+            onclick="goBackToTournamentRoom()"
+        >
+
+            ← Go Back
+
+        </button>
+
+
+    </main>
+
+
+    <!-- =========================
+         Data Structures
+         ========================= -->
+
+    <script src="js/S/swiss-data.js"></script>
+
+    <script src="js/S/participant.js"></script>
+
+    <script src="js/S/tournament-state.js"></script>
+
+    <script src="js/S/save-data.js"></script>
+
+
+    <!-- =========================
+         Storage
+         ========================= -->
+
+    <script src="js/Storage/save-data-storage.js"></script>
+
+
+    <!-- =========================
+         Page Script
+         ========================= -->
+
+    <script src="js/swiss-result.js"></script>
+
+</body>
+
+</html>

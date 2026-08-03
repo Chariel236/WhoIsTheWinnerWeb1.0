@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Tournament Name</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <main class="edit-name-container">
+
+
+        <!-- Title -->
+
+        <div class="edit-name-title">
+
+            <p class="subtitle">
+                TOURNAMENT
+            </p>
+
+            <h1>
+                Edit Tournament Name
+            </h1>
+
+            <p class="description">
+                Enter a new name for your tournament.
+            </p>
+
+        </div>
+
+
+        <!-- Tournament Name -->
+
+        <div class="edit-name-section">
+
+            <label for="newTournamentName">
+                Tournament Name
+            </label>
+
+            <input
+                type="text"
+                id="newTournamentName"
+                class="tournament-name-input"
+                placeholder="Enter New Tournament Name"
+            >
+
+        </div>
+
+
+        <!-- Submit -->
+
+        <button
+            class="submit-button"
+            onclick="submitNewTournamentName()"
+        >
+
+            Submit
+
+            <span>
+                →
+            </span>
+
+        </button>
+
+
+        <!-- Cancel -->
+
+        <button
+            class="cancel-button"
+            onclick="cancelEditTournamentName()"
+        >
+
+            Cancel
+
+        </button>
+
+
+    </main>
+
+
+    <!-- Data Structure -->
+
+    <script src="js/S/swiss-data.js"></script>
+    <script src="js/S/participant.js"></script>
+    <script src="js/S/tournament-state.js"></script>
+    <script src="js/S/save-data.js"></script>
+
+
+    <!-- Storage -->
+
+    <script src="js/Storage/save-data-storage.js"></script>
+
+
+    <!-- Page Script -->
+
+    <script src="js/edit-tournament-name.js"></script>
+
+</body>
+
+</html>

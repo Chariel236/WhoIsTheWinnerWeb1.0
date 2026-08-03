@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Ranking</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <main class="ranking-container">
+
+
+        <!-- Page Title -->
+
+        <div class="ranking-title">
+
+            <p class="subtitle">
+                TOURNAMENT
+            </p>
+
+            <h1>
+                Ranking
+            </h1>
+
+            <p class="description">
+                View the current tournament ranking.
+            </p>
+
+        </div>
+
+
+        <!-- Ranking Table -->
+
+        <section class="ranking-section">
+
+            <div class="ranking-table">
+
+
+                <!-- Header -->
+
+                <div class="ranking-row ranking-header">
+
+                    <div class="ranking-rank">
+                        Rank
+                    </div>
+
+                    <div class="ranking-name">
+                        Participant
+                    </div>
+
+                </div>
+
+
+                <!-- Ranking List -->
+
+                <div
+                    id="rankingList"
+                    class="ranking-list"
+                >
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- Go Back -->
+
+        <button
+            class="back-button"
+            onclick="goBackToTournamentRoom()"
+        >
+
+            ← Go Back
+
+        </button>
+
+
+    </main>
+
+
+    <!-- =========================
+         Data Structures
+         ========================= -->
+
+    <script src="js/S/swiss-data.js"></script>
+    <script src="js/S/participant.js"></script>
+    <script src="js/S/tournament-state.js"></script>
+    <script src="js/S/save-data.js"></script>
+
+
+    <!-- =========================
+         Storage
+         ========================= -->
+
+    <script src="js/Storage/save-data-storage.js"></script>
+
+
+    <!-- =========================
+         Page Script
+         ========================= -->
+
+    <script src="js/ranking.js"></script>
+
+</body>
+
+</html>

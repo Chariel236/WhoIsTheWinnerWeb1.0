@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Tournament</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <main class="create-container">
+
+
+        <!-- Page Title -->
+
+        <div class="create-title">
+
+            <p class="subtitle">
+                TOURNAMENT SETUP
+            </p>
+
+            <h1>
+                Create Tournament
+            </h1>
+
+            <p class="description">
+                Choose a participant list for your tournament.
+            </p>
+
+        </div>
+
+
+        <!-- Participant List -->
+
+        <section class="participant-section">
+
+            <div class="section-header">
+
+                <h2>
+                    Participant List
+                </h2>
+
+                <span
+                    class="participant-count"
+                    id="participantListCount"
+                >
+                    0 Lists
+                </span>
+
+            </div>
+
+
+            <!-- ScrollBox -->
+
+            <div
+                class="participant-list"
+                id="participantList"
+            >
+
+            </div>
+
+        </section>
+
+
+        <!-- List Controls -->
+
+        <div class="participant-controls">
+
+            <button
+                class="action-button upload-button"
+                onclick="uploadParticipantList()"
+            >
+
+                <span class="action-icon">
+                    ↑
+                </span>
+
+                <span>
+                    Upload Participant List
+                </span>
+
+            </button>
+
+
+            <button
+                class="action-button delete-button"
+                onclick="deleteParticipantList()"
+            >
+
+                <span class="action-icon">
+                    ×
+                </span>
+
+                <span>
+                    Delete Participant List
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- Create Tournament -->
+
+        <button
+            class="create-tournament-button"
+            onclick="goToCreateOwnTournament()"
+        >
+
+            <span>
+                Create Own Tournament
+            </span>
+
+            <span>
+                →
+            </span>
+
+        </button>
+
+
+        <!-- Go Back -->
+
+        <button
+            class="back-button"
+            onclick="goBack()"
+        >
+
+            ← Go Back
+
+        </button>
+
+
+    </main>
+    
+    <script src="js/S/participant.js"></script>
+    <script src="js/S/default-participants-list.js"></script>
+    <script src="js/S/swiss-data.js"></script>
+    <script src="js/S/main-tournament-memory.js"></script>
+    <script src="js/S/tournament-state.js"></script>
+    <script src="js/S/save-data.js"></script>
+
+    <script src="js/Storage/save-data-storage.js"></script>
+
+    <script src="js/create-tournament.js"></script>
+
+</body>
+
+</html>

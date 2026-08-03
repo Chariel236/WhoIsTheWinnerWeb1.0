@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>WhoIsTheWinner</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <main class="home-container">
+
+
+        <!-- =========================
+             User Panel
+             ========================= -->
+
+        <div class="user-panel">
+
+            <span id="currentUsername">
+                Guest
+            </span>
+
+            <button
+                class="logout-button"
+                onclick="logoutUser()"
+            >
+
+                Logout
+
+            </button>
+
+        </div>
+
+
+        <!-- =========================
+             Title
+             ========================= -->
+
+        <div class="title-section">
+
+            <p class="subtitle">
+                TOURNAMENT CREATOR
+            </p>
+
+            <h1>
+                WhoIsTheWinner
+            </h1>
+
+            <p class="description">
+                Create, manage and play your own tournament.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             Menu
+             ========================= -->
+
+        <div class="button-container">
+
+
+            <!-- New Tournament -->
+
+            <button
+                class="menu-button"
+                onclick="goToCreateTournament()"
+            >
+
+                <span class="button-icon">
+                    +
+                </span>
+
+                <span class="button-text">
+                    New Tournament
+                </span>
+
+                <span class="button-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <!-- Load Tournament -->
+
+            <button
+                class="menu-button"
+                onclick="goToLoadTournament()"
+            >
+
+                <span class="button-icon">
+                    ↗
+                </span>
+
+                <span class="button-text">
+                    Load Tournament
+                </span>
+
+                <span class="button-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <!-- Delete Tournament -->
+
+            <button
+                class="menu-button delete-button"
+                onclick="goToDeleteTournament()"
+            >
+
+                <span class="button-icon">
+                    ×
+                </span>
+
+                <span class="button-text">
+                    Delete Tournament
+                </span>
+
+                <span class="button-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <!-- Community -->
+
+            <button
+                class="menu-button"
+                onclick="goToCommunity()"
+            >
+
+                <span class="button-icon">
+                    ◉
+                </span>
+
+                <span class="button-text">
+                    Community
+                </span>
+
+                <span class="button-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+        <!-- =========================
+             Footer
+             ========================= -->
+
+        <footer>
+
+            <span>
+                WHO WILL BE THE WINNER?
+            </span>
+
+        </footer>
+
+
+    </main>
+
+
+    <!-- =========================
+         Storage
+         ========================= -->
+
+    <script src="js/Storage/save-data-storage.js"></script>
+
+
+    <!-- =========================
+         Main Script
+         ========================= -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

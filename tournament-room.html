@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tournament Room</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <main class="room-container">
+
+
+        <!-- =========================
+             Header
+        ========================= -->
+
+        <div class="room-title">
+
+            <p class="subtitle">
+                TOURNAMENT ROOM
+            </p>
+
+            <h1 id="currentTournamentName">
+                Tournament
+            </h1>
+
+            <p class="description">
+                Manage your tournament and track its progress.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             Tournament Menu
+        ========================= -->
+
+        <section class="room-menu">
+
+
+            <button
+                class="room-menu-button"
+                onclick="goToEditTournamentName()"
+            >
+
+                <span class="room-menu-number">
+                    01
+                </span>
+
+                <span class="room-menu-information">
+
+                    <span class="room-menu-name">
+                        Edit Tournament Name
+                    </span>
+
+                    <span class="room-menu-description">
+                        Change the tournament name.
+                    </span>
+
+                </span>
+
+                <span class="room-menu-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <button
+                class="room-menu-button"
+                onclick="goToEditParticipants()"
+            >
+
+                <span class="room-menu-number">
+                    02
+                </span>
+
+                <span class="room-menu-information">
+
+                    <span class="room-menu-name">
+                        Edit Participants
+                    </span>
+
+                    <span class="room-menu-description">
+                        View and edit tournament participants.
+                    </span>
+
+                </span>
+
+                <span class="room-menu-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <button
+                class="room-menu-button"
+                onclick="goToRanking()"
+            >
+
+                <span class="room-menu-number">
+                    03
+                </span>
+
+                <span class="room-menu-information">
+
+                    <span class="room-menu-name">
+                        Ranking
+                    </span>
+
+                    <span class="room-menu-description">
+                        View the current tournament ranking.
+                    </span>
+
+                </span>
+
+                <span class="room-menu-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <button
+                class="room-menu-button"
+                onclick="goToSwissResult()"
+            >
+
+                <span class="room-menu-number">
+                    04
+                </span>
+
+                <span class="room-menu-information">
+
+                    <span class="room-menu-name">
+                        View Swiss Result
+                    </span>
+
+                    <span class="room-menu-description">
+                        View the results from the Swiss System.
+                    </span>
+
+                </span>
+
+                <span class="room-menu-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <button
+                class="room-menu-button"
+                onclick="goToMainTournamentResult()"
+            >
+
+                <span class="room-menu-number">
+                    05
+                </span>
+
+
+                <span class="room-menu-information">
+
+                    <span class="room-menu-name">
+                        View Main Tournament Result
+                    </span>
+
+                    <span class="room-menu-description">
+                        View the results of the main tournament.
+                    </span>
+
+                </span>
+
+
+                <span class="room-menu-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <button
+                class="room-menu-button"
+                onclick="goToFight()"
+            >
+
+                <span class="room-menu-number">
+                    06
+                </span>
+
+                <span class="room-menu-information">
+
+                    <span class="room-menu-name">
+                        Fight
+                    </span>
+
+                    <span class="room-menu-description">
+                        Start the current tournament match.
+                    </span>
+
+                </span>
+
+                <span class="room-menu-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+        </section>
+
+
+        <!-- =========================
+             Main Menu
+        ========================= -->
+
+        <button
+            class="back-button room-main-menu-button"
+            onclick="goToMainMenu()"
+        >
+
+            ← Main Menu
+
+        </button>
+
+
+    </main>
+
+
+    <!-- =========================
+         Data Structure
+    ========================= -->
+
+    <script src="js/S/swiss-data.js"></script>
+    <script src="js/S/participant.js"></script>
+    <script src="js/S/tournament-state.js"></script>
+    <script src="js/S/save-data.js"></script>
+
+
+    <!-- =========================
+         Storage
+    ========================= -->
+
+    <script src="js/Storage/save-data-storage.js"></script>
+
+
+    <!-- =========================
+         Page Script
+    ========================= -->
+    <script src="js/swiss.js"></script>
+    <script src="js/tournament-room.js"></script>
+
+</body>
+
+</html>

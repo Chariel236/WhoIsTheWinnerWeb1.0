@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Upload Tournament</title>
+
+<link
+    rel="stylesheet"
+    href="style.css"
+>
+
+</head>
+
+<body>
+
+<main class="community-page">
+
+<!-- =================================================
+     Page Title
+================================================= -->
+
+<div class="community-title">
+
+    <p class="subtitle">
+        COMMUNITY
+    </p>
+
+    <h1>
+        Upload Tournament
+    </h1>
+
+    <p class="description">
+        Select a saved tournament to share with the community.
+    </p>
+
+</div>
+
+
+<!-- =================================================
+     Saved Tournament Section
+================================================= -->
+
+<section class="community-section">
+
+
+    <!-- =================================================
+         Tournament List
+    ================================================= -->
+
+    <div
+        id="uploadTournamentList"
+        class="community-tournament-list"
+    >
+
+        <!--
+            JavaScript will generate
+            SaveData cards here.
+        -->
+
+    </div>
+
+
+    <!-- =================================================
+         Empty Message
+    ================================================= -->
+
+    <div
+        id="uploadEmptyMessage"
+        class="community-empty-message"
+    >
+
+        No saved tournaments found.
+
+    </div>
+
+
+</section>
+
+
+<!-- =================================================
+     Selected Tournament
+================================================= -->
+
+<div
+    id="uploadSelectedMessage"
+    class="community-selected-message"
+>
+
+    No tournament selected.
+
+</div>
+
+
+<!-- =================================================
+     Upload Button
+================================================= -->
+
+<button
+    type="button"
+    id="uploadTournamentButton"
+    class="community-upload-button"
+    disabled
+>
+
+    <span>
+        ↑
+    </span>
+
+    Upload Tournament
+
+</button>
+
+
+<!-- =================================================
+     Back Button
+================================================= -->
+
+<button
+    type="button"
+    class="community-back-button"
+    onclick="goBackToCommunity()"
+>
+
+    ← Back
+
+</button>
+
+</main>
+
+<!-- =================================================
+     Data Structures
+================================================= -->
+
+<script src="js/S/swiss-data.js"></script>
+
+<script src="js/S/participant.js"></script>
+
+<script src="js/S/tournament-state.js"></script>
+
+<script src="js/S/save-data.js"></script>
+
+<!-- =================================================
+     Storage
+================================================= -->
+
+<script src="js/Storage/save-data-storage.js"></script>
+
+<!-- =================================================
+     Upload Page Script
+================================================= -->
+
+<script src="js/upload.js"></script>
+
+</body>
+
+</html>

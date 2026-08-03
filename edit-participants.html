@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Participants</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <main class="load-container">
+
+
+        <!-- Page Title -->
+
+        <div class="load-title">
+
+            <p class="subtitle">
+                TOURNAMENT
+            </p>
+
+            <h1>
+                Edit Participants
+            </h1>
+
+            <p class="description">
+                Edit your tournament participants.
+            </p>
+
+        </div>
+
+
+        <!-- Participant List -->
+
+        <section class="load-section">
+
+            <div class="section-header">
+
+                <h2>
+                    Participants
+                </h2>
+
+            </div>
+
+
+            <div
+                class="tournament-list"
+                id="participantList"
+            >
+
+            </div>
+
+        </section>
+
+
+        <!-- Go Back -->
+
+        <button
+            class="back-button"
+            onclick="goBackToTournamentRoom()"
+        >
+
+            ← Go Back
+
+        </button>
+
+
+    </main>
+
+
+    <!-- Data Structure -->
+
+    <script src="js/S/swiss-data.js"></script>
+    <script src="js/S/participant.js"></script>
+    <script src="js/S/tournament-state.js"></script>
+    <script src="js/S/save-data.js"></script>
+
+
+    <!-- Storage -->
+
+    <script src="js/Storage/save-data-storage.js"></script>
+
+
+    <!-- Page Script -->
+
+    <script src="js/edit-participants.js"></script>
+
+</body>
+
+</html>

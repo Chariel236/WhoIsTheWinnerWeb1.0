@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Delete Tournament List</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="create-container">
+
+
+        <!-- =====================================================
+             Page Title
+             ===================================================== -->
+
+        <div class="create-title">
+
+            <p class="subtitle">
+                PARTICIPANT LIST
+            </p>
+
+            <h1>
+                Delete List
+            </h1>
+
+            <p class="description">
+                Select a participant list to delete.
+            </p>
+
+        </div>
+
+
+        <!-- =====================================================
+             Participant List
+             ===================================================== -->
+
+        <section class="participant-section">
+
+            <div class="section-header">
+
+                <h2>
+                    Participant List
+                </h2>
+
+                <span
+                    class="participant-count"
+                    id="participantListCount"
+                >
+                    0 Lists
+                </span>
+
+            </div>
+
+
+            <!-- =================================================
+                 Scroll Box
+                 ================================================= -->
+
+            <div
+                class="participant-list"
+                id="participantList"
+            >
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             Go Back
+             ===================================================== -->
+
+        <button
+            class="back-button"
+            onclick="goBack()"
+        >
+
+            ← Go Back
+
+        </button>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         Structure
+         ===================================================== -->
+
+    <script src="js/S/participant.js"></script>
+
+    <script src="js/S/default-participants-list.js"></script>
+
+    <script src="js/S/swiss-data.js"></script>
+
+    <script src="js/S/main-tournament-memory.js"></script>
+
+    <script src="js/S/tournament-state.js"></script>
+
+    <script src="js/S/save-data.js"></script>
+
+
+    <!-- =====================================================
+         Storage
+         ===================================================== -->
+
+    <script src="js/Storage/save-data-storage.js"></script>
+
+
+    <!-- =====================================================
+         JavaScript
+         ===================================================== -->
+
+    <script src="js/delete-tournament-list.js"></script>
+
+
+</body>
+
+</html>

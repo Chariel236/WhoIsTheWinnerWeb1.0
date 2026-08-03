@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Fight</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<main class="fight-page">
+
+
+    <!-- =====================================================
+         TITLE
+         ===================================================== -->
+
+    <section class="fight-title">
+
+        <p class="fight-subtitle">
+            FIGHT
+        </p>
+
+        <h1 id="fightStageTitle">
+            SWISS — ROUND 1
+        </h1>
+
+        <p
+            class="fight-description"
+            id="fightStageDescription"
+        >
+            Select the winner of the match.
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FIGHTERS
+         ===================================================== -->
+
+    <section class="fight-container">
+
+
+        <!-- =================================================
+             PLAYER A
+             ================================================= -->
+
+        <div class="fight-player">
+
+
+            <div
+                class="fight-player-box"
+                id="playerABox"
+            >
+
+                <div
+                    class="fight-player-content"
+                    id="playerAContent"
+                >
+
+                    Player A
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="fight-choose-button"
+                id="choosePlayerA"
+                onclick="chooseA()"
+            >
+
+                CHOOSE
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             VS
+             ================================================= -->
+
+        <div class="fight-vs">
+
+            VS
+
+        </div>
+
+
+
+        <!-- =================================================
+             PLAYER B
+             ================================================= -->
+
+        <div class="fight-player">
+
+
+            <div
+                class="fight-player-box"
+                id="playerBBox"
+            >
+
+                <div
+                    class="fight-player-content"
+                    id="playerBContent"
+                >
+
+                    Player B
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="fight-choose-button"
+                id="choosePlayerB"
+                onclick="chooseB()"
+            >
+
+                CHOOSE
+
+            </button>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         BACK BUTTON
+         ===================================================== -->
+
+    <button
+        class="back-button fight-back-button"
+        onclick="goBackToTournamentRoom()"
+    >
+
+        ← Go Back
+
+    </button>
+
+
+</main>
+
+
+
+    <!-- =========================================================
+     Data Structure
+     ========================================================= -->
+
+<script src="js/S/swiss-data.js"></script>
+<script src="js/S/participant.js"></script>
+<script src="js/S/main-tournament-memory.js"></script>
+<script src="js/S/tournament-state.js"></script>
+<script src="js/S/save-data.js"></script>
+
+
+<!-- =========================================================
+     Storage
+     ========================================================= -->
+
+<script src="js/Storage/save-data-storage.js"></script>
+
+<!-- =========================================================
+     Main Tournament 16
+     ========================================================= -->
+
+<script src="js/main_tournament16.js"></script>
+<script src="js/main_tournament32.js"></script>
+
+
+<!-- =========================================================
+     Fight Script
+     ========================================================= -->
+<script src="js/swiss.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="js/fight.js"></script>
+
+
+</body>
+
+</html>

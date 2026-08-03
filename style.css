@@ -1,0 +1,12275 @@
+
+/* =========================
+   Login Page
+========================= */
+
+.login-container {
+
+    width: min(
+        450px,
+        calc(100% - 40px)
+    );
+
+    margin: auto;
+
+    text-align: center;
+
+}
+
+
+/* =========================
+   Login Title
+========================= */
+
+.login-title {
+
+    margin-bottom: clamp(
+        25px,
+        5vh,
+        40px
+    );
+
+}
+
+
+.login-title h1 {
+
+    font-size:
+        clamp(
+            36px,
+            7vw,
+            65px
+        );
+
+    line-height: 1.05;
+
+}
+
+
+.login-title .description {
+
+    margin-top: 18px;
+
+    font-size:
+        clamp(
+            13px,
+            2vw,
+            15px
+        );
+
+}
+
+
+/* =========================
+   Login Form
+========================= */
+
+.login-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap:
+        clamp(
+            13px,
+            2.5vh,
+            18px
+        );
+
+    text-align: left;
+
+}
+
+
+/* =========================
+   Input Group
+========================= */
+
+.input-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+.input-group label {
+
+    color: #8d95a8;
+
+    font-size:
+        clamp(
+            12px,
+            1.5vw,
+            13px
+        );
+
+    font-weight: 600;
+
+}
+
+
+.input-group input {
+
+    width: 100%;
+
+    height:
+        clamp(
+            48px,
+            6vh,
+            55px
+        );
+
+    padding:
+        0 clamp(
+            12px,
+            2vw,
+            16px
+        );
+
+    border-radius:
+        clamp(
+            10px,
+            1.5vw,
+            12px
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    background:
+        rgba(255,255,255,0.045);
+
+    backdrop-filter:
+        blur(15px);
+
+    color: white;
+
+    font-size:
+        clamp(
+            14px,
+            1.8vw,
+            15px
+        );
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+.input-group input::placeholder {
+
+    color: #555d70;
+
+}
+
+
+.input-group input:focus {
+
+    border-color:
+        rgba(150,160,255,0.5);
+
+    background:
+        rgba(255,255,255,0.07);
+
+}
+
+
+/* =========================
+   Login Button
+========================= */
+
+.login-button {
+
+    width: 100%;
+
+    height:
+        clamp(
+            50px,
+            6.5vh,
+            58px
+        );
+
+    margin-top: 5px;
+
+    border-radius:
+        clamp(
+            11px,
+            1.5vw,
+            14px
+        );
+
+    border:
+        1px solid
+        rgba(150,160,255,0.25);
+
+    background:
+        rgba(150,160,255,0.12);
+
+    color: white;
+
+    font-size:
+        clamp(
+            14px,
+            2vw,
+            16px
+        );
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+
+}
+
+
+.login-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(150,160,255,0.2);
+
+    border-color:
+        rgba(150,160,255,0.5);
+
+}
+
+
+/* =========================
+   Login Message
+========================= */
+
+.login-message {
+
+    min-height:
+        clamp(
+            18px,
+            3vh,
+            20px
+        );
+
+    margin-top: 5px;
+
+    text-align: center;
+
+    color: #ff7777;
+
+    font-size:
+        clamp(
+            12px,
+            1.7vw,
+            13px
+        );
+
+}
+
+
+/* =========================
+   Back Button
+========================= */
+
+.login-container .back-button {
+
+    margin-top:
+        clamp(
+            18px,
+            3vh,
+            25px
+        );
+
+}
+
+
+/* =========================
+   Account Link
+========================= */
+
+.account-link {
+
+    margin-top: 5px;
+
+    text-align: center;
+
+    color: #555d70;
+
+    font-size:
+        clamp(
+            12px,
+            1.7vw,
+            13px
+        );
+
+}
+
+
+.account-link button {
+
+    padding: 0;
+
+    border: none;
+
+    background: none;
+
+    color: #9ca8ff;
+
+    font-size:
+        clamp(
+            12px,
+            1.7vw,
+            13px
+        );
+
+    cursor: pointer;
+
+}
+
+
+.account-link button:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================
+   Small Screens
+========================= */
+
+@media (max-width: 480px) {
+
+    .login-container {
+
+        width:
+            calc(100% - 32px);
+
+    }
+
+
+    .login-title {
+
+        margin-bottom: 28px;
+
+    }
+
+
+    .login-title h1 {
+
+        font-size: 38px;
+
+        letter-spacing: -2px;
+
+    }
+
+
+    .login-form {
+
+        gap: 14px;
+
+    }
+
+
+    .input-group input {
+
+        height: 50px;
+
+    }
+
+
+    .login-button {
+
+        height: 52px;
+
+    }
+
+}
+
+
+/* =========================
+   Short Screens
+========================= */
+
+@media (max-height: 650px) {
+
+    .login-title {
+
+        margin-bottom: 20px;
+
+    }
+
+
+    .login-title .description {
+
+        margin-top: 10px;
+
+    }
+
+
+    .login-form {
+
+        gap: 10px;
+
+    }
+
+
+    .input-group {
+
+        gap: 5px;
+
+    }
+
+
+    .input-group input {
+
+        height: 46px;
+
+    }
+
+
+    .login-button {
+
+        height: 48px;
+
+    }
+
+
+    .login-container .back-button {
+
+        margin-top: 15px;
+
+    }
+
+}
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* MainMenu Page */
+
+ css
+/* =========================================================
+   Global
+========================================================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   Body
+========================================================= */
+
+body {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            #292044,
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            #17364a,
+            transparent 35%
+        ),
+
+        #08090d;
+
+    color: white;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow-x: hidden;
+
+    overflow-y: auto;
+
+}
+
+
+/* =========================================================
+   Background Glow
+========================================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: min(500px, 60vw);
+
+    height: min(500px, 60vw);
+
+    border-radius: 50%;
+
+    background: #7048e8;
+
+    opacity: 0.08;
+
+    filter: blur(120px);
+
+    top: -200px;
+
+    left: -150px;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+}
+
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: min(500px, 60vw);
+
+    height: min(500px, 60vw);
+
+    border-radius: 50%;
+
+    background: #1ea7d7;
+
+    opacity: 0.07;
+
+    filter: blur(120px);
+
+    right: -150px;
+
+    bottom: -200px;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+}
+
+
+/* =========================================================
+   Main Menu Container
+========================================================= */
+
+.home-container {
+
+    width: min(
+        700px,
+        calc(100% - 40px)
+    );
+
+    margin:
+
+        clamp(30px, 6vh, 70px)
+        auto;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+
+/* =========================================================
+   User Panel
+========================================================= */
+
+.user-panel {
+
+    position: fixed;
+
+    top:
+        clamp(12px, 2vh, 20px);
+
+    right:
+        clamp(12px, 2vw, 25px);
+
+    display: flex;
+
+    align-items: center;
+
+    gap:
+        clamp(6px, 1vw, 10px);
+
+    font-size:
+        clamp(11px, 1vw, 13px);
+
+    z-index: 100;
+
+}
+
+
+#currentUsername {
+
+    color: #aeb6ca;
+
+    font-weight: 500;
+
+    max-width: 180px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+}
+
+
+.logout-button {
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    border-radius: 7px;
+
+    background:
+        rgba(255,255,255,0.045);
+
+    color: #8d95a8;
+
+    padding:
+        5px 9px;
+
+    font-size:
+        clamp(10px, 0.9vw, 11px);
+
+    cursor: pointer;
+
+    transition:
+
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+
+}
+
+
+.logout-button:hover {
+
+    background:
+        rgba(255,255,255,0.09);
+
+    color: white;
+
+    border-color:
+        rgba(150,160,255,0.3);
+
+}
+
+
+/* =========================================================
+   Title Section
+========================================================= */
+
+.title-section {
+
+    margin-bottom:
+        clamp(30px, 5vh, 55px);
+
+}
+
+
+/* =========================================================
+   Subtitle
+========================================================= */
+
+.subtitle {
+
+    color: #777f95;
+
+    font-size:
+        clamp(9px, 1vw, 12px);
+
+    font-weight: bold;
+
+    letter-spacing:
+        clamp(2px, 0.35vw, 5px);
+
+    margin-bottom:
+        clamp(12px, 2vh, 18px);
+
+}
+
+
+/* =========================================================
+   Main Title
+========================================================= */
+
+.title-section h1 {
+
+    width: 100%;
+
+    font-size:
+        clamp(
+            32px,
+            6vw,
+            78px
+        );
+
+    font-weight: 900;
+
+    letter-spacing:
+        clamp(
+            -3px,
+            -0.25vw,
+            -1px
+        );
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+    overflow: visible;
+
+    background:
+
+        linear-gradient(
+            120deg,
+            #ffffff,
+            #b9c6ff,
+            #ffffff
+        );
+
+    background-size:
+        200% auto;
+
+    color: transparent;
+
+    background-clip: text;
+
+    -webkit-background-clip: text;
+
+    animation:
+        title-shine 5s linear infinite;
+
+}
+
+
+/* =========================================================
+   Title Animation
+========================================================= */
+
+@keyframes title-shine {
+
+    0% {
+
+        background-position:
+            0% center;
+
+    }
+
+    100% {
+
+        background-position:
+            200% center;
+
+    }
+
+}
+
+
+/* =========================================================
+   Description
+========================================================= */
+
+.description {
+
+    margin-top:
+        clamp(14px, 2vh, 22px);
+
+    color: #747c8f;
+
+    font-size:
+        clamp(
+            12px,
+            1.2vw,
+            15px
+        );
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   Button Container
+========================================================= */
+
+.button-container {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap:
+        clamp(10px, 1.5vh, 15px);
+
+}
+
+
+/* =========================================================
+   Menu Button
+========================================================= */
+
+.menu-button {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height:
+        clamp(58px, 7vh, 78px);
+
+    display: grid;
+
+    grid-template-columns:
+
+        clamp(40px, 5vw, 55px)
+
+        minmax(0, 1fr)
+
+        clamp(25px, 4vw, 40px);
+
+    align-items: center;
+
+    padding:
+        0 clamp(
+            14px,
+            2.5vw,
+            25px
+        );
+
+    border-radius:
+        clamp(12px, 1.5vw, 16px);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    background:
+        rgba(255,255,255,0.045);
+
+    backdrop-filter:
+        blur(15px);
+
+    color: white;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    overflow: hidden;
+
+    transition:
+
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+/* =========================================================
+   Button Light Sweep
+========================================================= */
+
+.menu-button::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -100%;
+
+    width: 100%;
+
+    height: 100%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.06),
+            transparent
+        );
+
+    transition:
+        left 0.5s ease;
+
+}
+
+
+.menu-button:hover::before {
+
+    left: 100%;
+
+}
+
+
+/* =========================================================
+   Button Hover
+========================================================= */
+
+.menu-button:hover {
+
+    transform:
+        translateX(
+            clamp(3px, 0.6vw, 8px)
+        );
+
+    border-color:
+        rgba(150,160,255,0.35);
+
+    background:
+        rgba(255,255,255,0.075);
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,0.35);
+
+}
+
+
+/* =========================================================
+   Button Icon
+========================================================= */
+
+.button-icon {
+
+    position: relative;
+
+    z-index: 1;
+
+    width:
+        clamp(28px, 3vw, 34px);
+
+    height:
+        clamp(28px, 3vw, 34px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius:
+        clamp(8px, 1vw, 10px);
+
+    background:
+        rgba(255,255,255,0.07);
+
+    color: #9ca8ff;
+
+    font-size:
+        clamp(18px, 2vw, 22px);
+
+    font-weight: 300;
+
+}
+
+
+/* =========================================================
+   Button Text
+========================================================= */
+
+.button-text {
+
+    position: relative;
+
+    z-index: 1;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size:
+        clamp(
+            14px,
+            1.5vw,
+            19px
+        );
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   Button Arrow
+========================================================= */
+
+.button-arrow {
+
+    position: relative;
+
+    z-index: 1;
+
+    color: #687085;
+
+    font-size:
+        clamp(
+            18px,
+            2vw,
+            24px
+        );
+
+    transition:
+
+        transform 0.25s ease,
+        color 0.25s ease;
+
+}
+
+
+.menu-button:hover .button-arrow {
+
+    transform:
+        translateX(
+            clamp(3px, 0.5vw, 7px)
+        );
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   Delete Button
+========================================================= */
+
+.delete-button .button-icon {
+
+    color: #ff7777;
+
+}
+
+
+.delete-button:hover {
+
+    border-color:
+        rgba(255,100,100,0.3);
+
+}
+
+
+/* =========================================================
+   Footer
+========================================================= */
+
+footer {
+
+    margin-top:
+        clamp(25px, 5vh, 50px);
+
+    color: #414858;
+
+    font-size:
+        clamp(8px, 0.8vw, 10px);
+
+    letter-spacing:
+        clamp(2px, 0.3vw, 4px);
+
+}
+
+
+/* =========================================================
+   Medium Screen
+========================================================= */
+
+@media (
+    max-width: 900px
+) {
+
+    .home-container {
+
+        width:
+            min(
+                650px,
+                calc(100% - 40px)
+            );
+
+    }
+
+
+    .title-section h1 {
+
+        font-size:
+            clamp(
+                34px,
+                7vw,
+                65px
+            );
+
+    }
+
+}
+
+
+/* =========================================================
+   Small Screen
+========================================================= */
+
+@media (
+    max-width: 600px
+) {
+
+    body {
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .home-container {
+
+        width:
+            calc(100% - 30px);
+
+        margin-top:
+            80px;
+
+        margin-bottom:
+            30px;
+
+    }
+
+
+    .title-section {
+
+        margin-bottom:
+            30px;
+
+    }
+
+
+    .title-section h1 {
+
+        font-size:
+            clamp(
+                28px,
+                9vw,
+                48px
+            );
+
+        letter-spacing:
+            -2px;
+
+    }
+
+
+    .description {
+
+        font-size:
+            12px;
+
+    }
+
+
+    .menu-button {
+
+        min-height:
+            64px;
+
+        grid-template-columns:
+            42px minmax(0, 1fr) 30px;
+
+        padding:
+            0 15px;
+
+    }
+
+
+    .button-text {
+
+        font-size:
+            15px;
+
+    }
+
+
+    .button-arrow {
+
+        font-size:
+            20px;
+
+    }
+
+
+    footer {
+
+        margin-top:
+            30px;
+
+    }
+
+}
+
+
+/* =========================================================
+   Very Small Screen
+========================================================= */
+
+@media (
+    max-width: 380px
+) {
+
+    .home-container {
+
+        width:
+            calc(100% - 24px);
+
+    }
+
+
+    .title-section h1 {
+
+        font-size:
+            clamp(
+                25px,
+                9vw,
+                34px
+            );
+
+        letter-spacing:
+            -1.5px;
+
+    }
+
+
+    .subtitle {
+
+        letter-spacing:
+            2px;
+
+    }
+
+
+    .menu-button {
+
+        min-height:
+            58px;
+
+        grid-template-columns:
+            36px minmax(0, 1fr) 25px;
+
+        padding:
+            0 12px;
+
+    }
+
+
+    .button-icon {
+
+        width: 27px;
+
+        height: 27px;
+
+        font-size: 17px;
+
+    }
+
+
+    .button-text {
+
+        font-size:
+            13px;
+
+    }
+
+}
+ 
+
+
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Create Tournament Page */
+
+/* =========================================================
+   CREATE TOURNAMENT PAGE
+========================================================= */
+
+
+/* =========================================================
+   Global
+========================================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   Body
+========================================================= */
+
+body {
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #292044,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            #17364a,
+            transparent 35%
+        ),
+        #08090d;
+
+    color: white;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =========================================================
+   Background Glow
+========================================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 500px;
+
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: #7048e8;
+
+    opacity: 0.08;
+
+    filter: blur(120px);
+
+    top: -200px;
+
+    left: -150px;
+
+    pointer-events: none;
+
+}
+
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 500px;
+
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: #1ea7d7;
+
+    opacity: 0.07;
+
+    filter: blur(120px);
+
+    right: -150px;
+
+    bottom: -200px;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   Main Container
+========================================================= */
+
+.create-container {
+
+    position: relative;
+
+    z-index: 1;
+
+    width: min(
+        850px,
+        calc(100% - 40px)
+    );
+
+    max-height: 96vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    margin: auto;
+
+}
+
+
+/* =========================================================
+   Page Title
+========================================================= */
+
+.create-title {
+
+    width: 100%;
+
+    text-align: center;
+
+    margin-bottom: clamp(
+        22px,
+        4vh,
+        45px
+    );
+
+    flex-shrink: 0;
+
+}
+
+
+/* =========================================================
+   Subtitle
+========================================================= */
+
+.subtitle {
+
+    color: #777f95;
+
+    font-size: clamp(
+        9px,
+        1vw,
+        12px
+    );
+
+    font-weight: bold;
+
+    letter-spacing: clamp(
+        2px,
+        0.5vw,
+        5px
+    );
+
+    margin-bottom: 14px;
+
+}
+
+
+/* =========================================================
+   Title
+========================================================= */
+
+.create-title h1 {
+
+    width: 100%;
+
+    font-size: clamp(
+        34px,
+        5vw,
+        65px
+    );
+
+    font-weight: 900;
+
+    letter-spacing: clamp(
+        -2px,
+        -0.3vw,
+        -4px
+    );
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+    overflow: visible;
+
+    background:
+        linear-gradient(
+            120deg,
+            #ffffff,
+            #b9c6ff,
+            #ffffff
+        );
+
+    background-size: 200% auto;
+
+    color: transparent;
+
+    background-clip: text;
+
+    -webkit-background-clip: text;
+
+    animation:
+        title-shine 5s linear infinite;
+
+}
+
+
+@keyframes title-shine {
+
+    0% {
+
+        background-position:
+            0% center;
+
+    }
+
+    100% {
+
+        background-position:
+            200% center;
+
+    }
+
+}
+
+
+/* =========================================================
+   Description
+========================================================= */
+
+.create-title .description {
+
+    margin-top: 16px;
+
+    color: #747c8f;
+
+    font-size: clamp(
+        12px,
+        1.5vw,
+        15px
+    );
+
+}
+
+
+/* =========================================================
+   Participant Section
+========================================================= */
+
+.participant-section {
+
+    width: 100%;
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+}
+
+
+/* =========================================================
+   Section Header
+========================================================= */
+
+.section-header {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+
+    flex-shrink: 0;
+
+}
+
+
+.section-header h2 {
+
+    color: white;
+
+    font-size: clamp(
+        16px,
+        2vw,
+        20px
+    );
+
+    font-weight: 600;
+
+}
+
+
+.participant-count {
+
+    color: #737b8e;
+
+    font-size: clamp(
+        11px,
+        1.3vw,
+        13px
+    );
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================================
+   Participant ScrollBox
+========================================================= */
+
+.participant-list {
+
+    width: 100%;
+
+    min-width: 0;
+
+    min-height: 0;
+
+    height: clamp(
+        240px,
+        42vh,
+        380px
+    );
+
+    overflow-x: hidden;
+
+    overflow-y: auto;
+
+    padding: 16px;
+
+    border-radius: 18px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.035
+        );
+
+    backdrop-filter:
+        blur(15px);
+
+    -webkit-backdrop-filter:
+        blur(15px);
+
+}
+
+
+/* =========================================================
+   Scrollbar
+========================================================= */
+
+.participant-list::-webkit-scrollbar {
+
+    width: 7px;
+
+}
+
+
+.participant-list::-webkit-scrollbar-track {
+
+    background:
+        transparent;
+
+}
+
+
+.participant-list::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.15
+        );
+
+    border-radius: 10px;
+
+}
+
+
+.participant-list::-webkit-scrollbar-thumb:hover {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.25
+        );
+
+}
+
+
+/* =========================================================
+   Empty List
+========================================================= */
+
+.empty-list {
+
+    width: 100%;
+
+    min-height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #555d70;
+
+    text-align: center;
+
+    padding: 30px;
+
+}
+
+
+/* =========================================================
+   Empty Icon
+========================================================= */
+
+.empty-icon {
+
+    width: 55px;
+
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 18px;
+
+    border-radius: 15px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.04
+        );
+
+    font-size: 28px;
+
+    color: #737dff;
+
+}
+
+
+/* =========================================================
+   Empty Text
+========================================================= */
+
+.empty-list p {
+
+    margin-bottom: 8px;
+
+    color: #8d95a8;
+
+    font-size: 16px;
+
+}
+
+
+.empty-list span:last-child {
+
+    color: #555d70;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   Participant List Item
+========================================================= */
+
+.list-item {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    min-width: 0;
+
+    min-height: 72px;
+
+    display: grid;
+
+    grid-template-columns:
+        45px
+        minmax(0, 1fr)
+        35px;
+
+    align-items: center;
+
+    padding:
+        12px
+        16px;
+
+    margin-bottom: 10px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.06
+        );
+
+    border-radius: 14px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.035
+        );
+
+    color: white;
+
+    text-align: left;
+
+    cursor: grab;
+
+    user-select: none;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+
+}
+
+
+.list-item:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+/* =========================================================
+   List Item Hover
+========================================================= */
+
+.list-item:hover {
+
+    transform:
+        translateX(
+            min(6px, 1vw)
+        );
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.075
+        );
+
+    border-color:
+        rgba(
+            150,
+            160,
+            255,
+            0.3
+        );
+
+}
+
+
+/* =========================================================
+   Dragging
+========================================================= */
+
+.list-item:active {
+
+    cursor: grabbing;
+
+}
+
+
+.list-item.dragging {
+
+    opacity: 0.35;
+
+    transform:
+        scale(0.98);
+
+}
+
+
+.list-item.drag-over {
+
+    border-color:
+        rgba(
+            150,
+            160,
+            255,
+            0.6
+        );
+
+    background:
+        rgba(
+            120,
+            130,
+            255,
+            0.12
+        );
+
+    transform:
+        translateX(
+            min(6px, 1vw)
+        );
+
+}
+
+
+/* =========================================================
+   List Number
+========================================================= */
+
+.list-number {
+
+    min-width: 0;
+
+    color: #687085;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================================================
+   List Information
+========================================================= */
+
+.list-information {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================================
+   List Name
+========================================================= */
+
+.list-name {
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    color: white;
+
+    font-size: clamp(
+        14px,
+        1.7vw,
+        17px
+    );
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   List Description
+========================================================= */
+
+.list-description {
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    color: #697286;
+
+    font-size: clamp(
+        10px,
+        1.2vw,
+        12px
+    );
+
+}
+
+
+/* =========================================================
+   List Arrow
+========================================================= */
+
+.list-arrow {
+
+    min-width: 0;
+
+    color: #697286;
+
+    font-size: 20px;
+
+    text-align: center;
+
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.list-item:hover .list-arrow {
+
+    color: white;
+
+    transform:
+        translateX(5px);
+
+}
+
+
+/* =========================================================
+   Controls
+========================================================= */
+
+.participant-controls {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 12px;
+
+    margin-top: 15px;
+
+    flex-shrink: 0;
+
+}
+
+
+/* =========================================================
+   Action Button
+========================================================= */
+
+.action-button {
+
+    width: 100%;
+
+    min-width: 0;
+
+    height: clamp(
+        50px,
+        6vh,
+        60px
+    );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding:
+        0 15px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    border-radius: 14px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.045
+        );
+
+    color: white;
+
+    font-size: clamp(
+        12px,
+        1.4vw,
+        15px
+    );
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+
+}
+
+
+.action-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    border-color:
+        rgba(
+            150,
+            160,
+            255,
+            0.3
+        );
+
+}
+
+
+/* =========================================================
+   Action Icon
+========================================================= */
+
+.action-icon {
+
+    flex-shrink: 0;
+
+    font-size: 20px;
+
+    color: #9ca8ff;
+
+}
+
+
+/* =========================================================
+   Delete Button
+========================================================= */
+
+.delete-button .action-icon {
+
+    color: #ff7777;
+
+}
+
+
+.delete-button:hover {
+
+    border-color:
+        rgba(
+            255,
+            100,
+            100,
+            0.3
+        );
+
+}
+
+
+/* =========================================================
+   Create Tournament Button
+========================================================= */
+
+.create-tournament-button {
+
+    width: 100%;
+
+    min-width: 0;
+
+    height: clamp(
+        58px,
+        7vh,
+        70px
+    );
+
+    margin-top: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding:
+        0 clamp(
+            18px,
+            3vw,
+            28px
+        );
+
+    border: none;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #6255e8,
+            #4568d9
+        );
+
+    color: white;
+
+    font-size: clamp(
+        14px,
+        1.7vw,
+        18px
+    );
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0
+        10px
+        30px
+        rgba(
+            70,
+            80,
+            220,
+            0.2
+        );
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.create-tournament-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0
+        15px
+        40px
+        rgba(
+            70,
+            80,
+            220,
+            0.35
+        );
+
+}
+
+
+.create-tournament-button span:last-child {
+
+    flex-shrink: 0;
+
+    margin-left: 15px;
+
+    font-size: clamp(
+        20px,
+        2.5vw,
+        25px
+    );
+
+}
+
+
+/* =========================================================
+   Back Button
+========================================================= */
+
+.back-button {
+
+    width: 100%;
+
+    height: 48px;
+
+    margin-top: 6px;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #6f778a;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.back-button:hover {
+
+    color: white;
+
+    transform:
+        translateX(-4px);
+
+}
+
+
+/* =========================================================
+   Medium Screen
+========================================================= */
+
+@media (
+    max-height: 800px
+) {
+
+    .create-container {
+
+        max-height: 94vh;
+
+    }
+
+
+    .create-title {
+
+        margin-bottom: 20px;
+
+    }
+
+
+    .create-title .description {
+
+        margin-top: 10px;
+
+    }
+
+
+    .participant-list {
+
+        height: 34vh;
+
+    }
+
+
+    .action-button {
+
+        height: 50px;
+
+    }
+
+
+    .create-tournament-button {
+
+        height: 58px;
+
+    }
+
+
+    .back-button {
+
+        height: 42px;
+
+    }
+
+}
+
+
+/* =========================================================
+   Small Desktop / Tablet
+========================================================= */
+
+@media (
+    max-width: 700px
+) {
+
+    .create-container {
+
+        width:
+            calc(
+                100% - 30px
+            );
+
+    }
+
+
+    .create-title h1 {
+
+        font-size:
+            clamp(
+                32px,
+                7vw,
+                52px
+            );
+
+    }
+
+
+    .participant-list {
+
+        height:
+            clamp(
+                220px,
+                40vh,
+                340px
+            );
+
+        padding: 12px;
+
+    }
+
+
+    .list-item {
+
+        grid-template-columns:
+            40px
+            minmax(0, 1fr)
+            30px;
+
+        padding:
+            10px
+            12px;
+
+    }
+
+}
+
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (
+    max-width: 600px
+) {
+
+    body {
+
+        align-items:
+            flex-start;
+
+        overflow-y: auto;
+
+    }
+
+
+    .create-container {
+
+        width:
+            calc(
+                100% - 24px
+            );
+
+        max-height: none;
+
+        margin:
+            25px auto;
+
+    }
+
+
+    .create-title {
+
+        margin-bottom: 20px;
+
+    }
+
+
+    .create-title h1 {
+
+        font-size:
+            clamp(
+                28px,
+                9vw,
+                44px
+            );
+
+        letter-spacing: -1px;
+
+    }
+
+
+    .create-title .description {
+
+        max-width: 90%;
+
+        margin:
+            12px auto 0;
+
+        line-height: 1.5;
+
+    }
+
+
+    .section-header {
+
+        margin-bottom: 10px;
+
+    }
+
+
+    .section-header h2 {
+
+        font-size: 17px;
+
+    }
+
+
+    .participant-list {
+
+        height:
+            40vh;
+
+        min-height: 220px;
+
+        max-height: 330px;
+
+        padding: 10px;
+
+        border-radius: 15px;
+
+    }
+
+
+    .list-item {
+
+        min-height: 66px;
+
+        grid-template-columns:
+            32px
+            minmax(0, 1fr)
+            25px;
+
+        padding:
+            8px
+            10px;
+
+        margin-bottom: 8px;
+
+        border-radius: 12px;
+
+    }
+
+
+    .list-number {
+
+        font-size: 11px;
+
+    }
+
+
+    .list-name {
+
+        font-size: 14px;
+
+    }
+
+
+    .list-description {
+
+        font-size: 10px;
+
+    }
+
+
+    .list-arrow {
+
+        font-size: 18px;
+
+    }
+
+
+    .participant-controls {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 10px;
+
+        margin-top: 12px;
+
+    }
+
+
+    .action-button {
+
+        height: 52px;
+
+        border-radius: 12px;
+
+    }
+
+
+    .create-tournament-button {
+
+        height: 58px;
+
+        margin-top: 12px;
+
+        border-radius: 14px;
+
+    }
+
+
+    .back-button {
+
+        height: 45px;
+
+        margin-top: 4px;
+
+    }
+
+}
+
+
+/* =========================================================
+   Very Small Mobile
+========================================================= */
+
+@media (
+    max-width: 380px
+) {
+
+    .create-container {
+
+        width:
+            calc(
+                100% - 18px
+            );
+
+    }
+
+
+    .create-title h1 {
+
+        font-size:
+            27px;
+
+    }
+
+
+    .subtitle {
+
+        letter-spacing:
+            2px;
+
+    }
+
+
+    .participant-list {
+
+        height:
+            38vh;
+
+        min-height:
+            200px;
+
+    }
+
+
+    .list-item {
+
+        grid-template-columns:
+            28px
+            minmax(0, 1fr)
+            22px;
+
+        padding:
+            8px;
+
+    }
+
+
+    .list-name {
+
+        font-size:
+            13px;
+
+    }
+
+
+    .create-tournament-button {
+
+        font-size:
+            14px;
+
+    }
+
+}
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Delete Tournament list Page */
+
+/* =========================================================
+   Delete Tournament List Page
+========================================================= */
+
+
+/* =========================================================
+   Delete List Item
+========================================================= */
+
+.delete-list-item {
+
+    width:
+        100%;
+
+    max-width:
+        100%;
+
+    min-width:
+        0;
+
+    min-height:
+        82px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        clamp(40px, 7vw, 55px)
+        minmax(0, 1fr)
+        clamp(36px, 5vw, 42px);
+
+    align-items:
+        center;
+
+    padding:
+        0
+        clamp(14px, 3vw, 20px);
+
+    box-sizing:
+        border-box;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.06
+        );
+
+    border-radius:
+        14px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.035
+        );
+
+    backdrop-filter:
+        blur(15px);
+
+    color:
+        white;
+
+    text-align:
+        left;
+
+    cursor:
+        default;
+
+    overflow:
+        hidden;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+
+}
+
+
+/* =========================================================
+   Delete List Item Hover
+========================================================= */
+
+.delete-list-item:hover {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.055
+        );
+
+    border-color:
+        rgba(
+            255,
+            255,
+            255,
+            0.1
+        );
+
+}
+
+
+/* =========================================================
+   Delete List Number
+========================================================= */
+
+.delete-list-item .list-number {
+
+    min-width:
+        0;
+
+    color:
+        #687085;
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+}
+
+
+/* =========================================================
+   Delete List Information
+========================================================= */
+
+.delete-list-item .list-information {
+
+    min-width:
+        0;
+
+    width:
+        100%;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        5px;
+
+    overflow:
+        hidden;
+
+}
+
+
+/* =========================================================
+   Delete List Name
+========================================================= */
+
+.delete-list-item .list-name {
+
+    min-width:
+        0;
+
+    max-width:
+        100%;
+
+    color:
+        #ffffff;
+
+    font-size:
+        clamp(
+            15px,
+            2vw,
+            17px
+        );
+
+    font-weight:
+        600;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+}
+
+
+/* =========================================================
+   Delete List Description
+========================================================= */
+
+.delete-list-item .list-description {
+
+    min-width:
+        0;
+
+    max-width:
+        100%;
+
+    color:
+        #697286;
+
+    font-size:
+        12px;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+}
+
+
+/* =========================================================
+   Delete Button
+========================================================= */
+
+.delete-list-button {
+
+    width:
+        clamp(
+            32px,
+            5vw,
+            36px
+        );
+
+    height:
+        clamp(
+            32px,
+            5vw,
+            36px
+        );
+
+    max-width:
+        100%;
+
+    flex-shrink:
+        0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    box-sizing:
+        border-box;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.035
+        );
+
+    color:
+        #697286;
+
+    font-size:
+        21px;
+
+    font-weight:
+        400;
+
+    line-height:
+        1;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+/* =========================================================
+   Delete Button Hover
+========================================================= */
+
+.delete-list-button:hover {
+
+    background:
+        rgba(
+            220,
+            70,
+            90,
+            0.15
+        );
+
+    border-color:
+        rgba(
+            220,
+            90,
+            110,
+            0.35
+        );
+
+    color:
+        #ff7185;
+
+    transform:
+        scale(
+            1.08
+        );
+
+}
+
+
+/* =========================================================
+   Empty List
+========================================================= */
+
+.empty-list-message {
+
+    width:
+        100%;
+
+    max-width:
+        100%;
+
+    min-width:
+        0;
+
+    min-height:
+        100px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    box-sizing:
+        border-box;
+
+    padding:
+        20px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.06
+        );
+
+    border-radius:
+        14px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.025
+        );
+
+    color:
+        #697286;
+
+    font-size:
+        14px;
+
+    text-align:
+        center;
+
+    overflow:
+        hidden;
+
+}
+
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .delete-list-item {
+
+        min-height:
+            72px;
+
+        grid-template-columns:
+            40px
+            minmax(0, 1fr)
+            36px;
+
+        padding-left:
+            14px;
+
+        padding-right:
+            14px;
+
+        border-radius:
+            12px;
+
+    }
+
+
+    .delete-list-item .list-number {
+
+        font-size:
+            12px;
+
+    }
+
+
+    .delete-list-item .list-name {
+
+        font-size:
+            15px;
+
+    }
+
+
+    .delete-list-item .list-description {
+
+        font-size:
+            11px;
+
+    }
+
+
+    .delete-list-button {
+
+        width:
+            34px;
+
+        height:
+            34px;
+
+        font-size:
+            20px;
+
+    }
+
+}
+
+
+/* =========================================================
+   Very Small Screen
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .delete-list-item {
+
+        min-height:
+            68px;
+
+        grid-template-columns:
+            32px
+            minmax(0, 1fr)
+            32px;
+
+        padding-left:
+            10px;
+
+        padding-right:
+            10px;
+
+    }
+
+
+    .delete-list-item .list-name {
+
+        font-size:
+            14px;
+
+    }
+
+
+    .delete-list-item .list-description {
+
+        font-size:
+            10px;
+
+    }
+
+
+    .delete-list-button {
+
+        width:
+            32px;
+
+        height:
+            32px;
+
+        font-size:
+            18px;
+
+    }
+
+}
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Upload Tournament Page */
+
+ css
+/* =========================================================
+   UPLOAD PARTICIPANT LIST
+========================================================= */
+
+
+/* =========================================================
+   SAVED TOURNAMENT LIST
+========================================================= */
+
+#saveDataList {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    height: 420px;
+
+    min-width: 0;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    box-sizing: border-box;
+
+    padding:
+        8px 6px 8px 0;
+
+}
+
+
+/* =========================================================
+   SAVED TOURNAMENT LIST ITEM
+========================================================= */
+
+#saveDataList .list-item {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    min-width: 0;
+
+    min-height: 82px;
+
+    display: grid;
+
+    grid-template-columns:
+        55px
+        minmax(0, 1fr)
+        40px;
+
+    align-items: center;
+
+    padding:
+        0 20px;
+
+    margin-bottom: 12px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.06
+        );
+
+    border-radius: 14px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.035
+        );
+
+    color: white;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+
+}
+
+
+/* =========================================================
+   LAST ITEM
+========================================================= */
+
+#saveDataList .list-item:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+#saveDataList .list-item:hover {
+
+    transform:
+        translateX(4px);
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.075
+        );
+
+    border-color:
+        rgba(
+            150,
+            160,
+            255,
+            0.3
+        );
+
+}
+
+
+/* =========================================================
+   LIST NUMBER
+========================================================= */
+
+#saveDataList .list-number {
+
+    min-width: 0;
+
+    color:
+        #687085;
+
+    font-size:
+        13px;
+
+    font-weight:
+        bold;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================================
+   LIST INFORMATION
+========================================================= */
+
+#saveDataList .list-information {
+
+    min-width: 0;
+
+    max-width: 100%;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        5px;
+
+    overflow:
+        hidden;
+
+}
+
+
+/* =========================================================
+   LIST NAME
+========================================================= */
+
+#saveDataList .list-name {
+
+    width: 100%;
+
+    min-width: 0;
+
+    max-width: 100%;
+
+    font-size:
+        17px;
+
+    font-weight:
+        600;
+
+    color:
+        #ffffff;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+}
+
+
+/* =========================================================
+   LIST DESCRIPTION
+========================================================= */
+
+#saveDataList .list-description {
+
+    width: 100%;
+
+    min-width: 0;
+
+    max-width: 100%;
+
+    color:
+        #697286;
+
+    font-size:
+        12px;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+}
+
+
+/* =========================================================
+   LIST ARROW
+========================================================= */
+
+#saveDataList .list-arrow {
+
+    width: 40px;
+
+    max-width: 100%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        #697286;
+
+    font-size:
+        22px;
+
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+/* =========================================================
+   ARROW HOVER
+========================================================= */
+
+#saveDataList .list-item:hover .list-arrow {
+
+    color:
+        white;
+
+    transform:
+        translateX(4px);
+
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+#saveDataList::-webkit-scrollbar {
+
+    width:
+        7px;
+
+}
+
+
+#saveDataList::-webkit-scrollbar-track {
+
+    background:
+        transparent;
+
+}
+
+
+#saveDataList::-webkit-scrollbar-thumb {
+
+    background:
+        #30384a;
+
+    border-radius:
+        10px;
+
+}
+
+
+#saveDataList::-webkit-scrollbar-thumb:hover {
+
+    background:
+        #465264;
+
+}
+
+
+/* =========================================================
+   EMPTY LIST
+========================================================= */
+
+#saveDataList:empty {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    #saveDataList {
+
+        height:
+            380px;
+
+    }
+
+
+    #saveDataList .list-item {
+
+        grid-template-columns:
+            45px
+            minmax(0, 1fr)
+            38px;
+
+        padding:
+            0 16px;
+
+    }
+
+
+    #saveDataList .list-arrow {
+
+        width:
+            38px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    #saveDataList {
+
+        height:
+            300px;
+
+        padding-right:
+            5px;
+
+    }
+
+
+    #saveDataList .list-item {
+
+        min-height:
+            72px;
+
+        grid-template-columns:
+            38px
+            minmax(0, 1fr)
+            34px;
+
+        padding:
+            0 12px;
+
+        margin-bottom:
+            10px;
+
+        border-radius:
+            12px;
+
+    }
+
+
+    #saveDataList .list-number {
+
+        font-size:
+            12px;
+
+    }
+
+
+    #saveDataList .list-name {
+
+        font-size:
+            15px;
+
+    }
+
+
+    #saveDataList .list-description {
+
+        font-size:
+            11px;
+
+    }
+
+
+    #saveDataList .list-arrow {
+
+        width:
+            34px;
+
+        font-size:
+            20px;
+
+    }
+
+
+    #saveDataList .list-item:hover {
+
+        transform:
+            translateX(2px);
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    #saveDataList {
+
+        height:
+            280px;
+
+    }
+
+
+    #saveDataList .list-item {
+
+        min-height:
+            66px;
+
+        grid-template-columns:
+            30px
+            minmax(0, 1fr)
+            30px;
+
+        padding:
+            0 9px;
+
+        border-radius:
+            10px;
+
+    }
+
+
+    #saveDataList .list-name {
+
+        font-size:
+            14px;
+
+    }
+
+
+    #saveDataList .list-description {
+
+        font-size:
+            10px;
+
+    }
+
+
+    #saveDataList .list-arrow {
+
+        width:
+            30px;
+
+        font-size:
+            18px;
+
+    }
+
+}
+ 
+
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Create Own Tournament Page */
+
+ css
+/* =========================================================
+   Create Own Tournament
+========================================================= */
+
+.own-container {
+
+    width:
+        min(
+            650px,
+            calc(100% - 40px)
+        );
+
+    max-width:
+        650px;
+
+    min-width:
+        0;
+
+    margin:
+        0 auto;
+
+    padding-top:
+        clamp(
+            40px,
+            8vh,
+            80px
+        );
+
+    padding-bottom:
+        50px;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* =========================================================
+   Title
+========================================================= */
+
+.own-title {
+
+    width:
+        100%;
+
+    min-width:
+        0;
+
+    text-align:
+        center;
+
+    margin-bottom:
+        clamp(
+            30px,
+            6vh,
+            55px
+        );
+
+}
+
+
+.own-title h1 {
+
+    width:
+        100%;
+
+    min-width:
+        0;
+
+    font-size:
+        clamp(
+            36px,
+            6vw,
+            65px
+        );
+
+    line-height:
+        1.05;
+
+    overflow-wrap:
+        break-word;
+
+}
+
+
+.own-title .description {
+
+    margin-top:
+        18px;
+
+    font-size:
+        clamp(
+            13px,
+            2vw,
+            15px
+        );
+
+}
+
+
+/* =========================================================
+   Own Section
+========================================================= */
+
+.own-section {
+
+    width:
+        100%;
+
+    min-width:
+        0;
+
+    margin-bottom:
+        30px;
+
+}
+
+
+.own-section label {
+
+    display:
+        block;
+
+    margin-bottom:
+        12px;
+
+    color:
+        #9aa2b5;
+
+    font-size:
+        14px;
+
+    font-weight:
+        600;
+
+}
+
+
+/* =========================================================
+   Tournament Name
+========================================================= */
+
+.tournament-name-input {
+
+    width:
+        100%;
+
+    max-width:
+        100%;
+
+    min-width:
+        0;
+
+    height:
+        65px;
+
+    padding:
+        0 20px;
+
+    box-sizing:
+        border-box;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    border-radius:
+        14px;
+
+    outline:
+        none;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.045
+        );
+
+    backdrop-filter:
+        blur(15px);
+
+    color:
+        white;
+
+    font-size:
+        16px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+.tournament-name-input::placeholder {
+
+    color:
+        #596174;
+
+}
+
+
+.tournament-name-input:focus {
+
+    border-color:
+        rgba(
+            140,
+            150,
+            255,
+            0.5
+        );
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.065
+        );
+
+}
+
+
+/* =========================================================
+   Participant Number
+========================================================= */
+
+.participant-number-selector {
+
+    width:
+        100%;
+
+    max-width:
+        100%;
+
+    min-width:
+        0;
+
+    height:
+        65px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        65px
+        minmax(0, 1fr)
+        65px;
+
+    align-items:
+        center;
+
+    box-sizing:
+        border-box;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    border-radius:
+        14px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.045
+        );
+
+    backdrop-filter:
+        blur(15px);
+
+    overflow:
+        hidden;
+
+}
+
+
+/* =========================================================
+   Number Button
+========================================================= */
+
+.number-button {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    min-width:
+        0;
+
+    border:
+        none;
+
+    background:
+        transparent;
+
+    color:
+        #8e96aa;
+
+    font-size:
+        25px;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.number-button:hover {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    color:
+        white;
+
+}
+
+
+/* =========================================================
+   Participant Number
+========================================================= */
+
+.participant-number {
+
+    min-width:
+        0;
+
+    text-align:
+        center;
+
+    font-size:
+        clamp(
+            20px,
+            4vw,
+            22px
+        );
+
+    font-weight:
+        700;
+
+    color:
+        white;
+
+}
+
+
+/* =========================================================
+   Submit
+========================================================= */
+
+.submit-button {
+
+    width:
+        100%;
+
+    max-width:
+        100%;
+
+    min-width:
+        0;
+
+    height:
+        68px;
+
+    margin-top:
+        15px;
+
+    padding:
+        0 25px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    box-sizing:
+        border-box;
+
+    border:
+        none;
+
+    border-radius:
+        15px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #6255e8,
+            #4568d9
+        );
+
+    color:
+        white;
+
+    font-size:
+        clamp(
+            15px,
+            3vw,
+            18px
+        );
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 10px 30px
+        rgba(
+            70,
+            80,
+            220,
+            0.2
+        );
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.submit-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 15px 40px
+        rgba(
+            70,
+            80,
+            220,
+            0.35
+        );
+
+}
+
+
+.submit-button span {
+
+    min-width:
+        0;
+
+    font-size:
+        25px;
+
+}
+
+
+/* =========================================================
+   Cancel
+========================================================= */
+
+.cancel-button {
+
+    width:
+        100%;
+
+    max-width:
+        100%;
+
+    height:
+        55px;
+
+    margin-top:
+        10px;
+
+    border:
+        none;
+
+    background:
+        transparent;
+
+    color:
+        #6f778a;
+
+    font-size:
+        14px;
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.cancel-button:hover {
+
+    color:
+        white;
+
+    transform:
+        translateX(-4px);
+
+}
+
+
+/* =========================================================
+   Tablet
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .own-container {
+
+        width:
+            calc(100% - 40px);
+
+        padding-top:
+            50px;
+
+    }
+
+
+    .own-title {
+
+        margin-bottom:
+            40px;
+
+    }
+
+}
+
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .own-container {
+
+        width:
+            calc(100% - 30px);
+
+        padding-top:
+            35px;
+
+        padding-bottom:
+            35px;
+
+    }
+
+
+    .own-title {
+
+        margin-bottom:
+            32px;
+
+    }
+
+
+    .own-title h1 {
+
+        font-size:
+            clamp(
+                32px,
+                10vw,
+                48px
+            );
+
+    }
+
+
+    .own-title .description {
+
+        margin-top:
+            14px;
+
+        font-size:
+            13px;
+
+        line-height:
+            1.5;
+
+    }
+
+
+    .own-section {
+
+        margin-bottom:
+            24px;
+
+    }
+
+
+    .own-section label {
+
+        font-size:
+            13px;
+
+    }
+
+
+    .tournament-name-input {
+
+        height:
+            58px;
+
+        padding:
+            0 16px;
+
+        font-size:
+            15px;
+
+        border-radius:
+            12px;
+
+    }
+
+
+    .participant-number-selector {
+
+        height:
+            58px;
+
+        grid-template-columns:
+            55px
+            minmax(0, 1fr)
+            55px;
+
+        border-radius:
+            12px;
+
+    }
+
+
+    .number-button {
+
+        font-size:
+            22px;
+
+    }
+
+
+    .participant-number {
+
+        font-size:
+            20px;
+
+    }
+
+
+    .submit-button {
+
+        height:
+            60px;
+
+        padding:
+            0 18px;
+
+        border-radius:
+            13px;
+
+        font-size:
+            16px;
+
+    }
+
+
+    .submit-button span {
+
+        font-size:
+            22px;
+
+    }
+
+
+    .cancel-button {
+
+        height:
+            50px;
+
+        font-size:
+            13px;
+
+    }
+
+}
+
+
+/* =========================================================
+   Small Mobile
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .own-container {
+
+        width:
+            calc(100% - 24px);
+
+        padding-top:
+            25px;
+
+    }
+
+
+    .own-title {
+
+        margin-bottom:
+            28px;
+
+    }
+
+
+    .own-title h1 {
+
+        font-size:
+            30px;
+
+    }
+
+
+    .own-title .description {
+
+        font-size:
+            12px;
+
+    }
+
+
+    .tournament-name-input {
+
+        height:
+            54px;
+
+        padding:
+            0 14px;
+
+        font-size:
+            14px;
+
+    }
+
+
+    .participant-number-selector {
+
+        height:
+            54px;
+
+        grid-template-columns:
+            48px
+            minmax(0, 1fr)
+            48px;
+
+    }
+
+
+    .number-button {
+
+        font-size:
+            20px;
+
+    }
+
+
+    .participant-number {
+
+        font-size:
+            18px;
+
+    }
+
+
+    .submit-button {
+
+        height:
+            56px;
+
+        padding:
+            0 15px;
+
+        font-size:
+            15px;
+
+    }
+
+
+    .submit-button span {
+
+        font-size:
+            20px;
+
+    }
+
+}
+
+
+/* =========================================================
+   Short Screen
+========================================================= */
+
+@media (max-height: 650px) {
+
+    .own-container {
+
+        padding-top:
+            25px;
+
+        padding-bottom:
+            25px;
+
+    }
+
+
+    .own-title {
+
+        margin-bottom:
+            25px;
+
+    }
+
+
+    .own-section {
+
+        margin-bottom:
+            20px;
+
+    }
+
+
+    .tournament-name-input {
+
+        height:
+            55px;
+
+    }
+
+
+    .participant-number-selector {
+
+        height:
+            55px;
+
+    }
+
+
+    .submit-button {
+
+        height:
+            58px;
+
+    }
+
+}
+ 
+
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Load Tournament Page */
+
+/* =========================================================
+   Load Tournament
+========================================================= */
+
+.load-container {
+
+    width:
+        min(850px, 92%);
+
+    min-height:
+        100vh;
+
+    margin:
+        auto;
+
+    padding:
+        clamp(40px, 7vh, 80px)
+        0
+        clamp(30px, 6vh, 60px);
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* =========================================================
+   Load Title
+========================================================= */
+
+.load-title {
+
+    width:
+        100%;
+
+    text-align:
+        center;
+
+    margin-bottom:
+        clamp(30px, 5vh, 45px);
+
+}
+
+
+.load-title h1 {
+
+    font-size:
+        clamp(
+            38px,
+            6vw,
+            65px
+        );
+
+    line-height:
+        1.05;
+
+}
+
+
+.load-title .description {
+
+    margin-top:
+        18px;
+
+}
+
+
+/* =========================================================
+   Load Section
+========================================================= */
+
+.load-section {
+
+    width:
+        min(700px, 100%);
+
+}
+
+
+.load-section .section-header {
+
+    width:
+        100%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    margin-bottom:
+        12px;
+
+}
+
+
+.load-section h2 {
+
+    margin:
+        0;
+
+    color:
+        white;
+
+    font-size:
+        clamp(
+            18px,
+            2vw,
+            21px
+        );
+
+    font-weight:
+        600;
+
+}
+
+
+.load-section .participant-count {
+
+    color:
+        #737b8e;
+
+    font-size:
+        13px;
+
+}
+
+
+/* =========================================================
+   Tournament List
+========================================================= */
+
+.tournament-list {
+
+    width:
+        100%;
+
+    height:
+        clamp(
+            280px,
+            45vh,
+            420px
+        );
+
+    max-height:
+        420px;
+
+    overflow-y:
+        auto;
+
+    overflow-x:
+        hidden;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        12px;
+
+    padding:
+        5px;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* =========================================================
+   Scrollbar
+========================================================= */
+
+.tournament-list::-webkit-scrollbar {
+
+    width:
+        7px;
+
+}
+
+
+.tournament-list::-webkit-scrollbar-track {
+
+    background:
+        transparent;
+
+}
+
+
+.tournament-list::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.14
+        );
+
+    border-radius:
+        10px;
+
+}
+
+
+.tournament-list::-webkit-scrollbar-thumb:hover {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.24
+        );
+
+}
+
+
+/* =========================================================
+   Tournament List Item
+========================================================= */
+
+.tournament-list-item {
+
+    width:
+        100%;
+
+    min-height:
+        82px;
+
+    flex:
+        0 0 auto;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        clamp(40px, 7vw, 55px)
+        minmax(0, 1fr)
+        clamp(30px, 5vw, 40px);
+
+    align-items:
+        center;
+
+    padding:
+        0
+        clamp(14px, 3vw, 20px);
+
+    box-sizing:
+        border-box;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.06
+        );
+
+    border-radius:
+        14px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.035
+        );
+
+    backdrop-filter:
+        blur(15px);
+
+    color:
+        white;
+
+    text-align:
+        left;
+
+    cursor:
+        grab;
+
+    user-select:
+        none;
+
+    overflow:
+        hidden;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+/* =========================================================
+   Hover
+========================================================= */
+
+.tournament-list-item:hover {
+
+    transform:
+        translateX(6px);
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.075
+        );
+
+    border-color:
+        rgba(
+            150,
+            160,
+            255,
+            0.3
+        );
+
+    box-shadow:
+        0
+        10px
+        25px
+        rgba(
+            0,
+            0,
+            0,
+            0.18
+        );
+
+}
+
+
+/* =========================================================
+   Number
+========================================================= */
+
+.tournament-number {
+
+    width:
+        100%;
+
+    color:
+        #687085;
+
+    font-size:
+        13px;
+
+    font-weight:
+        bold;
+
+}
+
+
+/* =========================================================
+   Information
+========================================================= */
+
+.tournament-information {
+
+    min-width:
+        0;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        5px;
+
+}
+
+
+/* =========================================================
+   Tournament Name
+========================================================= */
+
+.tournament-name {
+
+    min-width:
+        0;
+
+    color:
+        #ffffff;
+
+    font-size:
+        clamp(
+            15px,
+            2vw,
+            17px
+        );
+
+    font-weight:
+        600;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+}
+
+
+/* =========================================================
+   Participants
+========================================================= */
+
+.tournament-participants {
+
+    color:
+        #697286;
+
+    font-size:
+        12px;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+}
+
+
+/* =========================================================
+   Arrow
+========================================================= */
+
+.tournament-arrow {
+
+    width:
+        100%;
+
+    color:
+        #697286;
+
+    font-size:
+        22px;
+
+    text-align:
+        center;
+
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.tournament-list-item:hover
+.tournament-arrow {
+
+    color:
+        white;
+
+    transform:
+        translateX(5px);
+
+}
+
+
+/* =========================================================
+   Drag & Drop
+========================================================= */
+
+.tournament-list-item:active {
+
+    cursor:
+        grabbing;
+
+}
+
+
+.tournament-list-item.dragging {
+
+    opacity:
+        0.35;
+
+    transform:
+        scale(
+            0.98
+        );
+
+}
+
+
+.tournament-list-item.drag-over {
+
+    border-color:
+        rgba(
+            150,
+            160,
+            255,
+            0.6
+        );
+
+    background:
+        rgba(
+            120,
+            130,
+            255,
+            0.12
+        );
+
+    transform:
+        translateX(6px);
+
+}
+
+
+/* =========================================================
+   Empty List
+========================================================= */
+
+.tournament-list:empty {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+}
+
+
+.tournament-list:empty::before {
+
+    content:
+        "No saved tournaments.";
+
+    width:
+        100%;
+
+    min-height:
+        100px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    box-sizing:
+        border-box;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.06
+        );
+
+    border-radius:
+        14px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.025
+        );
+
+    color:
+        #697286;
+
+    font-size:
+        14px;
+
+}
+
+
+/* =========================================================
+   Go Back
+========================================================= */
+
+.load-container .back-button {
+
+    width:
+        min(700px, 100%);
+
+    margin-top:
+        25px;
+
+}
+
+
+/* =========================================================
+   Tablet
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .load-container {
+
+        width:
+            90%;
+
+        justify-content:
+            flex-start;
+
+        padding-top:
+            55px;
+
+    }
+
+
+    .load-title {
+
+        margin-bottom:
+            30px;
+
+    }
+
+
+    .tournament-list {
+
+        height:
+            45vh;
+
+    }
+
+}
+
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .load-container {
+
+        width:
+            90%;
+
+        padding-top:
+            40px;
+
+        padding-bottom:
+            35px;
+
+    }
+
+
+    .load-title h1 {
+
+        font-size:
+            clamp(
+                34px,
+                10vw,
+                48px
+            );
+
+        letter-spacing:
+            -1.5px;
+
+    }
+
+
+    .load-title .description {
+
+        font-size:
+            13px;
+
+    }
+
+
+    .load-section h2 {
+
+        font-size:
+            18px;
+
+    }
+
+
+    .tournament-list {
+
+        height:
+            38vh;
+
+        min-height:
+            240px;
+
+        max-height:
+            350px;
+
+        gap:
+            10px;
+
+        padding:
+            4px;
+
+    }
+
+
+    .tournament-list-item {
+
+        min-height:
+            72px;
+
+        grid-template-columns:
+            38px
+            minmax(0, 1fr)
+            30px;
+
+        padding:
+            0 14px;
+
+        border-radius:
+            12px;
+
+    }
+
+
+    .tournament-number {
+
+        font-size:
+            12px;
+
+    }
+
+
+    .tournament-name {
+
+        font-size:
+            15px;
+
+    }
+
+
+    .tournament-participants {
+
+        font-size:
+            11px;
+
+    }
+
+
+    .tournament-arrow {
+
+        font-size:
+            20px;
+
+    }
+
+
+    .load-container .back-button {
+
+        margin-top:
+            18px;
+
+    }
+
+}
+
+
+/* =========================================================
+   Very Small Mobile
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .load-container {
+
+        width:
+            92%;
+
+        padding-top:
+            30px;
+
+    }
+
+
+    .load-title h1 {
+
+        font-size:
+            32px;
+
+    }
+
+
+    .tournament-list {
+
+        min-height:
+            220px;
+
+        height:
+            36vh;
+
+    }
+
+
+    .tournament-list-item {
+
+        min-height:
+            68px;
+
+        grid-template-columns:
+            32px
+            minmax(0, 1fr)
+            26px;
+
+        padding:
+            0 11px;
+
+    }
+
+
+    .tournament-name {
+
+        font-size:
+            14px;
+
+    }
+
+
+    .tournament-participants {
+
+        font-size:
+            10px;
+
+    }
+
+}
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Tournament Room Page */
+
+/* =========================================================
+   Tournament Room
+========================================================= */
+
+.room-container {
+
+    width:
+        min(850px, 92%);
+
+    min-height:
+        100vh;
+
+    margin:
+        auto;
+
+    padding:
+        clamp(40px, 7vh, 75px)
+        0
+        clamp(30px, 6vh, 60px);
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* =========================================================
+   Title
+========================================================= */
+
+.room-title {
+
+    width:
+        min(700px, 100%);
+
+    text-align:
+        center;
+
+    margin-bottom:
+        clamp(30px, 5vh, 45px);
+
+}
+
+
+.room-title h1 {
+
+    margin:
+        8px 0 10px;
+
+    font-size:
+        clamp(
+            36px,
+            6vw,
+            58px
+        );
+
+    line-height:
+        1.05;
+
+    white-space:
+        nowrap;
+
+}
+
+
+.room-title .description {
+
+    margin:
+        0;
+
+}
+
+
+/* =========================================================
+   Menu
+========================================================= */
+
+.room-menu {
+
+    width:
+        min(700px, 100%);
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        13px;
+
+}
+
+
+/* =========================================================
+   Menu Button
+========================================================= */
+
+.room-menu-button {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    min-height:
+        78px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        clamp(40px, 7vw, 55px)
+        minmax(0, 1fr)
+        clamp(30px, 5vw, 40px);
+
+    align-items:
+        center;
+
+    padding:
+        0
+        clamp(14px, 3vw, 22px);
+
+    box-sizing:
+        border-box;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.06
+        );
+
+    border-radius:
+        15px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.035
+        );
+
+    backdrop-filter:
+        blur(15px);
+
+    color:
+        white;
+
+    cursor:
+        pointer;
+
+    text-align:
+        left;
+
+    overflow:
+        hidden;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+/* =========================================================
+   Light Sweep
+========================================================= */
+
+.room-menu-button::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        -100%;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(
+                255,
+                255,
+                255,
+                0.06
+            ),
+            transparent
+        );
+
+    transition:
+        left 0.5s ease;
+
+    pointer-events:
+        none;
+
+}
+
+
+.room-menu-button:hover::before {
+
+    left:
+        100%;
+
+}
+
+
+/* =========================================================
+   Menu Hover
+========================================================= */
+
+.room-menu-button:hover {
+
+    transform:
+        translateX(7px);
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.075
+        );
+
+    border-color:
+        rgba(
+            150,
+            160,
+            255,
+            0.3
+        );
+
+    box-shadow:
+        0
+        12px
+        30px
+        rgba(
+            0,
+            0,
+            0,
+            0.25
+        );
+
+}
+
+
+/* =========================================================
+   Number
+========================================================= */
+
+.room-menu-number {
+
+    position:
+        relative;
+
+    z-index:
+        1;
+
+    width:
+        100%;
+
+    color:
+        #687085;
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+}
+
+
+/* =========================================================
+   Information
+========================================================= */
+
+.room-menu-information {
+
+    position:
+        relative;
+
+    z-index:
+        1;
+
+    min-width:
+        0;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        5px;
+
+}
+
+
+/* =========================================================
+   Name
+========================================================= */
+
+.room-menu-name {
+
+    min-width:
+        0;
+
+    color:
+        #ffffff;
+
+    font-size:
+        clamp(
+            15px,
+            2vw,
+            18px
+        );
+
+    font-weight:
+        600;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+}
+
+
+/* =========================================================
+   Description
+========================================================= */
+
+.room-menu-description {
+
+    min-width:
+        0;
+
+    color:
+        #697286;
+
+    font-size:
+        12px;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+}
+
+
+/* =========================================================
+   Arrow
+========================================================= */
+
+.room-menu-arrow {
+
+    position:
+        relative;
+
+    z-index:
+        1;
+
+    width:
+        100%;
+
+    margin:
+        0;
+
+    color:
+        #697286;
+
+    font-size:
+        22px;
+
+    text-align:
+        center;
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease;
+
+}
+
+
+.room-menu-button:hover
+.room-menu-arrow {
+
+    color:
+        white;
+
+    transform:
+        translateX(5px);
+
+}
+
+
+/* =========================================================
+   Main Menu Button
+========================================================= */
+
+.room-main-menu-button {
+
+    width:
+        min(700px, 100%);
+
+    margin-top:
+        25px;
+
+}
+
+
+/* =========================================================
+   Tablet
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .room-container {
+
+        width:
+            90%;
+
+        justify-content:
+            flex-start;
+
+        padding-top:
+            55px;
+
+    }
+
+
+    .room-title {
+
+        margin-bottom:
+            30px;
+
+    }
+
+
+    .room-menu-button {
+
+        min-height:
+            74px;
+
+    }
+
+}
+
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .room-container {
+
+        width:
+            90%;
+
+        padding-top:
+            40px;
+
+        padding-bottom:
+            35px;
+
+    }
+
+
+    .room-title h1 {
+
+        font-size:
+            clamp(
+                32px,
+                9vw,
+                46px
+            );
+
+        letter-spacing:
+            -1.5px;
+
+    }
+
+
+    .room-title .description {
+
+        font-size:
+            13px;
+
+    }
+
+
+    .room-menu {
+
+        gap:
+            10px;
+
+    }
+
+
+    .room-menu-button {
+
+        min-height:
+            70px;
+
+        grid-template-columns:
+            38px
+            minmax(0, 1fr)
+            30px;
+
+        padding:
+            0
+            14px;
+
+        border-radius:
+            12px;
+
+    }
+
+
+    .room-menu-number {
+
+        font-size:
+            12px;
+
+    }
+
+
+    .room-menu-name {
+
+        font-size:
+            15px;
+
+    }
+
+
+    .room-menu-description {
+
+        font-size:
+            11px;
+
+    }
+
+
+    .room-menu-arrow {
+
+        font-size:
+            20px;
+
+    }
+
+
+    .room-main-menu-button {
+
+        margin-top:
+            18px;
+
+    }
+
+}
+
+
+/* =========================================================
+   Very Small Mobile
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .room-container {
+
+        width:
+            92%;
+
+        padding-top:
+            30px;
+
+    }
+
+
+    .room-title h1 {
+
+        font-size:
+            30px;
+
+    }
+
+
+    .room-menu-button {
+
+        min-height:
+            66px;
+
+        grid-template-columns:
+            32px
+            minmax(0, 1fr)
+            26px;
+
+        padding:
+            0
+            11px;
+
+    }
+
+
+    .room-menu-name {
+
+        font-size:
+            14px;
+
+    }
+
+
+    .room-menu-description {
+
+        font-size:
+            10px;
+
+    }
+
+}
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Edit Tournament Name */
+
+/* =========================================================
+   Edit Tournament Name Page
+========================================================= */
+
+
+/* =========================================================
+   Container
+========================================================= */
+
+.edit-name-container {
+
+    width:
+        min(650px, 90%);
+
+    min-height:
+        100vh;
+
+    margin:
+        0 auto;
+
+    padding:
+        80px 0 60px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* =========================================================
+   Title
+========================================================= */
+
+.edit-name-title {
+
+    text-align:
+        center;
+
+    margin-bottom:
+        45px;
+
+}
+
+
+.edit-name-title h1 {
+
+    margin:
+        0;
+
+    font-size:
+        clamp(
+            38px,
+            6vw,
+            60px
+        );
+
+}
+
+
+.edit-name-title .description {
+
+    margin-top:
+        18px;
+
+}
+
+
+/* =========================================================
+   Edit Section
+========================================================= */
+
+.edit-name-section {
+
+    width:
+        100%;
+
+    margin-bottom:
+        18px;
+
+}
+
+
+.edit-name-section label {
+
+    display:
+        block;
+
+    margin-bottom:
+        12px;
+
+    color:
+        #9aa2b5;
+
+    font-size:
+        14px;
+
+    font-weight:
+        600;
+
+}
+
+
+/* =========================================================
+   Tournament Name Input
+========================================================= */
+
+.edit-name-section
+.tournament-name-input {
+
+    width:
+        100%;
+
+    height:
+        65px;
+
+    padding:
+        0 20px;
+
+    box-sizing:
+        border-box;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    border-radius:
+        14px;
+
+    outline:
+        none;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.045
+        );
+
+    backdrop-filter:
+        blur(15px);
+
+    color:
+        white;
+
+    font-size:
+        16px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+.edit-name-section
+.tournament-name-input::placeholder {
+
+    color:
+        #596174;
+
+}
+
+
+.edit-name-section
+.tournament-name-input:focus {
+
+    border-color:
+        rgba(
+            140,
+            150,
+            255,
+            0.5
+        );
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.065
+        );
+
+}
+
+
+/* =========================================================
+   Submit Button
+========================================================= */
+
+.edit-name-submit {
+
+    width:
+        100%;
+
+    height:
+        68px;
+
+    margin-top:
+        5px;
+
+    padding:
+        0 25px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    border:
+        none;
+
+    border-radius:
+        15px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #6255e8,
+            #4568d9
+        );
+
+    color:
+        white;
+
+    font-size:
+        18px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0
+        10px
+        30px
+        rgba(
+            70,
+            80,
+            220,
+            0.2
+        );
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.edit-name-submit:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0
+        15px
+        40px
+        rgba(
+            70,
+            80,
+            220,
+            0.35
+        );
+
+}
+
+
+.edit-name-submit span {
+
+    font-size:
+        25px;
+
+}
+
+
+/* =========================================================
+   Cancel Button
+========================================================= */
+
+.edit-name-cancel {
+
+    width:
+        100%;
+
+    height:
+        55px;
+
+    margin-top:
+        10px;
+
+    border:
+        none;
+
+    background:
+        transparent;
+
+    color:
+        #6f778a;
+
+    font-size:
+        14px;
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.edit-name-cancel:hover {
+
+    color:
+        white;
+
+    transform:
+        translateX(-4px);
+
+}
+
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .edit-name-container {
+
+        width:
+            88%;
+
+        padding:
+            50px 0 40px;
+
+    }
+
+
+    .edit-name-title {
+
+        margin-bottom:
+            35px;
+
+    }
+
+
+    .edit-name-title h1 {
+
+        font-size:
+            clamp(
+                32px,
+                9vw,
+                48px
+            );
+
+    }
+
+
+    .edit-name-section
+    .tournament-name-input {
+
+        height:
+            58px;
+
+        padding:
+            0 16px;
+
+        font-size:
+            15px;
+
+    }
+
+
+    .edit-name-submit {
+
+        height:
+            62px;
+
+        font-size:
+            16px;
+
+    }
+
+}
+
+
+/* =========================================================
+   Very Small Screen
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .edit-name-container {
+
+        width:
+            90%;
+
+    }
+
+
+    .edit-name-title h1 {
+
+        font-size:
+            30px;
+
+    }
+
+
+    .edit-name-title .description {
+
+        font-size:
+            13px;
+
+    }
+
+
+    .edit-name-section
+    .tournament-name-input {
+
+        height:
+            55px;
+
+        font-size:
+            14px;
+
+    }
+
+
+    .edit-name-submit {
+
+        height:
+            58px;
+
+    }
+
+}
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Edit Participant Page */
+
+/* =========================================================
+   Edit Participant Page
+========================================================= */
+
+.participant-edit-item {
+
+    width:
+        100%;
+
+    max-width:
+        100%;
+
+    min-width:
+        0;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        8px;
+
+    padding:
+        20px;
+
+    box-sizing:
+        border-box;
+
+    border-radius:
+        12px;
+
+    background:
+        #1f2937;
+
+}
+
+
+/* =========================================================
+   Participant Seed
+========================================================= */
+
+.participant-seed {
+
+    margin-bottom:
+        5px;
+
+    font-size:
+        16px;
+
+    font-weight:
+        bold;
+
+    color:
+        white;
+
+}
+
+
+/* =========================================================
+   Participant Label
+========================================================= */
+
+.participant-edit-item label {
+
+    font-size:
+        13px;
+
+    color:
+        #9ca3af;
+
+}
+
+
+/* =========================================================
+   Participant Input
+========================================================= */
+
+.participant-edit-input {
+
+    width:
+        100%;
+
+    max-width:
+        100%;
+
+    min-width:
+        0;
+
+    padding:
+        10px 12px;
+
+    box-sizing:
+        border-box;
+
+    border:
+        none;
+
+    border-radius:
+        8px;
+
+    background:
+        #374151;
+
+    color:
+        white;
+
+    font-size:
+        14px;
+
+}
+
+
+/* =========================================================
+   Input Focus
+========================================================= */
+
+.participant-edit-input:focus {
+
+    outline:
+        2px solid
+        #6b7280;
+
+}
+
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .participant-edit-item {
+
+        width:
+            100%;
+
+        padding:
+            16px;
+
+    }
+
+
+    .participant-edit-input {
+
+        width:
+            100%;
+
+        font-size:
+            14px;
+
+    }
+
+}
+
+
+/* =========================================================
+   Very Small Screen
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .participant-edit-item {
+
+        padding:
+            12px;
+
+    }
+
+
+    .participant-edit-input {
+
+        width:
+            100%;
+
+        padding:
+            10px;
+
+    }
+
+}
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Ranking Page */
+
+/* =========================================================
+   Ranking
+========================================================= */
+
+.ranking-container {
+
+    width:
+        100%;
+
+    min-height:
+        100vh;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        40px 20px;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* =========================================================
+   Page Title
+========================================================= */
+
+.ranking-title {
+
+    width:
+        min(
+            700px,
+            100%
+        );
+
+    text-align:
+        center;
+
+    margin-bottom:
+        40px;
+
+}
+
+
+/* =========================================================
+   Ranking Section
+========================================================= */
+
+.ranking-section {
+
+    width:
+        min(
+            700px,
+            100%
+        );
+
+    max-width:
+        100%;
+
+    min-width:
+        0;
+
+}
+
+
+/* =========================================================
+   Ranking Table
+========================================================= */
+
+.ranking-table {
+
+    width:
+        100%;
+
+    max-width:
+        100%;
+
+    border-radius:
+        12px;
+
+    overflow:
+        hidden;
+
+    background:
+        #1f2937;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* =========================================================
+   Ranking List
+========================================================= */
+
+.ranking-list {
+
+    width:
+        100%;
+
+    max-height:
+        500px;
+
+    overflow-y:
+        auto;
+
+    overflow-x:
+        hidden;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* =========================================================
+   Ranking Row
+========================================================= */
+
+.ranking-row {
+
+    width:
+        100%;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        clamp(
+            55px,
+            10vw,
+            80px
+        )
+        minmax(
+            0,
+            1fr
+        );
+
+    align-items:
+        center;
+
+    min-height:
+        55px;
+
+    border-bottom:
+        1px solid
+        #374151;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+.ranking-row:last-child {
+
+    border-bottom:
+        none;
+
+}
+
+
+/* =========================================================
+   Header
+========================================================= */
+
+.ranking-header {
+
+    background:
+        #374151;
+
+    font-weight:
+        bold;
+
+    color:
+        white;
+
+}
+
+
+/* =========================================================
+   Rank
+========================================================= */
+
+.ranking-rank {
+
+    min-width:
+        0;
+
+    padding:
+        12px 10px;
+
+    text-align:
+        center;
+
+    color:
+        white;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* =========================================================
+   Participant Name
+========================================================= */
+
+.ranking-name {
+
+    min-width:
+        0;
+
+    padding:
+        0;
+
+    color:
+        white;
+
+    overflow:
+        hidden;
+
+}
+
+
+/* =========================================================
+   Participant Button
+========================================================= */
+
+.ranking-participant-button {
+
+    width:
+        100%;
+
+    min-width:
+        0;
+
+    min-height:
+        55px;
+
+    padding:
+        12px
+        clamp(
+            12px,
+            3vw,
+            18px
+        );
+
+    border:
+        none;
+
+    background:
+        transparent;
+
+    color:
+        white;
+
+    text-align:
+        left;
+
+    font-size:
+        clamp(
+            14px,
+            2vw,
+            16px
+        );
+
+    cursor:
+        pointer;
+
+    box-sizing:
+        border-box;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+    white-space:
+        nowrap;
+
+    transition:
+        0.2s;
+
+}
+
+
+.ranking-participant-button:hover {
+
+    background:
+        #374151;
+
+}
+
+
+.ranking-participant-button:active {
+
+    background:
+        #4b5563;
+
+}
+
+
+/* =========================================================
+   Go Back Button
+========================================================= */
+
+.ranking-container .back-button {
+
+    width:
+        min(
+            700px,
+            100%
+        );
+
+    margin-top:
+        30px;
+
+}
+
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .ranking-container {
+
+        justify-content:
+            flex-start;
+
+        padding:
+            45px 15px 30px;
+
+    }
+
+
+    .ranking-title {
+
+        margin-bottom:
+            30px;
+
+    }
+
+
+    .ranking-section {
+
+        width:
+            100%;
+
+    }
+
+
+    .ranking-table {
+
+        border-radius:
+            10px;
+
+    }
+
+
+    .ranking-row {
+
+        grid-template-columns:
+            50px
+            minmax(
+                0,
+                1fr
+            );
+
+        min-height:
+            50px;
+
+    }
+
+
+    .ranking-rank {
+
+        padding:
+            10px 6px;
+
+        font-size:
+            13px;
+
+    }
+
+
+    .ranking-participant-button {
+
+        min-height:
+            50px;
+
+        padding:
+            10px 12px;
+
+        font-size:
+            14px;
+
+    }
+
+
+    .ranking-list {
+
+        max-height:
+            60vh;
+
+    }
+
+
+    .ranking-container .back-button {
+
+        margin-top:
+            20px;
+
+    }
+
+}
+
+
+/* =========================================================
+   Very Small Screen
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .ranking-container {
+
+        padding:
+            35px 10px 25px;
+
+    }
+
+
+    .ranking-row {
+
+        grid-template-columns:
+            42px
+            minmax(
+                0,
+                1fr
+            );
+
+    }
+
+
+    .ranking-rank {
+
+        font-size:
+            12px;
+
+    }
+
+
+    .ranking-participant-button {
+
+        padding:
+            10px;
+
+        font-size:
+            13px;
+
+    }
+
+}
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Swiss Result Page */
+
+/* =========================================================
+   Swiss Result
+========================================================= */
+
+
+/* =========================================================
+   Swiss Result Container
+========================================================= */
+
+.swiss-result-container {
+
+    width: 95vw;
+
+    max-width: 1500px;
+
+    margin: 0 auto;
+
+    padding-bottom: 40px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   Page Title
+========================================================= */
+
+.swiss-result-title {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+}
+
+
+/* =========================================================
+   Result Section
+========================================================= */
+
+.swiss-result-section {
+
+    width: 100%;
+
+    min-width: 0;
+
+}
+
+
+/* =========================================================
+   Result Table
+========================================================= */
+
+.swiss-result-table {
+
+    width: 100%;
+
+    min-width: 0;
+
+}
+
+
+/* =========================================================
+   Scroll Box
+========================================================= */
+
+.swiss-result-scrollbox {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    max-height: 600px;
+
+    overflow-x: auto;
+
+    overflow-y: auto;
+
+    box-sizing: border-box;
+
+    border-radius: 12px;
+
+}
+
+
+/* =========================================================
+   Swiss Result Row
+========================================================= */
+
+.swiss-result-row {
+
+    width: 100%;
+
+    min-width: 1250px;
+
+    display: grid;
+
+    grid-template-columns:
+        80px
+        minmax(280px, 1fr)
+        120px
+        repeat(5, minmax(150px, 1fr));
+
+    min-height: 65px;
+
+    align-items: stretch;
+
+    box-sizing: border-box;
+
+    border-bottom:
+        1px solid #374151;
+
+}
+
+
+/* =========================================================
+   Header
+========================================================= */
+
+.swiss-result-header {
+
+    display: grid;
+
+    font-weight: bold;
+
+    background: #111827;
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   Number
+========================================================= */
+
+.swiss-number {
+
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0 8px;
+
+    box-sizing: border-box;
+
+    font-size: 16px;
+
+    color: #9ca3af;
+
+}
+
+
+/* =========================================================
+   Name
+========================================================= */
+
+.swiss-name {
+
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 15px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================================
+   BU
+========================================================= */
+
+.swiss-bu {
+
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0 8px;
+
+    box-sizing: border-box;
+
+    font-size: 15px;
+
+}
+
+
+/* =========================================================
+   Round
+========================================================= */
+
+.swiss-round {
+
+    min-width: 0;
+
+    min-height: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0 10px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================================
+   Participant Name Link
+========================================================= */
+
+.swiss-name-link {
+
+    width: 100%;
+
+    min-width: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    padding: 8px 0;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   Name Hover
+========================================================= */
+
+.swiss-name-link:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================================================
+   Opponent Link
+========================================================= */
+
+.swiss-opponent-link {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    min-width: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 15px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    padding: 8px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   Opponent Hover
+========================================================= */
+
+.swiss-opponent-link:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================================================
+   Win
+========================================================= */
+
+.round-win {
+
+    background:
+        rgba(
+            34,
+            197,
+            94,
+            0.25
+        );
+
+}
+
+
+/* =========================================================
+   Lose
+========================================================= */
+
+.round-loss {
+
+    background:
+        rgba(
+            239,
+            68,
+            68,
+            0.25
+        );
+
+}
+
+
+/* =========================================================
+   Go Back
+========================================================= */
+
+.swiss-result-container .back-button {
+
+    margin-top: 30px;
+
+}
+
+
+/* =========================================================
+   Scrollbar
+========================================================= */
+
+.swiss-result-scrollbox::-webkit-scrollbar {
+
+    width: 8px;
+
+    height: 8px;
+
+}
+
+
+.swiss-result-scrollbox::-webkit-scrollbar-track {
+
+    background: transparent;
+
+}
+
+
+.swiss-result-scrollbox::-webkit-scrollbar-thumb {
+
+    background: #30384a;
+
+    border-radius: 10px;
+
+}
+
+
+.swiss-result-scrollbox::-webkit-scrollbar-thumb:hover {
+
+    background: #465264;
+
+}
+
+
+/* =========================================================
+   Tablet
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .swiss-result-container {
+
+        width: 94vw;
+
+    }
+
+
+    .swiss-result-row {
+
+        min-width: 1150px;
+
+        grid-template-columns:
+            65px
+            minmax(240px, 1fr)
+            100px
+            repeat(
+                5,
+                minmax(145px, 1fr)
+            );
+
+    }
+
+
+    .swiss-name {
+
+        padding: 0 12px;
+
+    }
+
+
+    .swiss-name-link {
+
+        font-size: 16px;
+
+    }
+
+}
+
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .swiss-result-container {
+
+        width: 94vw;
+
+    }
+
+
+    .swiss-result-scrollbox {
+
+        max-height: 65vh;
+
+    }
+
+
+    .swiss-result-row {
+
+        min-width: 1050px;
+
+        min-height: 60px;
+
+        grid-template-columns:
+            50px
+            220px
+            80px
+            repeat(
+                5,
+                140px
+            );
+
+    }
+
+
+    .swiss-round {
+
+        min-height: 60px;
+
+        padding: 0 6px;
+
+    }
+
+
+    .swiss-number {
+
+        font-size: 13px;
+
+    }
+
+
+    .swiss-name {
+
+        padding: 0 10px;
+
+    }
+
+
+    .swiss-name-link {
+
+        font-size: 14px;
+
+    }
+
+
+    .swiss-opponent-link {
+
+        font-size: 13px;
+
+        padding: 6px;
+
+    }
+
+
+    .swiss-bu {
+
+        font-size: 13px;
+
+    }
+
+
+    .swiss-result-container .back-button {
+
+        margin-top: 20px;
+
+    }
+
+}
+
+
+/* =========================================================
+   Very Small Screen
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .swiss-result-row {
+
+        min-width: 980px;
+
+        grid-template-columns:
+            45px
+            200px
+            75px
+            repeat(
+                5,
+                132px
+            );
+
+    }
+
+
+    .swiss-name-link {
+
+        font-size: 13px;
+
+    }
+
+
+    .swiss-opponent-link {
+
+        font-size: 12px;
+
+    }
+
+}
+
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Main Tournament Result Page16 */
+
+/* =========================================================
+   MAIN TOURNAMENT RESULT PAGE 16
+   ========================================================= */
+
+.main-result-page-16 {
+
+    width:
+        100%;
+
+    min-height:
+        100vh;
+
+    box-sizing:
+        border-box;
+
+    padding:
+        30px
+        30px
+        45px;
+
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.main-result-title-16 {
+
+    text-align:
+        center;
+
+    margin-bottom:
+        60px;
+
+}
+
+
+.main-result-title-16 .subtitle {
+
+    margin:
+        0 0 18px;
+
+    font-size:
+        36px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        6px;
+
+    color:
+        #697586;
+
+}
+
+
+.main-result-title-16 h1 {
+
+    margin:
+        0;
+
+    font-size:
+        96px;
+
+    font-weight:
+        700;
+
+    color:
+        #edf0f4;
+
+}
+
+
+.main-result-title-16 .description {
+
+    margin:
+        18px 0 0;
+
+    font-size:
+        42px;
+
+    color:
+        #697586;
+
+}
+
+
+/* =========================================================
+   BRACKET SCROLL
+   ========================================================= */
+
+.bracket-scroll-16 {
+
+    width:
+        100%;
+
+    max-width:
+        100%;
+
+    overflow-x:
+        auto;
+
+    overflow-y:
+        hidden;
+
+    padding:
+        20px
+        15px
+        35px
+        25px;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* =========================================================
+   BRACKET
+   ========================================================= */
+
+.bracket-16 {
+
+    position:
+        relative;
+
+    width:
+        2400px;
+
+    height:
+        850px;
+
+    margin:
+        0 auto;
+
+}
+
+
+/* =========================================================
+   MATCH
+   ========================================================= */
+
+.match-16 {
+
+    position:
+        absolute;
+
+    width:
+        270px;
+
+    box-sizing:
+        border-box;
+
+    background:
+        #1b232e;
+
+    border:
+        2px solid #354152;
+
+    border-radius:
+        8px;
+
+    overflow:
+        hidden;
+
+}
+
+
+/* =========================================================
+   MATCH HEADER
+   ========================================================= */
+
+.match-header-16 {
+
+    height:
+        48px;
+
+    padding:
+        7px 13px;
+
+    box-sizing:
+        border-box;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    gap:
+        3px;
+
+    background:
+        #141b24;
+
+    border-bottom:
+        2px solid #303a49;
+
+}
+
+
+.match-header-16 span {
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1px;
+
+    color:
+        #9da8b8;
+
+}
+
+
+.match-header-16 small {
+
+    font-size:
+        10px;
+
+    color:
+        #5f6c7e;
+
+}
+
+
+/* =========================================================
+   PLAYER SLOT
+   ========================================================= */
+
+.player-slot-16 {
+
+    height:
+        54px;
+
+    padding:
+        0 14px;
+
+    box-sizing:
+        border-box;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    color:
+        #e5e7eb;
+
+    font-size:
+        14px;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+    border-bottom:
+        2px solid #303a49;
+
+    cursor:
+        default;
+
+}
+
+
+.player-slot-16:last-child {
+
+    border-bottom:
+        none;
+
+}
+
+
+/* =========================================================
+   EMPTY PLAYER SLOT
+   ========================================================= */
+
+.player-slot-16:empty {
+
+    color:
+        #5f6c7e;
+
+}
+
+
+/* =========================================================
+   COLUMN 1
+   ========================================================= */
+
+.match-lbr1-16 {
+
+    left:
+        0;
+
+    top:
+        600px;
+
+}
+
+
+/* =========================================================
+   COLUMN 2
+   ========================================================= */
+
+.match-lbr2-16 {
+
+    left:
+        290px;
+
+    top:
+        600px;
+
+}
+
+
+/* =========================================================
+   COLUMN 3
+   ========================================================= */
+
+.match-lbqf-16 {
+
+    left:
+        580px;
+
+    top:
+        600px;
+
+}
+
+
+.match-mbqf-16 {
+
+    left:
+        580px;
+
+    top:
+        360px;
+
+}
+
+
+/* =========================================================
+   COLUMN 4
+   ========================================================= */
+
+.match-lbsf-16 {
+
+    left:
+        870px;
+
+    top:
+        600px;
+
+}
+
+
+.match-mbsf-16 {
+
+    left:
+        870px;
+
+    top:
+        360px;
+
+}
+
+
+/* =========================================================
+   COLUMN 5
+   ========================================================= */
+
+.match-lbf-16 {
+
+    left:
+        1160px;
+
+    top:
+        600px;
+
+}
+
+
+.match-mbf-16 {
+
+    left:
+        1160px;
+
+    top:
+        360px;
+
+}
+
+
+.match-ubf-16 {
+
+    left:
+        1160px;
+
+    top:
+        100px;
+
+}
+
+
+/* =========================================================
+   COLUMN 6
+   ========================================================= */
+
+.match-semifinal-16 {
+
+    left:
+        1450px;
+
+    top:
+        360px;
+
+}
+
+
+/* =========================================================
+   COLUMN 7
+   ========================================================= */
+
+.match-grand-final-16 {
+
+    left:
+        1840px;
+
+    top:
+        100px;
+
+    width:
+        295px;
+
+}
+
+
+/* =========================================================
+   GRAND FINAL HEADER
+   ========================================================= */
+
+.grand-final-header-16 {
+
+    height:
+        54px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    box-sizing:
+        border-box;
+
+    background:
+        #171f2a;
+
+    border-bottom:
+        2px solid #3d4859;
+
+    color:
+        #d6dbe3;
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1.5px;
+
+}
+
+
+.match-grand-final-16 .player-slot-16 {
+
+    height:
+        57px;
+
+    font-size:
+        14px;
+
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.main-result-page-16 .back-button-16 {
+
+    display:
+        block;
+
+    margin:
+        10px auto 0;
+
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+.bracket-scroll-16::-webkit-scrollbar {
+
+    height:
+        9px;
+
+}
+
+
+.bracket-scroll-16::-webkit-scrollbar-track {
+
+    background:
+        transparent;
+
+}
+
+
+.bracket-scroll-16::-webkit-scrollbar-thumb {
+
+    background:
+        #303a49;
+
+    border-radius:
+        10px;
+
+}
+
+
+.bracket-scroll-16::-webkit-scrollbar-thumb:hover {
+
+    background:
+        #465264;
+
+}
+
+
+/* =========================================================
+   PLAYER NAME
+   ========================================================= */
+
+.player-slot-16 {
+
+    text-overflow:
+        ellipsis;
+
+}
+
+
+/* =========================================================
+   PLAYER SLOT WITH PLAYER
+   ========================================================= */
+
+.player-slot-16:not(:empty) {
+
+    font-weight:
+        600;
+
+}
+
+
+/* =========================================================
+   PLAYER SLOT HOVER
+   ========================================================= */
+
+.player-slot-16:not(:empty):hover {
+
+    background:
+        #202a37;
+
+}
+
+
+/* =========================================================
+   RANKING BOARD 16
+   ========================================================= */
+
+.ranking-board-16 {
+
+    position:
+        absolute;
+
+    left:
+        1840px;
+
+    top:
+        550px;
+
+    width:
+        295px;
+
+    box-sizing:
+        border-box;
+
+    background:
+        #1b232e;
+
+    border:
+        2px solid #354152;
+
+    border-radius:
+        8px;
+
+    overflow:
+        hidden;
+
+}
+
+
+/* =========================================================
+   RANKING HEADER
+   ========================================================= */
+
+.ranking-board-header-16 {
+
+    height:
+        48px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    box-sizing:
+        border-box;
+
+    background:
+        #141b24;
+
+    border-bottom:
+        2px solid #303a49;
+
+    color:
+        #d6dbe3;
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1.5px;
+
+}
+
+
+/* =========================================================
+   RANKING ROW
+   ========================================================= */
+
+.ranking-row-16 {
+
+    height:
+        54px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    box-sizing:
+        border-box;
+
+    border-bottom:
+        2px solid #303a49;
+
+    transition:
+        background 0.2s ease;
+
+}
+
+
+.ranking-row-16:last-child {
+
+    border-bottom:
+        none;
+
+}
+
+
+.ranking-row-16:hover {
+
+    background:
+        #202a37;
+
+}
+
+
+/* =========================================================
+   RANKING NUMBER
+   ========================================================= */
+
+.ranking-number-16 {
+
+    width:
+        55px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        #697586;
+
+    font-size:
+        16px;
+
+    font-weight:
+        700;
+
+}
+
+
+/* =========================================================
+   RANKING PLAYER
+   ========================================================= */
+
+.ranking-player-16 {
+
+    flex:
+        1;
+
+    padding:
+        0 14px;
+
+    box-sizing:
+        border-box;
+
+    color:
+        #e5e7eb;
+
+    font-size:
+        14px;
+
+    font-weight:
+        600;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+}
+
+
+/* =========================================================
+   GO BACK BUTTON - MAIN TOURNAMENT 16
+   ========================================================= */
+
+.back-button-16 {
+
+    display:
+        block;
+
+    margin:
+        30px auto 0;
+
+    padding:
+        14px 28px;
+
+    background:
+        #1b232e;
+
+    border:
+        2px solid #354152;
+
+    border-radius:
+        8px;
+
+    color:
+        #e5e7eb;
+
+    font-size:
+        16px;
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.back-button-16:hover {
+
+    background:
+        #202a37;
+
+    border-color:
+        #465264;
+
+}
+
+
+.back-button-16:active {
+
+    transform:
+        translateY(1px);
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .main-result-page-16 {
+
+        padding:
+            25px
+            20px
+            40px;
+
+    }
+
+
+    .main-result-title-16 {
+
+        margin-bottom:
+            40px;
+
+    }
+
+
+    .main-result-title-16 .subtitle {
+
+        font-size:
+            28px;
+
+    }
+
+
+    .main-result-title-16 h1 {
+
+        font-size:
+            68px;
+
+    }
+
+
+    .main-result-title-16 .description {
+
+        font-size:
+            28px;
+
+    }
+
+
+    .bracket-scroll-16 {
+
+        padding:
+            20px
+            10px
+            30px
+            25px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .main-result-page-16 {
+
+        padding:
+            20px
+            10px
+            30px;
+
+    }
+
+
+    .main-result-title-16 {
+
+        margin-bottom:
+            30px;
+
+    }
+
+
+    .main-result-title-16 .subtitle {
+
+        margin-bottom:
+            12px;
+
+        font-size:
+            20px;
+
+        letter-spacing:
+            4px;
+
+    }
+
+
+    .main-result-title-16 h1 {
+
+        font-size:
+            48px;
+
+    }
+
+
+    .main-result-title-16 .description {
+
+        margin-top:
+            12px;
+
+        font-size:
+            20px;
+
+    }
+
+
+    .bracket-scroll-16 {
+
+        width:
+            100%;
+
+        padding:
+            15px
+            8px
+            25px
+            25px;
+
+    }
+
+
+    .bracket-16 {
+
+        width:
+            2400px;
+
+        min-width:
+            2400px;
+
+        height:
+            850px;
+
+        margin:
+            0;
+
+    }
+
+
+    .back-button-16 {
+
+        margin-top:
+            20px;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREEN
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .main-result-title-16 h1 {
+
+        font-size:
+            40px;
+
+    }
+
+
+    .main-result-title-16 .description {
+
+        font-size:
+            17px;
+
+    }
+
+
+    .bracket-scroll-16 {
+
+        padding-left:
+            25px;
+
+    }
+
+}
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* MAIN TOURNAMENT RESULT PAGE - 32 */
+
+/* =========================================================
+   MAIN TOURNAMENT RESULT PAGE 32
+   ========================================================= */
+
+.main-result-page-32 {
+
+    width:
+        100%;
+
+    min-height:
+        100vh;
+
+    box-sizing:
+        border-box;
+
+    padding:
+        30px
+        20px
+        45px;
+
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.main-result-title-32 {
+
+    text-align:
+        center;
+
+    margin-bottom:
+        30px;
+
+}
+
+
+.main-result-title-32 .subtitle {
+
+    margin:
+        0 0 10px;
+
+    font-size:
+        24px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        4px;
+
+    color:
+        #697586;
+
+}
+
+
+.main-result-title-32 h1 {
+
+    margin:
+        0;
+
+    font-size:
+        56px;
+
+    font-weight:
+        700;
+
+    color:
+        #edf0f4;
+
+}
+
+
+.main-result-title-32 .description {
+
+    margin:
+        10px 0 0;
+
+    font-size:
+        28px;
+
+    color:
+        #697586;
+
+}
+
+
+/* =========================================================
+   BRACKET SCROLL
+   ========================================================= */
+
+.bracket-scroll-32 {
+
+    width:
+        100%;
+
+    max-width:
+        100%;
+
+    overflow-x:
+        auto;
+
+    overflow-y:
+        hidden;
+
+    padding:
+        20px
+        10px
+        30px
+        25px;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* =========================================================
+   BRACKET
+   ========================================================= */
+
+.bracket-32 {
+
+    position:
+        relative;
+
+    width:
+        2100px;
+
+    min-width:
+        2100px;
+
+    height:
+        780px;
+
+    margin:
+        0 auto;
+
+}
+
+
+/* =========================================================
+   MATCH
+   ========================================================= */
+
+.match-32 {
+
+    position:
+        absolute;
+
+    width:
+        160px;
+
+    box-sizing:
+        border-box;
+
+    background:
+        #1b232e;
+
+    border:
+        2px solid #354152;
+
+    border-radius:
+        8px;
+
+    overflow:
+        hidden;
+
+    box-shadow:
+        0 4px 10px
+        rgba(
+            0,
+            0,
+            0,
+            0.3
+        );
+
+}
+
+
+/* =========================================================
+   MATCH HEADER
+   ========================================================= */
+
+.match-header-32 {
+
+    height:
+        32px;
+
+    padding:
+        4px 9px;
+
+    box-sizing:
+        border-box;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    gap:
+        1px;
+
+    background:
+        #141b24;
+
+    border-bottom:
+        2px solid #303a49;
+
+}
+
+
+.match-header-32 span {
+
+    font-size:
+        9px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.7px;
+
+    color:
+        #9da8b8;
+
+}
+
+
+.match-header-32 small {
+
+    font-size:
+        8px;
+
+    color:
+        #5f6c7e;
+
+}
+
+
+/* =========================================================
+   PLAYER SLOT
+   ========================================================= */
+
+.player-slot-32 {
+
+    height:
+        36px;
+
+    padding:
+        6px 9px;
+
+    box-sizing:
+        border-box;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    color:
+        #e5e7eb;
+
+    font-size:
+        11px;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+    border-bottom:
+        1px solid #303a49;
+
+}
+
+
+.player-slot-32:last-child {
+
+    border-bottom:
+        none;
+
+}
+
+
+/* =========================================================
+   EMPTY PLAYER SLOT
+   ========================================================= */
+
+.player-slot-32:empty {
+
+    color:
+        #5f6c7e;
+
+}
+
+
+/* =========================================================
+   PLAYER SLOT WITH PLAYER
+   ========================================================= */
+
+.player-slot-32:not(:empty) {
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+
+}
+
+
+/* =========================================================
+   PLAYER SLOT HOVER
+   ========================================================= */
+
+.player-slot-32:not(:empty):hover {
+
+    background:
+        #202a37;
+
+}
+
+
+/* =========================================================
+   COLUMN POSITION
+   ========================================================= */
+
+/* =========================================================
+   COLUMN A
+   ========================================================= */
+
+.match-lbr1-32,
+.match-lbr1b-32 {
+
+    left:
+        0px;
+
+}
+
+
+/* =========================================================
+   COLUMN B
+   ========================================================= */
+
+.match-lbr2-32,
+.match-lbr2b-32 {
+
+    left:
+        210px;
+
+}
+
+
+/* =========================================================
+   COLUMN C
+   ========================================================= */
+
+.match-lbr3-32,
+.match-lbr3b-32,
+.match-mbr1-32,
+.match-mbr1b-32 {
+
+    left:
+        420px;
+
+}
+
+
+/* =========================================================
+   COLUMN D
+   ========================================================= */
+
+.match-lbr4-32,
+.match-lbr4b-32,
+.match-mbr2-32,
+.match-mbr2b-32 {
+
+    left:
+        630px;
+
+}
+
+
+/* =========================================================
+   COLUMN E
+   ========================================================= */
+
+.match-lbr5-32,
+.match-lbr5b-32,
+.match-mbqf-32,
+.match-mbqfb-32,
+.match-ubsf1-32,
+.match-ubsf2-32 {
+
+    left:
+        840px;
+
+}
+
+
+/* =========================================================
+   COLUMN F
+   ========================================================= */
+
+.match-lbqf-32 {
+
+    left:
+        1050px;
+
+}
+
+
+/* =========================================================
+   COLUMN G
+   ========================================================= */
+
+.match-lbsf-32,
+.match-mbsf-32 {
+
+    left:
+        1260px;
+
+}
+
+
+/* =========================================================
+   COLUMN H
+   ========================================================= */
+
+.match-lbf-32,
+.match-mbf-32,
+.match-ubf-32 {
+
+    left:
+        1470px;
+
+}
+
+
+/* =========================================================
+   COLUMN I
+   ========================================================= */
+
+.match-semifinal-32 {
+
+    left:
+        1680px;
+
+}
+
+
+/* =========================================================
+   COLUMN J
+   ========================================================= */
+
+.match-grand-final-32 {
+
+    left:
+        1890px;
+
+}
+
+
+/* =========================================================
+   ROW POSITION
+   ========================================================= */
+
+/* =========================================================
+   ROW 1 - UPPER BRACKET TOP
+   ========================================================= */
+
+.match-ubsf1-32,
+.match-ubf-32,
+.match-grand-final-32 {
+
+    top:
+        0px;
+
+}
+
+
+/* =========================================================
+   ROW 2 - UPPER BRACKET BOTTOM
+   ========================================================= */
+
+.match-ubsf2-32 {
+
+    top:
+        120px;
+
+}
+
+
+/* =========================================================
+   ROW 3 - MEDIUM BRACKET TOP
+   ========================================================= */
+
+.match-mbr1-32,
+.match-mbr2-32,
+.match-mbqf-32,
+.match-mbsf-32,
+.match-mbf-32,
+.match-semifinal-32 {
+
+    top:
+        260px;
+
+}
+
+
+/* =========================================================
+   ROW 4 - MEDIUM BRACKET BOTTOM
+   ========================================================= */
+
+.match-mbr1b-32,
+.match-mbr2b-32,
+.match-mbqfb-32 {
+
+    top:
+        380px;
+
+}
+
+
+/* =========================================================
+   ROW 5 - LOWER BRACKET TOP
+   ========================================================= */
+
+.match-lbr1-32,
+.match-lbr2-32,
+.match-lbr3-32,
+.match-lbr4-32,
+.match-lbr5-32,
+.match-lbqf-32,
+.match-lbsf-32,
+.match-lbf-32 {
+
+    top:
+        520px;
+
+}
+
+
+/* =========================================================
+   ROW 6 - LOWER BRACKET BOTTOM
+   ========================================================= */
+
+.match-lbr1b-32,
+.match-lbr2b-32,
+.match-lbr3b-32,
+.match-lbr4b-32,
+.match-lbr5b-32 {
+
+    top:
+        640px;
+
+}
+
+
+/* =========================================================
+   GRAND FINAL
+   ========================================================= */
+
+.grand-final-header-32 {
+
+    height:
+        40px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    box-sizing:
+        border-box;
+
+    background:
+        #171f2a;
+
+    border-bottom:
+        2px solid #3d4859;
+
+    color:
+        #d6dbe3;
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1px;
+
+}
+
+
+.match-grand-final-32
+.player-slot-32 {
+
+    height:
+        42px;
+
+    font-size:
+        11px;
+
+}
+
+
+/* =========================================================
+   RANKING BOARD 32
+   ========================================================= */
+
+.ranking-board-32 {
+
+    position:
+        absolute;
+
+    left:
+        1840px;
+
+    top:
+        550px;
+
+    width:
+        295px;
+
+    box-sizing:
+        border-box;
+
+    background:
+        #1b232e;
+
+    border:
+        2px solid #354152;
+
+    border-radius:
+        8px;
+
+    overflow:
+        hidden;
+
+}
+
+
+/* =========================================================
+   RANKING HEADER
+   ========================================================= */
+
+.ranking-board-header-32 {
+
+    height:
+        48px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    box-sizing:
+        border-box;
+
+    background:
+        #141b24;
+
+    border-bottom:
+        2px solid #303a49;
+
+    color:
+        #d6dbe3;
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1.5px;
+
+}
+
+
+/* =========================================================
+   RANKING ROW
+   ========================================================= */
+
+.ranking-row-32 {
+
+    height:
+        54px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    box-sizing:
+        border-box;
+
+    border-bottom:
+        2px solid #303a49;
+
+    transition:
+        background 0.2s ease;
+
+}
+
+
+.ranking-row-32:last-child {
+
+    border-bottom:
+        none;
+
+}
+
+
+.ranking-row-32:hover {
+
+    background:
+        #202a37;
+
+}
+
+
+/* =========================================================
+   RANKING NUMBER
+   ========================================================= */
+
+.ranking-number-32 {
+
+    width:
+        55px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        #697586;
+
+    font-size:
+        16px;
+
+    font-weight:
+        700;
+
+}
+
+
+/* =========================================================
+   RANKING PLAYER
+   ========================================================= */
+
+.ranking-player-32 {
+
+    flex:
+        1;
+
+    padding:
+        0 14px;
+
+    box-sizing:
+        border-box;
+
+    color:
+        #e5e7eb;
+
+    font-size:
+        14px;
+
+    font-weight:
+        600;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+    transition:
+        color 0.2s ease;
+
+}
+
+
+.ranking-player-32:hover {
+
+    color:
+        #ffffff;
+
+}
+
+
+/* =========================================================
+   GO BACK BUTTON
+   ========================================================= */
+
+.back-button-32 {
+
+    display:
+        block;
+
+    margin:
+        30px auto 0;
+
+    padding:
+        14px 28px;
+
+    background:
+        #1b232e;
+
+    border:
+        2px solid #354152;
+
+    border-radius:
+        8px;
+
+    color:
+        #e5e7eb;
+
+    font-size:
+        16px;
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.back-button-32:hover {
+
+    background:
+        #202a37;
+
+    border-color:
+        #465264;
+
+}
+
+
+.back-button-32:active {
+
+    transform:
+        translateY(1px);
+
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+.bracket-scroll-32::-webkit-scrollbar {
+
+    height:
+        9px;
+
+}
+
+
+.bracket-scroll-32::-webkit-scrollbar-track {
+
+    background:
+        transparent;
+
+}
+
+
+.bracket-scroll-32::-webkit-scrollbar-thumb {
+
+    background:
+        #303a49;
+
+    border-radius:
+        10px;
+
+}
+
+
+.bracket-scroll-32::-webkit-scrollbar-thumb:hover {
+
+    background:
+        #465264;
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .main-result-page-32 {
+
+        padding:
+            25px
+            15px
+            40px;
+
+    }
+
+
+    .main-result-title-32 {
+
+        margin-bottom:
+            25px;
+
+    }
+
+
+    .main-result-title-32 .subtitle {
+
+        font-size:
+            20px;
+
+    }
+
+
+    .main-result-title-32 h1 {
+
+        font-size:
+            46px;
+
+    }
+
+
+    .main-result-title-32 .description {
+
+        font-size:
+            23px;
+
+    }
+
+
+    .bracket-scroll-32 {
+
+        padding:
+            20px
+            8px
+            30px
+            25px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .main-result-page-32 {
+
+        padding:
+            20px
+            10px
+            30px;
+
+    }
+
+
+    .main-result-title-32 {
+
+        margin-bottom:
+            25px;
+
+    }
+
+
+    .main-result-title-32 .subtitle {
+
+        margin:
+            0 0 8px;
+
+        font-size:
+            18px;
+
+        letter-spacing:
+            3px;
+
+    }
+
+
+    .main-result-title-32 h1 {
+
+        font-size:
+            40px;
+
+    }
+
+
+    .main-result-title-32 .description {
+
+        margin:
+            8px 0 0;
+
+        font-size:
+            18px;
+
+    }
+
+
+    .bracket-scroll-32 {
+
+        width:
+            100%;
+
+        padding:
+            15px
+            8px
+            25px
+            25px;
+
+    }
+
+
+    .bracket-32 {
+
+        width:
+            2100px;
+
+        min-width:
+            2100px;
+
+        height:
+            780px;
+
+        margin:
+            0;
+
+    }
+
+
+    .back-button-32 {
+
+        margin-top:
+            20px;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREEN
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .main-result-title-32 h1 {
+
+        font-size:
+            34px;
+
+    }
+
+
+    .main-result-title-32 .description {
+
+        font-size:
+            16px;
+
+    }
+
+
+    .bracket-scroll-32 {
+
+        padding-left:
+            25px;
+
+    }
+
+}
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Fight page */
+
+
+/* =========================================================
+   FIGHT PAGE
+   ========================================================= */
+
+.fight-page {
+
+    width:
+        100%;
+
+    min-height:
+        100vh;
+
+    box-sizing:
+        border-box;
+
+    padding:
+        50px 40px 60px;
+
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.fight-title {
+
+    text-align:
+        center;
+
+    margin-bottom:
+        70px;
+
+}
+
+
+.fight-title .fight-subtitle {
+
+    margin:
+        0 0 18px;
+
+    font-size:
+        36px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        7px;
+
+    color:
+        #697586;
+
+}
+
+
+.fight-title h1 {
+
+    margin:
+        0;
+
+    font-size:
+        82px;
+
+    font-weight:
+        700;
+
+    color:
+        #edf0f4;
+
+}
+
+
+.fight-description {
+
+    margin:
+        18px 0 0;
+
+    font-size:
+        26px;
+
+    color:
+        #697586;
+
+}
+
+
+/* =========================================================
+   FIGHT CONTAINER
+   ========================================================= */
+
+.fight-container {
+
+    width:
+        100%;
+
+    max-width:
+        1100px;
+
+    margin:
+        0 auto;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        35px;
+
+}
+
+
+/* =========================================================
+   PLAYER
+   ========================================================= */
+
+.fight-player {
+
+    width:
+        1000px;
+
+    flex:
+        0 0 1000px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+}
+
+
+/* =========================================================
+   PLAYER BOX
+   ========================================================= */
+
+.fight-player-box {
+
+    width:
+        100%;
+
+    height:
+        700px;
+
+    box-sizing:
+        border-box;
+
+    background:
+        #1b232e;
+
+    border:
+        3px solid #354152;
+
+    border-radius:
+        12px;
+
+    overflow:
+        hidden;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+}
+
+
+/* =========================================================
+   PLAYER CONTENT
+   ========================================================= */
+
+.fight-player-content {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        20px;
+
+    box-sizing:
+        border-box;
+
+    color:
+        #edf0f4;
+
+    font-size:
+        32px;
+
+    font-weight:
+        600;
+
+    text-align:
+        center;
+
+}
+
+
+/* =========================================================
+   IMAGE
+   ========================================================= */
+
+.fight-player-content img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        contain;
+
+}
+
+
+/* =========================================================
+   YOUTUBE
+   ========================================================= */
+
+.fight-player-content iframe {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    border:
+        none;
+
+}
+
+
+/* =========================================================
+   VS
+   ========================================================= */
+
+.fight-vs {
+
+    flex:
+        0 0 auto;
+
+    font-size:
+        38px;
+
+    font-weight:
+        800;
+
+    color:
+        #697586;
+
+}
+
+
+/* =========================================================
+   CHOOSE BUTTON
+   ========================================================= */
+
+.fight-choose-button {
+
+    width:
+        220px;
+
+    height:
+        65px;
+
+    margin-top:
+        22px;
+
+    border:
+        2px solid #354152;
+
+    border-radius:
+        8px;
+
+    background:
+        #1b232e;
+
+    color:
+        #edf0f4;
+
+    font-size:
+        20px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        2px;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.2s ease;
+
+}
+
+
+.fight-choose-button:hover {
+
+    background:
+        #263140;
+
+    border-color:
+        #526176;
+
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.fight-back-button {
+
+    display:
+        block;
+
+    margin:
+        60px auto 0;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (
+    max-width: 1200px
+) {
+
+    .fight-title h1 {
+
+        font-size:
+            60px;
+
+    }
+
+
+    .fight-container {
+
+        max-width:
+            900px;
+
+        gap:
+            25px;
+
+    }
+
+
+    .fight-player {
+
+        width:
+            400px;
+
+        flex:
+            0 0 400px;
+
+    }
+
+
+    .fight-player-box {
+
+        height:
+            270px;
+
+    }
+
+
+    .fight-player-content {
+
+        font-size:
+            28px;
+
+    }
+
+}
+
+
+@media (
+    max-width: 800px
+) {
+
+    .fight-page {
+
+        padding:
+            35px 20px 50px;
+
+    }
+
+
+    .fight-title {
+
+        margin-bottom:
+            40px;
+
+    }
+
+
+    .fight-title .fight-subtitle {
+
+        font-size:
+            24px;
+
+    }
+
+
+    .fight-title h1 {
+
+        font-size:
+            42px;
+
+    }
+
+
+    .fight-description {
+
+        font-size:
+            18px;
+
+    }
+
+
+    .fight-container {
+
+        flex-direction:
+            column;
+
+        gap:
+            30px;
+
+    }
+
+
+    .fight-player {
+
+        width:
+            100%;
+
+        max-width:
+            600px;
+
+        flex:
+            none;
+
+    }
+
+
+    .fight-player-box {
+
+        height:
+            300px;
+
+    }
+
+
+    .fight-vs {
+
+        font-size:
+            30px;
+
+    }
+
+
+    .fight-choose-button {
+
+        width:
+            220px;
+
+        height:
+            65px;
+
+    }
+
+}
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Community page */
+
+/* =========================================================
+   COMMUNITY PAGE
+========================================================= */
+
+.community-page {
+
+    width:
+        100%;
+
+    min-height:
+        100vh;
+
+    box-sizing:
+        border-box;
+
+    padding:
+        50px 20px 50px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.community-title {
+
+    width:
+        700px;
+
+    max-width:
+        90vw;
+
+    text-align:
+        center;
+
+    margin-bottom:
+        30px;
+
+}
+
+
+.community-title h1 {
+
+    margin:
+        8px 0 10px;
+
+    font-size:
+        48px;
+
+}
+
+
+.community-title .description {
+
+    margin:
+        0;
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.community-search {
+
+    width:
+        700px;
+
+    max-width:
+        90vw;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.community-search-input {
+
+    width:
+        100%;
+
+    height:
+        52px;
+
+    padding:
+        0 18px;
+
+    box-sizing:
+        border-box;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.035
+        );
+
+    color:
+        white;
+
+    font-size:
+        15px;
+
+    outline:
+        none;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+.community-search-input::placeholder {
+
+    color:
+        #697286;
+
+}
+
+
+.community-search-input:focus {
+
+    border-color:
+        rgba(
+            255,
+            255,
+            255,
+            0.18
+        );
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.05
+        );
+
+}
+
+
+/* =========================================================
+   COMMUNITY SECTION
+========================================================= */
+
+.community-section {
+
+    width:
+        900px;
+
+    max-width:
+        90vw;
+
+}
+
+
+/* =========================================================
+   SCROLL BOX
+========================================================= */
+
+.community-tournament-list {
+
+    width:
+        100%;
+
+    height:
+        500px;
+
+    padding:
+        4px;
+
+    box-sizing:
+        border-box;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    align-content:
+        start;
+
+    gap:
+        14px;
+
+    overflow-y:
+        auto;
+
+    overflow-x:
+        hidden;
+
+}
+
+
+/* =========================================================
+   TOURNAMENT CARD
+========================================================= */
+
+.community-tournament-card {
+
+    min-width:
+        0;
+
+    min-height:
+        190px;
+
+    padding:
+        18px;
+
+    box-sizing:
+        border-box;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.06
+        );
+
+    border-radius:
+        14px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.035
+        );
+
+    backdrop-filter:
+        blur(15px);
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.community-tournament-card:hover {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.055
+        );
+
+    border-color:
+        rgba(
+            255,
+            255,
+            255,
+            0.1
+        );
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.community-card-header {
+
+    min-width:
+        0;
+
+    margin-bottom:
+        14px;
+
+}
+
+
+.community-card-header h2 {
+
+    margin:
+        0;
+
+    color:
+        #ffffff;
+
+    font-size:
+        17px;
+
+    font-weight:
+        600;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+}
+
+
+/* =========================================================
+   CARD INFORMATION
+========================================================= */
+
+.community-card-information {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap:
+        10px;
+
+    margin-bottom:
+        16px;
+
+}
+
+
+.community-card-info {
+
+    min-width:
+        0;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        3px;
+
+}
+
+
+.community-card-label {
+
+    color:
+        #697286;
+
+    font-size:
+        10px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.5px;
+
+}
+
+
+.community-card-value {
+
+    min-width:
+        0;
+
+    color:
+        #dce1e8;
+
+    font-size:
+        12px;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+}
+
+
+/* =========================================================
+   DOWNLOAD BUTTON
+========================================================= */
+
+.community-download-button {
+
+    width:
+        100%;
+
+    height:
+        38px;
+
+    margin-top:
+        auto;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        8px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    border-radius:
+        9px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.035
+        );
+
+    color:
+        #dce1e8;
+
+    font-size:
+        13px;
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+
+}
+
+
+.community-download-button:hover {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    border-color:
+        rgba(
+            255,
+            255,
+            255,
+            0.15
+        );
+
+}
+
+
+/* =========================================================
+   EMPTY MESSAGE
+========================================================= */
+
+.community-empty-message {
+
+    min-height:
+        100px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        #697286;
+
+    font-size:
+        14px;
+
+    text-align:
+        center;
+
+}
+
+
+/* =========================================================
+   UPLOAD BUTTON
+========================================================= */
+
+.community-upload-button {
+
+    width:
+        260px;
+
+    height:
+        52px;
+
+    margin-top:
+        25px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        10px;
+
+    border:
+        1px solid
+        #354152;
+
+    border-radius:
+        10px;
+
+    background:
+        #1b232e;
+
+    color:
+        #edf0f4;
+
+    font-size:
+        15px;
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.community-upload-button:hover {
+
+    background:
+        #202a37;
+
+    border-color:
+        #465264;
+
+}
+
+
+.community-upload-button:active {
+
+    transform:
+        translateY(1px);
+
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.community-back-button {
+
+    margin-top:
+        18px;
+
+    padding:
+        10px 20px;
+
+    border:
+        none;
+
+    background:
+        transparent;
+
+    color:
+        #697286;
+
+    font-size:
+        14px;
+
+    cursor:
+        pointer;
+
+    transition:
+        color 0.2s ease;
+
+}
+
+
+.community-back-button:hover {
+
+    color:
+        #edf0f4;
+
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.community-tournament-list::-webkit-scrollbar {
+
+    width:
+        7px;
+
+}
+
+
+.community-tournament-list::-webkit-scrollbar-track {
+
+    background:
+        transparent;
+
+}
+
+
+.community-tournament-list::-webkit-scrollbar-thumb {
+
+    background:
+        #303a49;
+
+    border-radius:
+        10px;
+
+}
+
+
+.community-tournament-list::-webkit-scrollbar-thumb:hover {
+
+    background:
+        #465264;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .community-page {
+
+        padding:
+            35px 15px 40px;
+
+    }
+
+
+    .community-title {
+
+        margin-bottom:
+            25px;
+
+    }
+
+
+    .community-title h1 {
+
+        font-size:
+            36px;
+
+    }
+
+
+    .community-title .description {
+
+        font-size:
+            14px;
+
+    }
+
+
+    .community-search {
+
+        max-width:
+            100%;
+
+    }
+
+
+    .community-section {
+
+        max-width:
+            100%;
+
+    }
+
+
+    .community-tournament-list {
+
+        height:
+            55vh;
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            12px;
+
+    }
+
+
+    .community-tournament-card {
+
+        min-height:
+            175px;
+
+    }
+
+
+    .community-upload-button {
+
+        width:
+            100%;
+
+        max-width:
+            320px;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREEN
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .community-title h1 {
+
+        font-size:
+            32px;
+
+    }
+
+
+    .community-tournament-list {
+
+        height:
+            52vh;
+
+    }
+
+
+    .community-tournament-card {
+
+        padding:
+            15px;
+
+    }
+
+
+    .community-card-header h2 {
+
+        font-size:
+            15px;
+
+    }
+
+}
+
+/* =========================================================
+   CARD ACTIONS
+========================================================= */
+
+.community-card-actions {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    margin-top:
+        auto;
+
+}
+
+
+/* =========================================================
+   Download Button
+========================================================= */
+
+.community-card-actions
+.community-download-button {
+
+    flex:
+        1;
+
+    margin-top:
+        0;
+
+}
+
+
+/* =========================================================
+   Delete Button
+========================================================= */
+
+.community-delete-button {
+
+    width:
+        38px;
+
+    height:
+        38px;
+
+    flex:
+        0 0 38px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    box-sizing:
+        border-box;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    border-radius:
+        9px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.035
+        );
+
+    color:
+        #697286;
+
+    font-size:
+        21px;
+
+    font-weight:
+        400;
+
+    line-height:
+        1;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.community-delete-button:hover {
+
+    background:
+        rgba(
+            220,
+            70,
+            90,
+            0.15
+        );
+
+    border-color:
+        rgba(
+            220,
+            90,
+            110,
+            0.35
+        );
+
+    color:
+        #ff7185;
+
+    transform:
+        scale(
+            1.05
+        );
+
+}
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Upload Community page */
+
+
+/* =========================================================
+   UPLOAD TOURNAMENT PAGE
+========================================================= */
+
+
+/* =========================================================
+   UPLOAD TOURNAMENT LIST
+========================================================= */
+
+#uploadTournamentList {
+
+    width:
+        100%;
+
+}
+
+
+/* =========================================================
+   UPLOAD TOURNAMENT CARD
+========================================================= */
+
+.upload-tournament-card {
+
+    width:
+        100%;
+
+    min-height:
+        150px;
+
+    padding:
+        18px;
+
+    box-sizing:
+        border-box;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.06
+        );
+
+    border-radius:
+        14px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.035
+        );
+
+    color:
+        #dce1e8;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.upload-tournament-card:hover {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.055
+        );
+
+    border-color:
+        rgba(
+            255,
+            255,
+            255,
+            0.1
+        );
+
+    transform:
+        translateY(
+            -2px
+        );
+
+}
+
+
+/* =========================================================
+   SELECTED CARD
+========================================================= */
+
+.upload-tournament-card.selected {
+
+    border-color:
+        #465264;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.075
+        );
+
+}
+
+
+/* =========================================================
+   TOURNAMENT NAME
+========================================================= */
+
+.upload-tournament-name {
+
+    margin:
+        0 0 14px;
+
+    color:
+        #ffffff;
+
+    font-size:
+        18px;
+
+    font-weight:
+        600;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+}
+
+
+/* =========================================================
+   TOURNAMENT INFORMATION
+========================================================= */
+
+.upload-tournament-information {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap:
+        12px;
+
+    margin-bottom:
+        16px;
+
+}
+
+
+/* =========================================================
+   INFORMATION
+========================================================= */
+
+.upload-tournament-info {
+
+    min-width:
+        0;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        3px;
+
+}
+
+
+/* =========================================================
+   INFORMATION LABEL
+========================================================= */
+
+.upload-tournament-label {
+
+    color:
+        #697286;
+
+    font-size:
+        10px;
+
+    font-weight:
+        500;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.5px;
+
+}
+
+
+/* =========================================================
+   INFORMATION VALUE
+========================================================= */
+
+.upload-tournament-value {
+
+    min-width:
+        0;
+
+    color:
+        #dce1e8;
+
+    font-size:
+        13px;
+
+    font-weight:
+        500;
+
+}
+
+
+/* =========================================================
+   SELECT BUTTON
+========================================================= */
+
+.upload-select-button {
+
+    width:
+        100%;
+
+    height:
+        38px;
+
+    margin-top:
+        auto;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    border-radius:
+        9px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.035
+        );
+
+    color:
+        #dce1e8;
+
+    font-size:
+        13px;
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.upload-select-button:hover {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    border-color:
+        rgba(
+            255,
+            255,
+            255,
+            0.15
+        );
+
+    color:
+        #ffffff;
+
+}
+
+
+/* =========================================================
+   SELECTED BUTTON
+========================================================= */
+
+.upload-tournament-card.selected
+.upload-select-button {
+
+    background:
+        #1b232e;
+
+    border-color:
+        #465264;
+
+    color:
+        #ffffff;
+
+}
+
+
+/* =========================================================
+   SELECTED MESSAGE
+========================================================= */
+
+.community-selected-message {
+
+    width:
+        900px;
+
+    max-width:
+        90vw;
+
+    margin-top:
+        18px;
+
+    padding:
+        12px 16px;
+
+    box-sizing:
+        border-box;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.06
+        );
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.035
+        );
+
+    color:
+        #697286;
+
+    font-size:
+        13px;
+
+    text-align:
+        center;
+
+}
+
+
+/* =========================================================
+   UPLOAD PAGE MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .upload-tournament-card {
+
+        min-height:
+            145px;
+
+        padding:
+            16px;
+
+    }
+
+
+    .upload-tournament-name {
+
+        font-size:
+            17px;
+
+    }
+
+
+    .upload-tournament-information {
+
+        gap:
+            10px;
+
+    }
+
+
+    .community-selected-message {
+
+        max-width:
+            100%;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREEN
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .upload-tournament-card {
+
+        padding:
+            14px;
+
+    }
+
+
+    .upload-tournament-name {
+
+        font-size:
+            16px;
+
+    }
+
+
+    .upload-tournament-value {
+
+        font-size:
+            12px;
+
+    }
+
+}

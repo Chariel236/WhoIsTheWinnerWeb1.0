@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Community</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <main class="community-page">
+
+
+        <!-- =================================================
+             Page Title
+        ================================================= -->
+
+        <div class="community-title">
+
+            <p class="subtitle">
+                TOURNAMENT
+            </p>
+
+            <h1>
+                Community
+            </h1>
+
+            <p class="description">
+                Browse and share tournaments with the community.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             Search
+        ================================================= -->
+
+        <div class="community-search">
+
+            <input
+                type="text"
+                id="communitySearchInput"
+                class="community-search-input"
+                placeholder="Search Tournament Name..."
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <!-- =================================================
+             Community Tournament Section
+        ================================================= -->
+
+        <section class="community-section">
+
+
+            <!-- =================================================
+                 Tournament Scroll Box
+            ================================================= -->
+
+            <div
+                id="communityTournamentList"
+                class="community-tournament-list"
+            >
+
+
+                <!-- =================================================
+                     Tournament Card
+                     JavaScript will generate cards here
+                ================================================= -->
+
+
+                <!--
+                <article class="community-tournament-card">
+
+
+                    <div class="community-card-header">
+
+                        <h2>
+                            My Tournament
+                        </h2>
+
+                    </div>
+
+
+                    <div class="community-card-information">
+
+
+                        <div class="community-card-info">
+
+                            <span class="community-card-label">
+                                Author
+                            </span>
+
+                            <span class="community-card-value">
+                                Chariel
+                            </span>
+
+                        </div>
+
+
+                        <div class="community-card-info">
+
+                            <span class="community-card-label">
+                                Created
+                            </span>
+
+                            <span class="community-card-value">
+                                03 Aug 2026
+                            </span>
+
+                        </div>
+
+
+                        <div class="community-card-info">
+
+                            <span class="community-card-label">
+                                Participants
+                            </span>
+
+                            <span class="community-card-value">
+                                16
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="community-card-actions">
+
+
+                        <button
+                            class="community-download-button"
+                        >
+
+                            Download
+
+                            <span>
+                                ↓
+                            </span>
+
+                        </button>
+
+
+                        <button
+                            class="community-delete-button"
+                        >
+
+                            ×
+
+                        </button>
+
+
+                    </div>
+
+
+                </article>
+                -->
+
+
+            </div>
+
+
+            <!-- =================================================
+                 Empty Message
+            ================================================= -->
+
+            <div
+                id="communityEmptyMessage"
+                class="community-empty-message"
+            >
+
+                No tournaments found.
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             Upload Tournament
+        ================================================= -->
+
+        <button
+            type="button"
+            class="community-upload-button"
+            onclick="openUploadTournament()"
+        >
+
+            <span>
+                ↑
+            </span>
+
+            Upload Tournament
+
+        </button>
+
+
+        <!-- =================================================
+             Back To Home
+        ================================================= -->
+
+        <button
+            type="button"
+            class="community-back-button"
+            onclick="goBackToHome()"
+        >
+
+            ← Back
+
+        </button>
+
+
+    </main>
+
+
+    <!-- =================================================
+         Data Structures
+    ================================================= -->
+
+    <script src="js/S/swiss-data.js"></script>
+
+    <script src="js/S/participant.js"></script>
+
+    <script src="js/S/tournament-state.js"></script>
+
+    <script src="js/S/save-data.js"></script>
+
+
+    <!-- =================================================
+         Storage
+    ================================================= -->
+
+    <script src="js/Storage/save-data-storage.js"></script>
+
+    <!-- =================================================
+     Load Saved Data
+    ================================================= -->
+
+    <script>
+
+        loadSaveData();
+
+    </script>
+
+    <!-- =================================================
+         Community Page Script
+    ================================================= -->
+
+    <script src="js/community.js"></script>
+
+
+</body>
+
+</html>

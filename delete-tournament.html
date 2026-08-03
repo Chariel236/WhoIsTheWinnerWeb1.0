@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Delete Tournament</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <main class="load-container">
+
+
+        <!-- Page Title -->
+
+        <div class="load-title">
+
+            <p class="subtitle">
+                TOURNAMENT
+            </p>
+
+            <h1>
+                Delete Tournament
+            </h1>
+
+            <p class="description">
+                Choose a tournament to delete.
+            </p>
+
+        </div>
+
+
+        <!-- Tournament List -->
+
+        <section class="load-section">
+
+            <div class="section-header">
+
+                <h2>
+                    Saved Tournaments
+                </h2>
+
+            </div>
+
+
+            <!-- ScrollBox -->
+
+            <div
+                class="tournament-list"
+                id="deleteTournamentList"
+            >
+
+            </div>
+
+        </section>
+
+
+        <!-- Go Back -->
+
+        <button
+            class="back-button"
+            onclick="goBackToMainMenu()"
+        >
+
+            ← Go Back
+
+        </button>
+
+
+    </main>
+
+
+    <!-- =========================
+         Data Structure
+         ========================= -->
+
+    <script src="js/S/swiss-data.js"></script>
+    <script src="js/S/participant.js"></script>
+    <script src="js/S/tournament-state.js"></script>
+    <script src="js/S/save-data.js"></script>
+
+
+    <!-- =========================
+         Storage
+         ========================= -->
+
+    <script src="js/Storage/save-data-storage.js"></script>
+
+
+    <!-- =========================
+         Page Script
+         ========================= -->
+
+    <script src="js/delete-tournament.js"></script>
+
+</body>
+
+</html>

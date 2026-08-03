@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Own Tournament</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <main class="own-container">
+
+
+        <!-- Title -->
+
+        <div class="own-title">
+
+            <p class="subtitle">
+                TOURNAMENT SETUP
+            </p>
+
+            <h1>
+                Create Own Tournament
+            </h1>
+
+            <p class="description">
+                Set up your tournament before starting.
+            </p>
+
+        </div>
+
+
+        <!-- Tournament Name -->
+
+        <div class="own-section">
+
+            <label for="ownTournamentName">
+                Tournament Name
+            </label>
+
+            <input
+                type="text"
+                id="ownTournamentName"
+                class="tournament-name-input"
+                placeholder="Enter New Tournament Name"
+            >
+
+        </div>
+
+
+        <!-- Number Of Participants -->
+
+        <div class="own-section">
+
+            <label>
+                Number Of Participants
+            </label>
+
+
+            <div class="participant-number-selector">
+
+                <button
+                    class="number-button"
+                    onclick="changeOwnParticipantCount(-1)"
+                >
+                    <
+                </button>
+
+
+                <span
+                    id="ownParticipantCount"
+                    class="participant-number"
+                >
+                    16
+                </span>
+
+
+                <button
+                    class="number-button"
+                    onclick="changeOwnParticipantCount(1)"
+                >
+                    >
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Submit -->
+
+        <button
+            class="submit-button"
+            onclick="submitOwnTournament()"
+        >
+
+            Submit
+
+            <span>
+                →
+            </span>
+
+        </button>
+
+
+        <!-- Cancel -->
+
+        <button
+            class="cancel-button"
+            onclick="cancelOwnTournament()"
+        >
+
+            Cancel
+
+        </button>
+
+
+    </main>
+
+    <script src="js/S/swiss-data.js"></script>
+    <script src="js/S/participant.js"></script>
+    <script src="js/S/tournament-state.js"></script>
+    <script src="js/S/save-data.js"></script>
+
+    <script src="js/Storage/save-data-storage.js"></script>
+
+    <script src="js/create-own-tournament.js"></script>
+
+</body>
+
+</html>
