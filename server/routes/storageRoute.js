@@ -1,186 +1,272 @@
-
 const express =
-    require("express");
+require("express");
 
 const UserSaveData =
-    require("../models/UserSaveData");
+require("../models/UserSaveData");
 
 const UserDefaultParticipantsList =
-    require("../models/UserDefaultParticipantsList");
+require("../models/UserDefaultParticipantsList");
 
 const authMiddleware =
-    require("../middleware/authMiddleware");
-
+require("../middleware/authMiddleware");
 
 // =========================================================
 // Router
 // =========================================================
 
 const router =
-    express.Router();
-
+express.Router();
 
 // =========================================================
 // SaveData
 // =========================================================
-
 
 // =========================================================
 // Get User SaveData
 // =========================================================
 
 router.get(
-    "/save-data",
-    authMiddleware,
-    async function(
-        request,
-        response
-    ) {
-
-        try {
-
-            // =================================================
-            // Get User ID
-            // =================================================
-
-            const userId =
-                request.userId;
+"/save-data",
+authMiddleware,
+async function(
+request,
+response
+) {
 
 
-            // =================================================
-            // Find SaveData
-            // =================================================
+    try {
 
-            const saveDataList =
-                await UserSaveData
-                    .find({
-
-                        user:
-                            userId
-
-                    })
-                    .sort({
-
-                        createdAt:
-                            1
-
-                    });
+        const userId =
+            request.userId;
 
 
-            // =================================================
-            // Convert To SaveData Array
-            // =================================================
-
-            const saveDataStorageDB =
-                saveDataList.map(
-                    function(
-                        item
-                    ) {
-
-                        return item.save_data;
-
-                    }
-                );
+        const saveDataList =
+            await UserSaveData
+                .find({
+                    user:
+                        userId
+                })
+                .sort({
+                    createdAt:
+                        1
+                });
 
 
-            // =================================================
-            // Success
-            // =================================================
+        const saveDataStorageDB =
+            saveDataList.map(
+                function(
+                    item
+                ) {
 
-            return response.status(
-                200
-            ).json({
+                    return item.save_data;
 
-                saveDataStorage:
-                    saveDataStorageDB
-
-            });
-
-        }
-
-        catch (
-            error
-        ) {
-
-            console.error(
-                "Get User SaveData Error:",
-                error
+                }
             );
 
 
-            return response.status(
-                500
-            ).json({
+        return response.status(
+            200
+        ).json({
 
-                message:
-                    "Server error."
+            saveDataStorage:
+                saveDataStorageDB
 
-            });
-
-        }
+        });
 
     }
 
-);
+    catch (
+        error
+    ) {
 
+        console.error(
+            "Get User SaveData Error:",
+            error
+        );
+
+
+        return response.status(
+            500
+        ).json({
+
+            message:
+                "Server error."
+
+        });
+
+    }
+
+}
+
+
+);
 
 // =========================================================
 // Save User SaveData
 // =========================================================
 
 router.post(
-    "/save-data",
-    authMiddleware,
-    async function(
-        request,
-        response
+"/save-data",
+authMiddleware,
+async function(
+request,
+response
+) {
+
+
+    try {
+
+        const userId =
+            request.userId;
+
+
+        const saveDataStorage =
+            request.body.saveDataStorage;
+
+
+        if (
+            !Array.isArray(
+                saveDataStorage
+            )
+        ) {
+
+            return response.status(
+                400
+            ).json({
+
+                message:
+                    "saveDataStorage must be an array."
+
+            });
+
+        }
+
+
+        await UserSaveData.deleteMany({
+
+            user:
+                userId
+
+        });
+
+
+        const saveDataDocuments =
+            saveDataStorage.map(
+                function(
+                    saveData
+                ) {
+
+                    return {
+
+                        user:
+                            userId,
+
+                        save_data:
+                            saveData
+
+                    };
+
+                }
+            );
+
+
+        let savedDocuments =
+            [];
+
+
+        if (
+            saveDataDocuments.length >
+            0
+        ) {
+
+            savedDocuments =
+                await UserSaveData.insertMany(
+                    saveDataDocuments
+                );
+
+        }
+
+
+        const savedDataStorage =
+            savedDocuments.map(
+                function(
+                    item
+                ) {
+
+                    return item.save_data;
+
+                }
+            );
+
+
+        return response.status(
+            200
+        ).json({
+
+            message:
+                "SaveData saved successfully.",
+
+            saveDataStorage:
+                savedDataStorage
+
+        });
+
+    }
+
+    catch (
+        error
     ) {
 
-        try {
-
-            // =================================================
-            // Get User ID
-            // =================================================
-
-            const userId =
-                request.userId;
+        console.error(
+            "Save User SaveData Error:",
+            error
+        );
 
 
-            // =================================================
-            // Get SaveData Storage
-            // =================================================
+        return response.status(
+            500
+        ).json({
 
-            const saveDataStorage =
-                request.body.saveDataStorage;
+            message:
+                "Server error."
 
+        });
 
-            // =================================================
-            // Check SaveData Storage
-            // =================================================
+    }
 
-            if (
-                !Array.isArray(
-                    saveDataStorage
-                )
-            ) {
-
-                return response.status(
-                    400
-                ).json({
-
-                    message:
-                        "saveDataStorage must be an array."
-
-                });
-
-            }
+}
 
 
-            // =================================================
-            // Delete Existing User SaveData
-            // =================================================
+);
 
-            await UserSaveData.deleteMany({
+// =========================================================
+// Delete User SaveData
+// =========================================================
+
+router.delete(
+"/save-data/:id",
+authMiddleware,
+async function(
+request,
+response
+) {
+
+
+    try {
+
+        const userId =
+            request.userId;
+
+
+        const saveDataId =
+            request.params.id;
+
+
+        const deletedSaveData =
+            await UserSaveData.findOneAndDelete({
+
+                _id:
+                    saveDataId,
 
                 user:
                     userId
@@ -188,378 +274,306 @@ router.post(
             });
 
 
-            // =================================================
-            // Create New Database SaveData
-            // =================================================
-
-            const saveDataDocuments =
-                saveDataStorage.map(
-                    function(
-                        saveData
-                    ) {
-
-                        return {
-
-                            user:
-                                userId,
-
-                            save_data:
-                                saveData
-
-                        };
-
-                    }
-                );
-
-
-            // =================================================
-            // Save To Database
-            // =================================================
-
-            let savedDocuments =
-                [];
-
-
-            if (
-                saveDataDocuments.length >
-                0
-            ) {
-
-                savedDocuments =
-                    await UserSaveData.insertMany(
-                        saveDataDocuments
-                    );
-
-            }
-
-
-            // =================================================
-            // Convert Saved Data
-            // =================================================
-
-            const savedDataStorage =
-                savedDocuments.map(
-                    function(
-                        item
-                    ) {
-
-                        return item.save_data;
-
-                    }
-                );
-
-
-            // =================================================
-            // Success
-            // =================================================
-
-            return response.status(
-                200
-            ).json({
-
-                message:
-                    "SaveData saved successfully.",
-
-                saveDataStorage:
-                    savedDataStorage
-
-            });
-
-        }
-
-        catch (
-            error
+        if (
+            !deletedSaveData
         ) {
 
-            console.error(
-                "Save User SaveData Error:",
-                error
-            );
-
-
             return response.status(
-                500
+                404
             ).json({
 
                 message:
-                    "Server error."
+                    "SaveData not found."
 
             });
 
         }
+
+
+        return response.status(
+            200
+        ).json({
+
+            message:
+                "SaveData deleted successfully."
+
+        });
 
     }
 
-);
-
-
-// =========================================================
-// Delete User SaveData
-// =========================================================
-
-router.delete(
-    "/save-data/:id",
-    authMiddleware,
-    async function(
-        request,
-        response
+    catch (
+        error
     ) {
 
-        try {
-
-            // =================================================
-            // Get User ID
-            // =================================================
-
-            const userId =
-                request.userId;
-
-
-            // =================================================
-            // Get SaveData ID
-            // =================================================
-
-            const saveDataId =
-                request.params.id;
-
-
-            // =================================================
-            // Delete
-            // =================================================
-
-            const deletedSaveData =
-                await UserSaveData.findOneAndDelete({
-
-                    _id:
-                        saveDataId,
-
-                    user:
-                        userId
-
-                });
-
-
-            // =================================================
-            // Not Found
-            // =================================================
-
-            if (
-                !deletedSaveData
-            ) {
-
-                return response.status(
-                    404
-                ).json({
-
-                    message:
-                        "SaveData not found."
-
-                });
-
-            }
-
-
-            // =================================================
-            // Success
-            // =================================================
-
-            return response.status(
-                200
-            ).json({
-
-                message:
-                    "SaveData deleted successfully."
-
-            });
-
-        }
-
-        catch (
+        console.error(
+            "Delete User SaveData Error:",
             error
-        ) {
-
-            console.error(
-                "Delete User SaveData Error:",
-                error
-            );
+        );
 
 
-            return response.status(
-                500
-            ).json({
+        return response.status(
+            500
+        ).json({
 
-                message:
-                    "Server error."
+            message:
+                "Server error."
 
-            });
-
-        }
+        });
 
     }
 
-);
+}
 
+
+);
 
 // =========================================================
 // Default Participants List
 // =========================================================
-
 
 // =========================================================
 // Get Default Participants List
 // =========================================================
 
 router.get(
-    "/default-participants",
-    authMiddleware,
-    async function(
-        request,
-        response
-    ) {
-
-        try {
-
-            // =================================================
-            // Get User ID
-            // =================================================
-
-            const userId =
-                request.userId;
+"/default-participants",
+authMiddleware,
+async function(
+request,
+response
+) {
 
 
-            // =================================================
-            // Find Default Participants
-            // =================================================
+    try {
 
-            const defaultParticipantsList =
-                await UserDefaultParticipantsList
-                    .find({
-
-                        user:
-                            userId
-
-                    })
-                    .sort({
-
-                        createdAt:
-                            1
-
-                    });
+        const userId =
+            request.userId;
 
 
-            // =================================================
-            // Convert To Array
-            // =================================================
+        console.log(
+            "========================================"
+        );
 
-            const defaultParticipantsListArrayDB =
-                defaultParticipantsList.map(
-                    function(
-                        item
-                    ) {
+        console.log(
+            "GET DEFAULT PARTICIPANTS"
+        );
 
-                        return item.default_participants_list;
-
-                    }
-                );
+        console.log(
+            "User ID:",
+            userId
+        );
 
 
-            // =================================================
-            // Success
-            // =================================================
+        const defaultParticipantsList =
+            await UserDefaultParticipantsList
+                .find({
 
-            return response.status(
-                200
-            ).json({
+                    user:
+                        userId
 
-                defaultParticipantsListArray:
-                    defaultParticipantsListArrayDB
+                })
+                .sort({
 
-            });
+                    createdAt:
+                        1
 
-        }
+                });
 
-        catch (
-            error
-        ) {
 
-            console.error(
-                "Get Default Participants Error:",
-                error
+        console.log(
+            "Database Documents Found:",
+            defaultParticipantsList.length
+        );
+
+
+        const defaultParticipantsListArrayDB =
+            defaultParticipantsList.map(
+                function(
+                    item
+                ) {
+
+                    return item.default_participants_list;
+
+                }
             );
 
 
-            return response.status(
-                500
-            ).json({
+        console.log(
+            "Default Participants Data:",
+            defaultParticipantsListArrayDB
+        );
 
-                message:
-                    "Server error."
 
-            });
+        console.log(
+            "========================================"
+        );
 
-        }
+
+        return response.status(
+            200
+        ).json({
+
+            defaultParticipantsListArray:
+                defaultParticipantsListArrayDB
+
+        });
 
     }
 
+    catch (
+        error
+    ) {
+
+        console.error(
+            "Get Default Participants Error:",
+            error
+        );
+
+
+        return response.status(
+            500
+        ).json({
+
+            message:
+                "Server error."
+
+        });
+
+    }
+
+}
+
+
 );
 
-
 // =========================================================
+// TEMPORARY DEBUG POST
 // Save Default Participants List
 // =========================================================
 
 router.post(
-    "/default-participants",
-    authMiddleware,
-    async function(
-        request,
-        response
-    ) {
-
-        try {
-
-            // =================================================
-            // Get User ID
-            // =================================================
-
-            const userId =
-                request.userId;
+"/default-participants",
+authMiddleware,
+async function(
+request,
+response
+) {
 
 
-            // =================================================
-            // Get Default Participants List
-            // =================================================
+    try {
 
-            const defaultParticipantsListArray =
-                request.body.defaultParticipantsListArray;
+        console.log(
+            "========================================"
+        );
 
-
-            // =================================================
-            // Check Array
-            // =================================================
-
-            if (
-                !Array.isArray(
-                    defaultParticipantsListArray
-                )
-            ) {
-
-                return response.status(
-                    400
-                ).json({
-
-                    message:
-                        "defaultParticipantsListArray must be an array."
-
-                });
-
-            }
+        console.log(
+            "POST DEFAULT PARTICIPANTS"
+        );
 
 
-            // =================================================
-            // Delete Existing User Default Participants
-            // =================================================
+        // =================================================
+        // User ID
+        // =================================================
 
+        const userId =
+            request.userId;
+
+
+        console.log(
+            "User ID:",
+            userId
+        );
+
+
+        // =================================================
+        // Request Body
+        // =================================================
+
+        console.log(
+            "Request Body:",
+            request.body
+        );
+
+
+        // =================================================
+        // Get Array
+        // =================================================
+
+        const defaultParticipantsListArray =
+            request.body.defaultParticipantsListArray;
+
+
+        console.log(
+            "Received Default Participants:",
+            defaultParticipantsListArray
+        );
+
+
+        // =================================================
+        // Check User ID
+        // =================================================
+
+        if (
+            !userId
+        ) {
+
+            console.error(
+                "ERROR: request.userId is empty."
+            );
+
+
+            return response.status(
+                401
+            ).json({
+
+                message:
+                    "User ID is missing."
+
+            });
+
+        }
+
+
+        // =================================================
+        // Check Array
+        // =================================================
+
+        if (
+            !Array.isArray(
+                defaultParticipantsListArray
+            )
+        ) {
+
+            console.error(
+                "ERROR: defaultParticipantsListArray is not an array."
+            );
+
+
+            return response.status(
+                400
+            ).json({
+
+                message:
+                    "defaultParticipantsListArray must be an array.",
+
+                receivedType:
+                    typeof defaultParticipantsListArray
+
+            });
+
+        }
+
+
+        // =================================================
+        // Delete Existing User Data
+        // =================================================
+
+        console.log(
+            "Deleting existing Default Participants..."
+        );
+
+
+        const deleteResult =
             await UserDefaultParticipantsList.deleteMany({
 
                 user:
@@ -568,221 +582,270 @@ router.post(
             });
 
 
-            // =================================================
-            // Create Database Documents
-            // =================================================
-
-            const defaultParticipantDocuments =
-                defaultParticipantsListArray.map(
-                    function(
-                        defaultParticipant
-                    ) {
-
-                        return {
-
-                            user:
-                                userId,
-
-                            default_participants_list:
-                                defaultParticipant
-
-                        };
-
-                    }
-                );
+        console.log(
+            "Deleted Documents:",
+            deleteResult.deletedCount
+        );
 
 
-            // =================================================
-            // Save To Database
-            // =================================================
+        // =================================================
+        // Prepare Documents
+        // =================================================
 
-            let savedDocuments =
-                [];
+        const defaultParticipantDocuments =
+            defaultParticipantsListArray.map(
+                function(
+                    defaultParticipant
+                ) {
 
+                    return {
 
-            if (
-                defaultParticipantDocuments.length >
-                0
-            ) {
+                        user:
+                            userId,
 
-                savedDocuments =
-                    await UserDefaultParticipantsList.insertMany(
-                        defaultParticipantDocuments
-                    );
+                        default_participants_list:
+                            defaultParticipant
 
-            }
+                    };
 
-
-            // =================================================
-            // Convert Saved Data
-            // =================================================
-
-            const savedDefaultParticipants =
-                savedDocuments.map(
-                    function(
-                        item
-                    ) {
-
-                        return item.default_participants_list;
-
-                    }
-                );
-
-
-            // =================================================
-            // Success
-            // =================================================
-
-            return response.status(
-                200
-            ).json({
-
-                message:
-                    "Default Participants List saved successfully.",
-
-                defaultParticipantsListArray:
-                    savedDefaultParticipants
-
-            });
-
-        }
-
-        catch (
-            error
-        ) {
-
-            console.error(
-                "Save Default Participants Error:",
-                error
+                }
             );
 
 
-            return response.status(
-                500
-            ).json({
+        console.log(
+            "Documents To Insert:",
+            defaultParticipantDocuments
+        );
 
-                message:
-                    "Server error."
 
-            });
+        // =================================================
+        // Insert Documents
+        // =================================================
+
+        let savedDocuments =
+            [];
+
+
+        if (
+            defaultParticipantDocuments.length >
+            0
+        ) {
+
+            savedDocuments =
+                await UserDefaultParticipantsList.insertMany(
+                    defaultParticipantDocuments
+                );
 
         }
 
+
+        // =================================================
+        // Verify Database
+        // =================================================
+
+        console.log(
+            "Inserted Documents:",
+            savedDocuments.length
+        );
+
+
+        // =================================================
+        // Convert Saved Documents
+        // =================================================
+
+        const savedDefaultParticipants =
+            savedDocuments.map(
+                function(
+                    item
+                ) {
+
+                    return item.default_participants_list;
+
+                }
+            );
+
+
+        // =================================================
+        // Final Database Check
+        // =================================================
+
+        const verifyDocuments =
+            await UserDefaultParticipantsList.find({
+
+                user:
+                    userId
+
+            });
+
+
+        console.log(
+            "Verification Documents:",
+            verifyDocuments.length
+        );
+
+
+        console.log(
+            "Verification Data:",
+            verifyDocuments
+        );
+
+
+        console.log(
+            "========================================"
+        );
+
+
+        // =================================================
+        // Success
+        // =================================================
+
+        return response.status(
+            200
+        ).json({
+
+            message:
+                "Default Participants List saved successfully.",
+
+            insertedCount:
+                savedDocuments.length,
+
+            defaultParticipantsListArray:
+                savedDefaultParticipants
+
+        });
+
     }
 
-);
+    catch (
+        error
+    ) {
 
+        console.error(
+            "========================================"
+        );
+
+        console.error(
+            "SAVE DEFAULT PARTICIPANTS ERROR"
+        );
+
+        console.error(
+            error
+        );
+
+        console.error(
+            "========================================"
+        );
+
+
+        return response.status(
+            500
+        ).json({
+
+            message:
+                "Server error.",
+
+            error:
+                error.message
+
+        });
+
+    }
+
+}
+
+
+);
 
 // =========================================================
 // Delete Default Participants List
 // =========================================================
 
 router.delete(
-    "/default-participants/:id",
-    authMiddleware,
-    async function(
-        request,
-        response
-    ) {
-
-        try {
-
-            // =================================================
-            // Get User ID
-            // =================================================
-
-            const userId =
-                request.userId;
+"/default-participants/:id",
+authMiddleware,
+async function(
+request,
+response
+) {
 
 
-            // =================================================
-            // Get Default Participants ID
-            // =================================================
+    try {
 
-            const defaultParticipantsId =
-                request.params.id;
+        const userId =
+            request.userId;
 
 
-            // =================================================
-            // Delete
-            // =================================================
-
-            const deletedDefaultParticipants =
-                await UserDefaultParticipantsList.findOneAndDelete({
-
-                    _id:
-                        defaultParticipantsId,
-
-                    user:
-                        userId
-
-                });
+        const defaultParticipantsId =
+            request.params.id;
 
 
-            // =================================================
-            // Not Found
-            // =================================================
+        const deletedDefaultParticipants =
+            await UserDefaultParticipantsList.findOneAndDelete({
 
-            if (
-                !deletedDefaultParticipants
-            ) {
+                _id:
+                    defaultParticipantsId,
 
-                return response.status(
-                    404
-                ).json({
-
-                    message:
-                        "Default Participants List not found."
-
-                });
-
-            }
-
-
-            // =================================================
-            // Success
-            // =================================================
-
-            return response.status(
-                200
-            ).json({
-
-                message:
-                    "Default Participants List deleted successfully."
+                user:
+                    userId
 
             });
 
-        }
 
-        catch (
-            error
+        if (
+            !deletedDefaultParticipants
         ) {
 
-            console.error(
-                "Delete Default Participants Error:",
-                error
-            );
-
-
             return response.status(
-                500
+                404
             ).json({
 
                 message:
-                    "Server error."
+                    "Default Participants List not found."
 
             });
 
         }
+
+
+        return response.status(
+            200
+        ).json({
+
+            message:
+                "Default Participants List deleted successfully."
+
+        });
 
     }
 
-);
+    catch (
+        error
+    ) {
 
+        console.error(
+            "Delete Default Participants Error:",
+            error
+        );
+
+
+        return response.status(
+            500
+        ).json({
+
+            message:
+                "Server error."
+
+        });
+
+    }
+
+}
+
+);
 
 // =========================================================
 // Export Router
 // =========================================================
 
 module.exports =
-    router;
+router;
