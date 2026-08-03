@@ -36,15 +36,19 @@
             FIGHT
         </p>
 
+
         <h1 id="fightStageTitle">
             SWISS — ROUND 1
         </h1>
+
 
         <p
             class="fight-description"
             id="fightStageDescription"
         >
+
             Select the winner of the match.
+
         </p>
 
     </section>
@@ -85,6 +89,7 @@
             <button
                 class="fight-choose-button"
                 id="choosePlayerA"
+                type="button"
                 onclick="chooseA()"
             >
 
@@ -136,6 +141,7 @@
             <button
                 class="fight-choose-button"
                 id="choosePlayerB"
+                type="button"
                 onclick="chooseB()"
             >
 
@@ -157,6 +163,7 @@
 
     <button
         class="back-button fight-back-button"
+        type="button"
         onclick="goBackToTournamentRoom()"
     >
 
@@ -169,36 +176,62 @@
 
 
 
-    <!-- =========================================================
-     Data Structure
+<!-- =========================================================
+     DATA STRUCTURE
      ========================================================= -->
 
 <script src="js/S/swiss-data.js"></script>
+
 <script src="js/S/participant.js"></script>
+
 <script src="js/S/main-tournament-memory.js"></script>
+
 <script src="js/S/tournament-state.js"></script>
+
 <script src="js/S/save-data.js"></script>
 
 
+
 <!-- =========================================================
-     Storage
+     STORAGE
      ========================================================= -->
 
 <script src="js/Storage/save-data-storage.js"></script>
 
+
+
 <!-- =========================================================
-     Main Tournament 16
+     MAIN TOURNAMENT 16
      ========================================================= -->
 
 <script src="js/main_tournament16.js"></script>
+
 <script src="js/main_tournament32.js"></script>
 
 
+
 <!-- =========================================================
-     Fight Script
+     SWISS
      ========================================================= -->
+
 <script src="js/swiss.js"></script>
-<script src="https://www.youtube.com/iframe_api"></script>
+
+
+
+<!-- =========================================================
+     YOUTUBE API
+     ========================================================= -->
+
+<script
+    src="https://www.youtube.com/iframe_api"
+></script>
+
+
+
+<!-- =========================================================
+     FIGHT SCRIPT
+     ========================================================= -->
+
 <script src="js/fight.js"></script>
 
 
