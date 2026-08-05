@@ -7776,58 +7776,38 @@ body::after {
 
 
 /* =========================================================
-   PARTICIPANT NAME LINK
-   ========================================================= */
+   Participant Name Link
+========================================================= */
 
-.fight-player-content a {
+.swiss-name-link {
 
-    color:
-        #edf0f4;
+    width: 100%;
 
-    text-decoration:
-        none;
+    min-width: 0;
 
-    font-size:
-        inherit;
+    border: none;
 
-    font-weight:
-        inherit;
+    background: transparent;
 
-    cursor:
-        pointer;
+    color: white;
 
-}
+    font-size: 17px;
 
+    font-weight: 600;
 
-.fight-player-content a:visited {
+    text-align: left;
 
-    color:
-        #edf0f4;
+    cursor: pointer;
 
-    text-decoration:
-        none;
+    padding: 8px 0;
 
-}
+    overflow: hidden;
 
+    text-overflow: ellipsis;
 
-.fight-player-content a:hover {
+    white-space: nowrap;
 
-    color:
-        #edf0f4;
-
-    text-decoration:
-        none;
-
-}
-
-
-.fight-player-content a:active {
-
-    color:
-        #edf0f4;
-
-    text-decoration:
-        none;
+    box-sizing: border-box;
 
 }
 
@@ -10552,9 +10532,8 @@ body::after {
 
 }
 
-
 /* =========================================================
-   PARTICIPANT URL LINK
+   PARTICIPANT NAME LINK
    ========================================================= */
 
 .fight-player-content a {
