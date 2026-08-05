@@ -1509,9 +1509,6 @@ function MainAWinner() {
         );
 
 
-        DecideMatch();
-
-
         initializeFightPage();
 
 
@@ -1529,9 +1526,6 @@ function MainAWinner() {
             participantA,
             participantB
         );
-
-
-        DecideMatch();
 
 
         initializeFightPage();
@@ -1767,9 +1761,6 @@ function MainBWinner() {
         );
 
 
-        DecideMatch();
-
-
         initializeFightPage();
 
 
@@ -1787,9 +1778,6 @@ function MainBWinner() {
             participantB,
             participantA
         );
-
-
-        DecideMatch();
 
 
         initializeFightPage();
@@ -2144,9 +2132,6 @@ function OpenMainTView() {
         current_participant_number ===
         16
     ) {
-        setinterval(
-            200
-        );
         window.location.href =
             "main-tournament-result-16.html";
 
@@ -2159,9 +2144,6 @@ function OpenMainTView() {
         current_participant_number ===
         32
     ) {
-        setinterval(
-            200
-        );
         window.location.href =
             "main-tournament-result-32.html";
 
