@@ -102,18 +102,18 @@ function deleteTournament(index) {
         saveDataStorage[index].name;
 
 
-    // const confirmDelete =
-    //     confirm(
-    //         "Delete Tournament?\n\n" +
-    //         tournamentName
-    //     );
+    const confirmDelete =
+        confirm(
+            "Delete Tournament?\n\n" +
+            tournamentName
+        );
 
 
-    // if (!confirmDelete) {
+    if (!confirmDelete) {
 
-    //     return;
+        return;
 
-    // }
+    }
 
 
     // Remove SaveData
