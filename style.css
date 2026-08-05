@@ -10532,62 +10532,6 @@ body::after {
 
 }
 
-/* =========================================================
-   PARTICIPANT NAME LINK
-   ========================================================= */
-
-.fight-player-content a {
-
-    color:
-        #edf0f4;
-
-    text-decoration:
-        none;
-
-    font-size:
-        inherit;
-
-    font-weight:
-        inherit;
-
-    cursor:
-        pointer;
-
-}
-
-
-.fight-player-content a:visited {
-
-    color:
-        #edf0f4;
-
-    text-decoration:
-        none;
-
-}
-
-
-.fight-player-content a:hover {
-
-    color:
-        #edf0f4;
-
-    text-decoration:
-        none;
-
-}
-
-
-.fight-player-content a:active {
-
-    color:
-        #edf0f4;
-
-    text-decoration:
-        none;
-
-}
-
 
 /* =========================================================
    IMAGE
