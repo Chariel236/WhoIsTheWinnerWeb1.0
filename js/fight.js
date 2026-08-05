@@ -2144,7 +2144,9 @@ function OpenMainTView() {
         current_participant_number ===
         16
     ) {
-
+        setinterval(
+            200
+        );
         window.location.href =
             "main-tournament-result-16.html";
 
@@ -2157,7 +2159,9 @@ function OpenMainTView() {
         current_participant_number ===
         32
     ) {
-
+        setinterval(
+            200
+        );
         window.location.href =
             "main-tournament-result-32.html";
 
