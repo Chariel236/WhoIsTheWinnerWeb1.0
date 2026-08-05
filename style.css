@@ -7776,38 +7776,58 @@ body::after {
 
 
 /* =========================================================
-   Participant Name Link
-========================================================= */
+   PARTICIPANT NAME LINK
+   ========================================================= */
 
-.swiss-name-link {
+.fight-player-content a {
 
-    width: 100%;
+    color:
+        #edf0f4;
 
-    min-width: 0;
+    text-decoration:
+        none;
 
-    border: none;
+    font-size:
+        inherit;
 
-    background: transparent;
+    font-weight:
+        inherit;
 
-    color: white;
+    cursor:
+        pointer;
 
-    font-size: 17px;
+}
 
-    font-weight: 600;
 
-    text-align: left;
+.fight-player-content a:visited {
 
-    cursor: pointer;
+    color:
+        #edf0f4;
 
-    padding: 8px 0;
+    text-decoration:
+        none;
 
-    overflow: hidden;
+}
 
-    text-overflow: ellipsis;
 
-    white-space: nowrap;
+.fight-player-content a:hover {
 
-    box-sizing: border-box;
+    color:
+        #edf0f4;
+
+    text-decoration:
+        none;
+
+}
+
+
+.fight-player-content a:active {
+
+    color:
+        #edf0f4;
+
+    text-decoration:
+        none;
 
 }
 
