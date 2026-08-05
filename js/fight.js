@@ -415,6 +415,18 @@ function displayFightParticipant(
 
 
     // =====================================================
+    // Remove Previous Click
+    // =====================================================
+
+    element.onclick =
+        null;
+
+
+    element.style.cursor =
+        "default";
+
+
+    // =====================================================
     // Check Participant
     // =====================================================
 
@@ -428,13 +440,17 @@ function displayFightParticipant(
 
 
     // =====================================================
-    // Get Participant Information
+    // Get Participant Name
     // =====================================================
 
     const name =
         participant.name ||
         "";
 
+
+    // =====================================================
+    // Get Participant URL
+    // =====================================================
 
     const url =
         (
@@ -444,21 +460,23 @@ function displayFightParticipant(
 
 
     // =====================================================
-    // YouTube
+    // Check YouTube Video ID
     // =====================================================
     //
-    // Only display YouTube player if the URL
-    // actually contains a playable YouTube video ID.
+    // Only a REAL YouTube video will be treated
+    // as a YouTube player.
     //
     // Example:
+    //
     // https://www.youtube.com/watch?v=XXXXXXXXXXX
     //
     // https://youtu.be/XXXXXXXXXXX
     //
-    // A normal URL such as:
+    // Normal YouTube homepage:
+    //
     // https://www.youtube.com/
     //
-    // will NOT be treated as a YouTube video.
+    // will NOT be treated as a video.
     // =====================================================
 
     const youtubeVideoId =
@@ -466,6 +484,10 @@ function displayFightParticipant(
             url
         );
 
+
+    // =====================================================
+    // YouTube Video
+    // =====================================================
 
     if (
         youtubeVideoId
@@ -506,52 +528,47 @@ function displayFightParticipant(
     // Other URL
     // =====================================================
     //
-    // If URL is not empty and is not YouTube/image,
-    // display the participant name as a clickable link.
+    // If URL exists but is not YouTube and not an image,
+    // the ENTIRE PLAYER BOX becomes clickable.
     //
-    // Example:
-    //
-    // name:
-    // Google
-    //
-    // url:
-    // https://www.google.com
-    //
-    // Display:
-    // Google
-    //
-    // Clicking "Google" opens the URL.
+    // The participant name is still displayed.
+    // The URL itself is NOT displayed.
     // =====================================================
 
     if (
         url !== ""
     ) {
 
-        const link =
-            document.createElement(
-                "a"
-            );
+        // =================================================
+        // Display Participant Name
+        // =================================================
 
-
-        link.href =
-            url;
-
-
-        link.target =
-            "_blank";
-
-
-        link.rel =
-            "noopener noreferrer";
-
-
-        link.textContent =
+        element.textContent =
             name;
 
 
-        element.appendChild(
-            link
-        );
+        // =================================================
+        // Make Entire Box Clickable
+        // =================================================
+
+        element.style.cursor =
+            "pointer";
+
+
+        // =================================================
+        // Open URL When Box Is Clicked
+        // =================================================
+
+        element.onclick =
+            function() {
+
+                window.open(
+                    url,
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+
+            };
 
 
         return;
@@ -563,7 +580,7 @@ function displayFightParticipant(
     // No URL
     // =====================================================
     //
-    // If URL is empty, only display the participant name.
+    // If URL is empty, the box is not clickable.
     // =====================================================
 
     element.textContent =
