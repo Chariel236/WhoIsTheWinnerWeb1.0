@@ -45,12 +45,6 @@ let youtubePlayerCounter =
 // =========================================================
 // Choose Button Lock
 // =========================================================
-//
-// Prevents the user from clicking Choose A / B
-// repeatedly in a very short time.
-//
-// The buttons will stay hidden for 2 seconds.
-//
 
 let chooseButtonLocked =
     false;
@@ -412,6 +406,10 @@ function displayFightParticipant(
     }
 
 
+    // =====================================================
+    // Clear Previous Content
+    // =====================================================
+
     element.innerHTML =
         "";
 
@@ -426,23 +424,51 @@ function displayFightParticipant(
 
 
     const url =
-        participant.url ||
+        typeof participant.url ===
+        "string"
+            ? participant.url.trim()
+            : "";
+
+
+    const participantName =
+        participant.name ||
         "";
 
 
     // =====================================================
     // YouTube
     // =====================================================
+    //
+    // IMPORTANT:
+    //
+    // Only treat the URL as YouTube if
+    // a valid YouTube Video ID can be found.
+    //
+    // Example:
+    //
+    // https://www.youtube.com/watch?v=ABC123
+    //                         ^^^^^^^^^
+    //
+    // Valid YouTube video -> Show Video
+    //
+    // https://www.youtube.com
+    // No Video ID -> NOT YouTube
+    //
+    // =====================================================
+
+    const youtubeVideoId =
+        getYouTubeVideoId(
+            url
+        );
+
 
     if (
-        isYouTubeURL(
-            url
-        )
+        youtubeVideoId
     ) {
 
         displayYouTube(
             element,
-            url
+            youtubeVideoId
         );
 
         return;
@@ -463,7 +489,7 @@ function displayFightParticipant(
         displayImage(
             element,
             url,
-            participant.name
+            participantName
         );
 
         return;
@@ -472,12 +498,75 @@ function displayFightParticipant(
 
 
     // =====================================================
-    // Participant Name
+    // Normal Participant Name
     // =====================================================
 
+    // Always display the name.
     element.textContent =
-        participant.name ||
-        "";
+        participantName;
+
+
+    // =====================================================
+    // Make Name Clickable
+    // =====================================================
+    //
+    // Only when:
+    //
+    // URL is NOT empty
+    //
+    // and
+    //
+    // URL is NOT a YouTube video
+    //
+    // and
+    //
+    // URL is NOT an image
+    //
+    // =====================================================
+
+    if (
+        url !== ""
+    ) {
+
+        const link =
+            document.createElement(
+                "a"
+            );
+
+
+        link.href =
+            url;
+
+
+        link.target =
+            "_blank";
+
+
+        link.rel =
+            "noopener noreferrer";
+
+
+        link.textContent =
+            participantName;
+
+
+        // =================================================
+        // Clear Normal Text
+        // =================================================
+
+        element.innerHTML =
+            "";
+
+
+        // =================================================
+        // Add Clickable Name
+        // =================================================
+
+        element.appendChild(
+            link
+        );
+
+    }
 
 }
 
@@ -488,21 +577,12 @@ function displayFightParticipant(
 
 function displayYouTube(
     element,
-    url
+    videoId
 ) {
-
-    const videoId =
-        getYouTubeVideoId(
-            url
-        );
-
 
     if (
         !videoId
     ) {
-
-        element.textContent =
-            "";
 
         return;
 
@@ -704,6 +784,16 @@ function setupYouTubeHover(
 // =========================================================
 // Get YouTube Video ID
 // =========================================================
+//
+// This function now determines whether the URL
+// is actually a playable YouTube video.
+//
+// It returns:
+//
+// Video ID -> Valid YouTube video
+// ""       -> Not a YouTube video
+//
+// =========================================================
 
 function getYouTubeVideoId(
     url
@@ -719,43 +809,172 @@ function getYouTubeVideoId(
     }
 
 
+    const cleanURL =
+        url.trim();
+
+
+    if (
+        cleanURL === ""
+    ) {
+
+        return "";
+
+    }
+
+
     try {
 
         const parsedURL =
             new URL(
-                url
+                cleanURL
             );
 
 
+        const hostname =
+            parsedURL.hostname
+                .toLowerCase();
+
+
+        // =================================================
+        // youtube.com
+        // =================================================
+
         if (
-            parsedURL.hostname ===
+            hostname ===
                 "www.youtube.com"
             ||
-            parsedURL.hostname ===
+            hostname ===
                 "youtube.com"
         ) {
 
-            return (
-                parsedURL.searchParams.get(
-                    "v"
+            // =============================================
+            // Standard Watch URL
+            //
+            // https://www.youtube.com/watch?v=VIDEO_ID
+            // =============================================
+
+            if (
+                parsedURL.pathname ===
+                "/watch"
+            ) {
+
+                const videoId =
+                    parsedURL.searchParams.get(
+                        "v"
+                    );
+
+
+                if (
+                    videoId
+                ) {
+
+                    return videoId;
+
+                }
+
+            }
+
+
+            // =============================================
+            // YouTube Shorts
+            //
+            // https://www.youtube.com/shorts/VIDEO_ID
+            // =============================================
+
+            if (
+                parsedURL.pathname.startsWith(
+                    "/shorts/"
                 )
-                ||
-                ""
-            );
+            ) {
+
+                const videoId =
+                    parsedURL.pathname
+                        .substring(
+                            "/shorts/".length
+                        )
+                        .split(
+                            "/"
+                        )[0];
+
+
+                if (
+                    videoId
+                ) {
+
+                    return videoId;
+
+                }
+
+            }
+
+
+            // =============================================
+            // YouTube Embed
+            //
+            // https://www.youtube.com/embed/VIDEO_ID
+            // =============================================
+
+            if (
+                parsedURL.pathname.startsWith(
+                    "/embed/"
+                )
+            ) {
+
+                const videoId =
+                    parsedURL.pathname
+                        .substring(
+                            "/embed/".length
+                        )
+                        .split(
+                            "/"
+                        )[0];
+
+
+                if (
+                    videoId
+                ) {
+
+                    return videoId;
+
+                }
+
+            }
+
+
+            // =============================================
+            // Not a video
+            // =============================================
+
+            return "";
 
         }
 
 
+        // =================================================
+        // youtu.be
+        // =================================================
+
         if (
-            parsedURL.hostname ===
+            hostname ===
             "youtu.be"
         ) {
 
-            return (
+            const videoId =
                 parsedURL.pathname
                     .substring(1)
-                    .split("/")[0]
-            );
+                    .split("/")[0];
+
+
+            if (
+                videoId
+            ) {
+
+                return videoId;
+
+            }
+
+
+            return "";
 
         }
 
@@ -778,29 +997,27 @@ function getYouTubeVideoId(
 // =========================================================
 // Check YouTube URL
 // =========================================================
+//
+// This now uses getYouTubeVideoId().
+//
+// Therefore:
+//
+// youtube.com                -> false
+// youtube.com/channel/...   -> false
+// youtube.com/watch?v=xxx   -> true
+// youtu.be/xxx              -> true
+//
+// =========================================================
 
 function isYouTubeURL(
     value
 ) {
 
-    if (
-        typeof value !==
-        "string"
-    ) {
-
-        return false;
-
-    }
-
-
     return (
-        value.includes(
-            "youtube.com"
-        )
-        ||
-        value.includes(
-            "youtu.be"
-        )
+        getYouTubeVideoId(
+            value
+        ) !==
+        ""
     );
 
 }
@@ -834,13 +1051,46 @@ function displayImage(
     image.onerror =
         function() {
 
+            // =================================================
+            // Image Failed
+            // =================================================
+            //
+            // Since the URL is not a valid image anymore,
+            // display the participant name as a clickable
+            // link instead.
+            //
+            // =================================================
+
             element.innerHTML =
                 "";
 
 
-            element.textContent =
+            const link =
+                document.createElement(
+                    "a"
+                );
+
+
+            link.href =
+                url;
+
+
+            link.target =
+                "_blank";
+
+
+            link.rel =
+                "noopener noreferrer";
+
+
+            link.textContent =
                 participantName ||
                 "";
+
+
+            element.appendChild(
+                link
+            );
 
         };
 
@@ -1109,7 +1359,6 @@ function SwissAWinner() {
     // =====================================================
 
     saveSaveData();
-
 
     saveCurrentTournament();
 
@@ -1420,7 +1669,6 @@ function SwissBWinner() {
 
     saveSaveData();
 
-
     saveCurrentTournament();
 
 
@@ -1544,7 +1792,9 @@ function swiss_stage() {
 
 
         const participant =
-            current_participant_list[index];
+            current_participant_list[
+                index
+            ];
 
 
         if (
