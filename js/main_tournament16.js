@@ -1122,7 +1122,6 @@ function MatchHandler16(
         current_tournament.end =
             true;
 
-        DecideMatch();
 
     }
 
@@ -1147,7 +1146,6 @@ function MatchHandler16(
         // Decide Next Match
         // =================================================
 
-        DecideMatch();
 
     }
 
@@ -1233,5 +1231,7 @@ function MatchHandler16(
     // =====================================================
 
     saveCurrentTournament();
+
+    DecideMatch();
 
 }
