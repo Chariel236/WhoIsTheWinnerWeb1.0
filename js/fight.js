@@ -393,6 +393,10 @@ function displayFightParticipant(
         );
 
 
+    // =====================================================
+    // Check Element
+    // =====================================================
+
     if (
         !element
     ) {
@@ -410,6 +414,10 @@ function displayFightParticipant(
         "";
 
 
+    // =====================================================
+    // Check Participant
+    // =====================================================
+
     if (
         !participant
     ) {
@@ -419,29 +427,48 @@ function displayFightParticipant(
     }
 
 
+    // =====================================================
+    // Get Participant Information
+    // =====================================================
+
     const name =
         participant.name ||
         "";
 
 
     const url =
-        typeof participant.url ===
-            "string"
-            ? participant.url.trim()
-            : "";
+        (
+            participant.url ||
+            ""
+        ).trim();
 
 
     // =====================================================
     // YouTube
+    // =====================================================
     //
-    // Only a REAL playable YouTube video
-    // will enter this section.
+    // Only display YouTube player if the URL
+    // actually contains a playable YouTube video ID.
+    //
+    // Example:
+    // https://www.youtube.com/watch?v=XXXXXXXXXXX
+    //
+    // https://youtu.be/XXXXXXXXXXX
+    //
+    // A normal URL such as:
+    // https://www.youtube.com/
+    //
+    // will NOT be treated as a YouTube video.
     // =====================================================
 
-    if (
-        isPlayableYouTubeURL(
+    const youtubeVideoId =
+        getYouTubeVideoId(
             url
-        )
+        );
+
+
+    if (
+        youtubeVideoId
     ) {
 
         displayYouTube(
@@ -476,22 +503,56 @@ function displayFightParticipant(
 
 
     // =====================================================
-    // Non-YouTube URL
+    // Other URL
+    // =====================================================
     //
-    // URL exists:
-    // Show participant name as clickable link.
+    // If URL is not empty and is not YouTube/image,
+    // display the participant name as a clickable link.
+    //
+    // Example:
+    //
+    // name:
+    // Google
+    //
+    // url:
+    // https://www.google.com
+    //
+    // Display:
+    // Google
+    //
+    // Clicking "Google" opens the URL.
     // =====================================================
 
     if (
-        url !==
-        ""
+        url !== ""
     ) {
 
-        displayClickableName(
-            element,
-            name,
-            url
+        const link =
+            document.createElement(
+                "a"
+            );
+
+
+        link.href =
+            url;
+
+
+        link.target =
+            "_blank";
+
+
+        link.rel =
+            "noopener noreferrer";
+
+
+        link.textContent =
+            name;
+
+
+        element.appendChild(
+            link
         );
+
 
         return;
 
@@ -500,8 +561,9 @@ function displayFightParticipant(
 
     // =====================================================
     // No URL
+    // =====================================================
     //
-    // Just display participant name.
+    // If URL is empty, only display the participant name.
     // =====================================================
 
     element.textContent =
