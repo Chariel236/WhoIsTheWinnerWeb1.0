@@ -1122,6 +1122,8 @@ function MatchHandler16(
         current_tournament.end =
             true;
 
+        DecideMatch();
+
     }
 
     else {
