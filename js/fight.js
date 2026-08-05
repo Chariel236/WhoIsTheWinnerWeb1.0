@@ -131,10 +131,6 @@ function hideChooseButtonsTemporarily() {
             }
 
 
-            // =================================================
-            // Unlock
-            // =================================================
-
             chooseButtonLocked =
                 false;
 
@@ -423,52 +419,34 @@ function displayFightParticipant(
     }
 
 
-    const url =
-        typeof participant.url ===
-        "string"
-            ? participant.url.trim()
-            : "";
-
-
-    const participantName =
+    const name =
         participant.name ||
         "";
 
 
+    const url =
+        typeof participant.url ===
+            "string"
+            ? participant.url.trim()
+            : "";
+
+
     // =====================================================
     // YouTube
+    //
+    // Only a REAL playable YouTube video
+    // will enter this section.
     // =====================================================
-    //
-    // IMPORTANT:
-    //
-    // Only treat the URL as YouTube if
-    // a valid YouTube Video ID can be found.
-    //
-    // Example:
-    //
-    // https://www.youtube.com/watch?v=ABC123
-    //                         ^^^^^^^^^
-    //
-    // Valid YouTube video -> Show Video
-    //
-    // https://www.youtube.com
-    // No Video ID -> NOT YouTube
-    //
-    // =====================================================
-
-    const youtubeVideoId =
-        getYouTubeVideoId(
-            url
-        );
-
 
     if (
-        youtubeVideoId
+        isPlayableYouTubeURL(
+            url
+        )
     ) {
 
         displayYouTube(
             element,
-            youtubeVideoId
+            url
         );
 
         return;
@@ -489,7 +467,7 @@ function displayFightParticipant(
         displayImage(
             element,
             url,
-            participantName
+            name
         );
 
         return;
@@ -498,75 +476,304 @@ function displayFightParticipant(
 
 
     // =====================================================
-    // Normal Participant Name
-    // =====================================================
-
-    // Always display the name.
-    element.textContent =
-        participantName;
-
-
-    // =====================================================
-    // Make Name Clickable
-    // =====================================================
+    // Non-YouTube URL
     //
-    // Only when:
-    //
-    // URL is NOT empty
-    //
-    // and
-    //
-    // URL is NOT a YouTube video
-    //
-    // and
-    //
-    // URL is NOT an image
-    //
+    // URL exists:
+    // Show participant name as clickable link.
     // =====================================================
 
     if (
-        url !== ""
+        url !==
+        ""
     ) {
 
-        const link =
-            document.createElement(
-                "a"
+        displayClickableName(
+            element,
+            name,
+            url
+        );
+
+        return;
+
+    }
+
+
+    // =====================================================
+    // No URL
+    //
+    // Just display participant name.
+    // =====================================================
+
+    element.textContent =
+        name;
+
+}
+
+
+// =========================================================
+// Display Clickable Participant Name
+// =========================================================
+
+function displayClickableName(
+    element,
+    name,
+    url
+) {
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+
+    // =====================================================
+    // Display Name Instead Of URL
+    // =====================================================
+
+    link.textContent =
+        name;
+
+
+    // =====================================================
+    // Link
+    // =====================================================
+
+    link.href =
+        url;
+
+
+    // =====================================================
+    // Open In New Tab
+    // =====================================================
+
+    link.target =
+        "_blank";
+
+
+    // =====================================================
+    // Security
+    // =====================================================
+
+    link.rel =
+        "noopener noreferrer";
+
+
+    // =====================================================
+    // Prevent Empty Name From Showing Nothing
+    // =====================================================
+
+    if (
+        name ===
+        ""
+    ) {
+
+        link.textContent =
+            url;
+
+    }
+
+
+    // =====================================================
+    // Add To Participant Box
+    // =====================================================
+
+    element.appendChild(
+        link
+    );
+
+}
+
+
+// =========================================================
+// Check If URL Is A Playable YouTube Video
+// =========================================================
+//
+// IMPORTANT:
+//
+// This function does NOT simply check:
+//
+//     url.includes("youtube.com")
+//
+// Instead, it checks whether the URL contains
+// an actual YouTube video ID.
+//
+// Valid:
+//
+// https://www.youtube.com/watch?v=abc123
+// https://youtu.be/abc123
+//
+// Invalid:
+//
+// https://www.youtube.com
+// https://www.youtube.com/channel/xxxxx
+// https://www.youtube.com/@username
+// https://www.youtube.com/playlist?list=xxxxx
+//
+// =========================================================
+
+function isPlayableYouTubeURL(
+    url
+) {
+
+    if (
+        typeof url !==
+        "string"
+    ) {
+
+        return false;
+
+    }
+
+
+    const value =
+        url.trim();
+
+
+    if (
+        value ===
+        ""
+    ) {
+
+        return false;
+
+    }
+
+
+    try {
+
+        const parsedURL =
+            new URL(
+                value
             );
 
 
-        link.href =
-            url;
-
-
-        link.target =
-            "_blank";
-
-
-        link.rel =
-            "noopener noreferrer";
-
-
-        link.textContent =
-            participantName;
+        const hostname =
+            parsedURL.hostname
+                .toLowerCase()
+                .replace(
+                    /^www\./,
+                    ""
+                );
 
 
         // =================================================
-        // Clear Normal Text
+        // youtube.com
         // =================================================
 
-        element.innerHTML =
-            "";
+        if (
+            hostname ===
+            "youtube.com"
+        ) {
+
+            // =============================================
+            // Only /watch?v=VIDEO_ID
+            // =============================================
+
+            if (
+                parsedURL.pathname ===
+                "/watch"
+            ) {
+
+                const videoId =
+                    parsedURL.searchParams.get(
+                        "v"
+                    );
+
+
+                return isValidYouTubeVideoId(
+                    videoId
+                );
+
+            }
+
+
+            return false;
+
+        }
 
 
         // =================================================
-        // Add Clickable Name
+        // youtu.be
         // =================================================
 
-        element.appendChild(
-            link
-        );
+        if (
+            hostname ===
+            "youtu.be"
+        ) {
+
+            const videoId =
+                parsedURL.pathname
+                    .substring(1)
+                    .split(
+                        "/"
+                    )[0];
+
+
+            return isValidYouTubeVideoId(
+                videoId
+            );
+
+        }
 
     }
+
+    catch (
+        error
+    ) {
+
+        return false;
+
+    }
+
+
+    return false;
+
+}
+
+
+// =========================================================
+// Check YouTube Video ID
+// =========================================================
+
+function isValidYouTubeVideoId(
+    videoId
+) {
+
+    if (
+        typeof videoId !==
+        "string"
+    ) {
+
+        return false;
+
+    }
+
+
+    const value =
+        videoId.trim();
+
+
+    if (
+        value ===
+        ""
+    ) {
+
+        return false;
+
+    }
+
+
+    // =====================================================
+    // Normal YouTube Video IDs
+    //
+    // Usually 11 characters:
+    //
+    // ABCdef123_-
+    // =====================================================
+
+    return /^[A-Za-z0-9_-]{11}$/.test(
+        value
+    );
 
 }
 
@@ -577,12 +784,28 @@ function displayFightParticipant(
 
 function displayYouTube(
     element,
-    videoId
+    url
 ) {
+
+    const videoId =
+        getYouTubeVideoId(
+            url
+        );
+
 
     if (
         !videoId
     ) {
+
+        // =================================================
+        // Safety Fallback
+        //
+        // If somehow the URL is not actually playable,
+        // do NOT create a YouTube iframe.
+        // =================================================
+
+        element.textContent =
+            "";
 
         return;
 
@@ -784,16 +1007,6 @@ function setupYouTubeHover(
 // =========================================================
 // Get YouTube Video ID
 // =========================================================
-//
-// This function now determines whether the URL
-// is actually a playable YouTube video.
-//
-// It returns:
-//
-// Video ID -> Valid YouTube video
-// ""       -> Not a YouTube video
-//
-// =========================================================
 
 function getYouTubeVideoId(
     url
@@ -809,30 +1022,21 @@ function getYouTubeVideoId(
     }
 
 
-    const cleanURL =
-        url.trim();
-
-
-    if (
-        cleanURL === ""
-    ) {
-
-        return "";
-
-    }
-
-
     try {
 
         const parsedURL =
             new URL(
-                cleanURL
+                url
             );
 
 
         const hostname =
             parsedURL.hostname
-                .toLowerCase();
+                .toLowerCase()
+                .replace(
+                    /^www\./,
+                    ""
+                );
 
 
         // =================================================
@@ -841,109 +1045,28 @@ function getYouTubeVideoId(
 
         if (
             hostname ===
-                "www.youtube.com"
-            ||
-            hostname ===
-                "youtube.com"
+            "youtube.com"
+            &&
+            parsedURL.pathname ===
+            "/watch"
         ) {
 
-            // =============================================
-            // Standard Watch URL
-            //
-            // https://www.youtube.com/watch?v=VIDEO_ID
-            // =============================================
+            const videoId =
+                parsedURL.searchParams.get(
+                    "v"
+                );
+
 
             if (
-                parsedURL.pathname ===
-                "/watch"
-            ) {
-
-                const videoId =
-                    parsedURL.searchParams.get(
-                        "v"
-                    );
-
-
-                if (
+                isValidYouTubeVideoId(
                     videoId
-                ) {
-
-                    return videoId;
-
-                }
-
-            }
-
-
-            // =============================================
-            // YouTube Shorts
-            //
-            // https://www.youtube.com/shorts/VIDEO_ID
-            // =============================================
-
-            if (
-                parsedURL.pathname.startsWith(
-                    "/shorts/"
                 )
             ) {
 
-                const videoId =
-                    parsedURL.pathname
-                        .substring(
-                            "/shorts/".length
-                        )
-                        .split(
-                            "/"
-                        )[0];
-
-
-                if (
-                    videoId
-                ) {
-
-                    return videoId;
-
-                }
+                return videoId;
 
             }
 
-
-            // =============================================
-            // YouTube Embed
-            //
-            // https://www.youtube.com/embed/VIDEO_ID
-            // =============================================
-
-            if (
-                parsedURL.pathname.startsWith(
-                    "/embed/"
-                )
-            ) {
-
-                const videoId =
-                    parsedURL.pathname
-                        .substring(
-                            "/embed/".length
-                        )
-                        .split(
-                            "/"
-                        )[0];
-
-
-                if (
-                    videoId
-                ) {
-
-                    return videoId;
-
-                }
-
-            }
-
-
-            // =============================================
-            // Not a video
-            // =============================================
 
             return "";
 
@@ -962,19 +1085,20 @@ function getYouTubeVideoId(
             const videoId =
                 parsedURL.pathname
                     .substring(1)
-                    .split("/")[0];
+                    .split(
+                        "/"
+                    )[0];
 
 
             if (
-                videoId
+                isValidYouTubeVideoId(
+                    videoId
+                )
             ) {
 
                 return videoId;
 
             }
-
-
-            return "";
 
         }
 
@@ -990,35 +1114,6 @@ function getYouTubeVideoId(
 
 
     return "";
-
-}
-
-
-// =========================================================
-// Check YouTube URL
-// =========================================================
-//
-// This now uses getYouTubeVideoId().
-//
-// Therefore:
-//
-// youtube.com                -> false
-// youtube.com/channel/...   -> false
-// youtube.com/watch?v=xxx   -> true
-// youtu.be/xxx              -> true
-//
-// =========================================================
-
-function isYouTubeURL(
-    value
-) {
-
-    return (
-        getYouTubeVideoId(
-            value
-        ) !==
-        ""
-    );
 
 }
 
@@ -1051,46 +1146,35 @@ function displayImage(
     image.onerror =
         function() {
 
-            // =================================================
-            // Image Failed
-            // =================================================
-            //
-            // Since the URL is not a valid image anymore,
-            // display the participant name as a clickable
-            // link instead.
-            //
-            // =================================================
-
             element.innerHTML =
                 "";
 
 
-            const link =
-                document.createElement(
-                    "a"
+            // =================================================
+            // If image failed AND URL exists,
+            // make participant name clickable.
+            // =================================================
+
+            if (
+                url &&
+                url.trim() !==
+                ""
+            ) {
+
+                displayClickableName(
+                    element,
+                    participantName,
+                    url
                 );
 
+                return;
 
-            link.href =
-                url;
-
-
-            link.target =
-                "_blank";
+            }
 
 
-            link.rel =
-                "noopener noreferrer";
-
-
-            link.textContent =
+            element.textContent =
                 participantName ||
                 "";
-
-
-            element.appendChild(
-                link
-            );
 
         };
 
@@ -1122,7 +1206,7 @@ function isImageURL(
 
     return (
         /\.(jpg|jpeg|png|gif|webp|svg)(\?.*)?$/i.test(
-            value
+            value.trim()
         )
     );
 
@@ -1197,10 +1281,6 @@ function SwissAWinner() {
         current_tournament.swiss_round;
 
 
-    // =====================================================
-    // Participant A Wins
-    // =====================================================
-
     participantA.swiss.points +=
         1;
 
@@ -1218,10 +1298,6 @@ function SwissAWinner() {
     participantA.swiss.win_match +=
         1;
 
-
-    // =====================================================
-    // Participant B Loses
-    // =====================================================
 
     participantB.swiss.points -=
         1;
@@ -1241,10 +1317,6 @@ function SwissAWinner() {
         1;
 
 
-    // =====================================================
-    // Find Participant A
-    // =====================================================
-
     const currentParticipantA =
         current_participant_list.find(
             function(
@@ -1260,10 +1332,6 @@ function SwissAWinner() {
         );
 
 
-    // =====================================================
-    // Find Participant B
-    // =====================================================
-
     const currentParticipantB =
         current_participant_list.find(
             function(
@@ -1278,10 +1346,6 @@ function SwissAWinner() {
             }
         );
 
-
-    // =====================================================
-    // Update Participant List
-    // =====================================================
 
     if (
         currentParticipantA
@@ -1307,10 +1371,6 @@ function SwissAWinner() {
     }
 
 
-    // =====================================================
-    // Find Current SaveData
-    // =====================================================
-
     const currentSaveData =
         saveDataStorage.find(
             function(
@@ -1326,10 +1386,6 @@ function SwissAWinner() {
         );
 
 
-    // =====================================================
-    // Update SaveDataStorage
-    // =====================================================
-
     if (
         currentSaveData
     ) {
@@ -1340,32 +1396,17 @@ function SwissAWinner() {
     }
 
 
-    // =====================================================
-    // BU Calculation
-    // =====================================================
-
     BUCalculation();
 
-
-    // =====================================================
-    // Swiss Sort
-    // =====================================================
 
     SwissSort();
 
 
-    // =====================================================
-    // Save Local Data
-    // =====================================================
-
     saveSaveData();
+
 
     saveCurrentTournament();
 
-
-    // =====================================================
-    // Decide Next Match
-    // =====================================================
 
     DecideMatch();
 
@@ -1377,10 +1418,6 @@ function SwissAWinner() {
 // =========================================================
 
 function MainAWinner() {
-
-    // =====================================================
-    // 16 Participants
-    // =====================================================
 
     if (
         current_participant_number ===
@@ -1403,10 +1440,6 @@ function MainAWinner() {
 
     }
 
-
-    // =====================================================
-    // 32 Participants
-    // =====================================================
 
     if (
         current_participant_number ===
@@ -1506,10 +1539,6 @@ function SwissBWinner() {
         current_tournament.swiss_round;
 
 
-    // =====================================================
-    // Participant B Wins
-    // =====================================================
-
     participantB.swiss.points +=
         1;
 
@@ -1527,10 +1556,6 @@ function SwissBWinner() {
     participantB.swiss.win_match +=
         1;
 
-
-    // =====================================================
-    // Participant A Loses
-    // =====================================================
 
     participantA.swiss.points -=
         1;
@@ -1550,10 +1575,6 @@ function SwissBWinner() {
         1;
 
 
-    // =====================================================
-    // Find Participant A
-    // =====================================================
-
     const currentParticipantA =
         current_participant_list.find(
             function(
@@ -1569,10 +1590,6 @@ function SwissBWinner() {
         );
 
 
-    // =====================================================
-    // Find Participant B
-    // =====================================================
-
     const currentParticipantB =
         current_participant_list.find(
             function(
@@ -1587,10 +1604,6 @@ function SwissBWinner() {
             }
         );
 
-
-    // =====================================================
-    // Update Participant List
-    // =====================================================
 
     if (
         currentParticipantA
@@ -1616,10 +1629,6 @@ function SwissBWinner() {
     }
 
 
-    // =====================================================
-    // Find Current SaveData
-    // =====================================================
-
     const currentSaveData =
         saveDataStorage.find(
             function(
@@ -1635,10 +1644,6 @@ function SwissBWinner() {
         );
 
 
-    // =====================================================
-    // Update SaveDataStorage
-    // =====================================================
-
     if (
         currentSaveData
     ) {
@@ -1649,32 +1654,17 @@ function SwissBWinner() {
     }
 
 
-    // =====================================================
-    // BU Calculation
-    // =====================================================
-
     BUCalculation();
 
-
-    // =====================================================
-    // Swiss Sort
-    // =====================================================
 
     SwissSort();
 
 
-    // =====================================================
-    // Save Local Data
-    // =====================================================
-
     saveSaveData();
+
 
     saveCurrentTournament();
 
-
-    // =====================================================
-    // Decide Next Match
-    // =====================================================
 
     DecideMatch();
 
@@ -1686,10 +1676,6 @@ function SwissBWinner() {
 // =========================================================
 
 function MainBWinner() {
-
-    // =====================================================
-    // 16 Participants
-    // =====================================================
 
     if (
         current_participant_number ===
@@ -1712,10 +1698,6 @@ function MainBWinner() {
 
     }
 
-
-    // =====================================================
-    // 32 Participants
-    // =====================================================
 
     if (
         current_participant_number ===
@@ -1869,10 +1851,6 @@ function swiss_stage() {
 
         }
 
-
-        // =================================================
-        // Set Fight Participants
-        // =================================================
 
         participantA =
             current_participant_list[
